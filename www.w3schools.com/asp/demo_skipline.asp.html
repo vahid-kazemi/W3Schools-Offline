@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>The first line in the text file is skipped:</p>
+
+How are you today?
+
+</body>
+</html>

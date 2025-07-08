@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Reading Data from a File</h1>
+George &nbsp;Lucas &nbsp;<br>
+Steven &nbsp;Spielberg &nbsp;<br>
+Alfred &nbsp;Hitchcock &nbsp;<br>
+</body>
+</html>

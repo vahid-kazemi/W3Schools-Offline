@@ -1,0 +1,10 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<p>
+This text will be sent to your browser when my response buffer is flushed.
+</p>
+
+</body>
+</html>

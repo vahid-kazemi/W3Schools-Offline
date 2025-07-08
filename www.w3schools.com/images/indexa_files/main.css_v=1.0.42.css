@@ -1,0 +1,635 @@
+@charset "UTF-8";
+#sidenav #leftmenuinnerinner {
+  position: relative;
+}
+#sidenav #leftmenuinnerinner > .-width-calc {
+  position: absolute;
+  z-index: -1;
+  top: -1px;
+  height: 1px;
+  width: 100% !important;
+  overflow: hidden;
+  font-size: 1px;
+  line-height: 1px;
+}
+#sidenav #leftmenuinnerinner a {
+  position: relative;
+  padding: 2px 15px 1px 40px;
+  width: 100%;
+}
+#sidenav #leftmenuinnerinner a.overview_header.active {
+  background-color: #CCCCCC !important;
+  color: #000000 !important;
+}
+.darktheme #sidenav #leftmenuinnerinner a.overview_header.active {
+  background-color: #38444d !important;
+  color: #dddddd !important;
+}
+#sidenav #leftmenuinnerinner a.overview_header.active.active-links-absent {
+  background-color: #04AA6D !important;
+  color: #FFFFFF !important;
+}
+.darktheme #sidenav #leftmenuinnerinner a.overview_header.active.active-links-absent {
+  background-color: #04AA6D !important;
+  color: #FFFFFF !important;
+}
+#sidenav #leftmenuinnerinner a > .w3s-accordion {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#sidenav #leftmenuinnerinner a > .w3s-accordion:after {
+  display: block;
+  font-family: fontawesome;
+  content: "\e809";
+  opacity: 0.1;
+  position: absolute;
+  top: 4px;
+  right: 7px;
+  font-size: 18px;
+}
+.darktheme #sidenav #leftmenuinnerinner a > .w3s-accordion:after {
+  opacity: 0.3;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark):before {
+  display: none;
+  font-family: fontawesome;
+  content: "\e82b";
+  opacity: 0.1;
+  position: absolute;
+  top: 4px;
+  left: 12px;
+  margin-right: 3px;
+  font-size: 18px;
+  z-index: 3;
+}
+.darktheme #sidenav #leftmenuinnerinner a:not(.no-checkmark):before {
+  opacity: 0.3;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark):after {
+  display: block;
+  font-family: fontawesome;
+  content: " ";
+  position: absolute;
+  display: inline-block;
+  border-left: 2px solid #000000;
+  opacity: 0.1;
+  height: 100%;
+  left: 20px;
+  top: 0px;
+  z-index: 2;
+}
+.darktheme #sidenav #leftmenuinnerinner a:not(.no-checkmark):after {
+  opacity: 0.3;
+  border-left: 2px solid #dddddd;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).done:before {
+  content: "\e82c";
+  color: #04AA6D;
+  opacity: 1;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).done:after {
+  border-left: 2px solid #04AA6D;
+  opacity: 1;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).done.active:before {
+  content: "\e82c";
+  color: #FFFFFF;
+  opacity: 1;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).done.active:after {
+  border-left: 2px solid #049560;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark):not(.done).active:before {
+  color: #FFFFFF;
+  opacity: 0.3;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).-height-2:after {
+  height: 38px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).-height-3:after {
+  height: 61px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).last-in-group:not(.overview_header)::after {
+  display: none !important;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active {
+  background-color: #CCCCCC !important;
+  color: #000000 !important;
+}
+.darktheme #sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active {
+  background-color: #38444d !important;
+  color: #dddddd !important;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active.active-links-absent {
+  background-color: #04AA6D !important;
+  color: #FFFFFF !important;
+}
+.darktheme #sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active.active-links-absent {
+  background-color: #04AA6D !important;
+  color: #FFFFFF !important;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active:not(.done)::before {
+  color: #000000;
+}
+.darktheme #sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active:not(.done)::before {
+  color: #dddddd;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active.done::before {
+  color: #04AA6D;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active.done.active-links-absent::before {
+  color: #FFFFFF;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active:not(.closed)::after {
+  transform: rotate(-30deg);
+  left: 27px !important;
+  top: -3px;
+  height: 29px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active:not(.closed).-height-2:after {
+  transform: rotate(-17deg);
+  left: 28px !important;
+  height: 40px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.active:not(.closed).-height-3:after {
+  transform: rotate(-12deg);
+  left: 28px !important;
+  height: 63px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.closed::after {
+  transform: rotate(0deg);
+  left: 20px !important;
+  height: 100%;
+  top: 0px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.closed.-height-2:after {
+  height: 38px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.closed.-height-3:after {
+  height: 61px;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.last-in-group:not(.active)::after, #sidenav #leftmenuinnerinner a:not(.no-checkmark).overview_header.last-in-group.closed::after {
+  display: none !important;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).done.active:after {
+  border-left: 2px solid #03905d;
+}
+#sidenav #leftmenuinnerinner a:not(.no-checkmark).done.overview_header.active:after {
+  border-left: 2px solid #04AA6D;
+}
+#sidenav #leftmenuinnerinner .overview_body,
+#sidenav #leftmenuinnerinner .tut_overview,
+#sidenav #leftmenuinnerinner .ref_overview {
+  margin-left: 0 !important;
+  background-color: #FFFFFF !important;
+  line-height: 1.5 !important;
+}
+.darktheme #sidenav #leftmenuinnerinner .overview_body,
+.darktheme #sidenav #leftmenuinnerinner .tut_overview,
+.darktheme #sidenav #leftmenuinnerinner .ref_overview {
+  background-color: #29353e !important;
+}
+#sidenav #leftmenuinnerinner .overview_body > a,
+#sidenav #leftmenuinnerinner .tut_overview > a,
+#sidenav #leftmenuinnerinner .ref_overview > a {
+  padding-left: 55px !important;
+}
+#sidenav #leftmenuinnerinner .overview_body:not(.no-checkmark) > a::before,
+#sidenav #leftmenuinnerinner .tut_overview:not(.no-checkmark) > a::before,
+#sidenav #leftmenuinnerinner .ref_overview:not(.no-checkmark) > a::before {
+  left: 27px;
+}
+#sidenav #leftmenuinnerinner .overview_body:not(.no-checkmark) > a::after,
+#sidenav #leftmenuinnerinner .tut_overview:not(.no-checkmark) > a::after,
+#sidenav #leftmenuinnerinner .ref_overview:not(.no-checkmark) > a::after {
+  left: 35px;
+}
+#sidenav #leftmenuinnerinner .overview_body:not(.no-checkmark) > a:last-child::after,
+#sidenav #leftmenuinnerinner .tut_overview:not(.no-checkmark) > a:last-child::after,
+#sidenav #leftmenuinnerinner .ref_overview:not(.no-checkmark) > a:last-child::after {
+  transform: rotate(30deg);
+  left: 27px !important;
+  top: -1px;
+  height: 29px;
+}
+#sidenav #leftmenuinnerinner .overview_body:not(.no-checkmark) > a:last-child.-height-2:after,
+#sidenav #leftmenuinnerinner .tut_overview:not(.no-checkmark) > a:last-child.-height-2:after,
+#sidenav #leftmenuinnerinner .ref_overview:not(.no-checkmark) > a:last-child.-height-2:after {
+  transform: rotate(19deg);
+  left: 28px !important;
+  height: 40px;
+}
+#sidenav #leftmenuinnerinner .overview_body:not(.no-checkmark) > a:last-child.-height-3:after,
+#sidenav #leftmenuinnerinner .tut_overview:not(.no-checkmark) > a:last-child.-height-3:after,
+#sidenav #leftmenuinnerinner .ref_overview:not(.no-checkmark) > a:last-child.-height-3:after {
+  transform: rotate(11deg);
+  left: 28px !important;
+  height: 63px;
+}
+#sidenav #leftmenuinnerinner:not(.checkmarks-enabled) a:before, #sidenav #leftmenuinnerinner:not(.checkmarks-enabled) a:after {
+  display: none !important;
+}
+
+.w3s-my-learning {
+  font-family: "Source Sans Pro Topnav", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.w3s-my-learning .-btn {
+  position: relative;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 6px;
+  outline: none;
+  text-decoration: none;
+  font-size: 12px;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.w3s-my-learning .-btn > .-label {
+  position: relative;
+}
+.w3s-my-learning .-btn.-disabled {
+  cursor: default !important;
+  pointer-events: none !important;
+}
+.w3s-my-learning .-btn.-disabled::after {
+  position: absolute;
+  display: block;
+  content: " ";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: inherit;
+}
+.w3s-my-learning.-side-nav-modal {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+}
+.w3s-my-learning.-side-nav-modal > .-body {
+  background-color: #282A35;
+  color: #FFFFFF;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 8px;
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+  line-height: 22px;
+  z-index: 100;
+  color: #4d4d4d;
+  background-color: #FFFFFF;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn > .-svg-icon {
+  width: 100%;
+  height: 100%;
+  color: #4d4d4d;
+  background-color: #4d4d4d;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn:hover, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:focus, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:active {
+  background-color: #EBEBEB;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn:hover > .-svg-icon, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:focus > .-svg-icon, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:active > .-svg-icon {
+  color: #000000;
+  background-color: #000000;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn {
+  color: #FFFFFF;
+  background-color: #282A35;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn > .-svg-icon {
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn:hover, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:focus, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:active {
+  background-color: #636779;
+  color: #FFFFFF;
+}
+.w3s-my-learning.-side-nav-modal > .-body > .-close-btn:hover > .-svg-icon, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:focus > .-svg-icon, .w3s-my-learning.-side-nav-modal > .-body > .-close-btn:active > .-svg-icon {
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  padding: 0;
+  left: 0;
+  bottom: 0;
+  will-change: transform, opacity;
+  transform: translateY(100%);
+  opacity: 0.5;
+}
+@keyframes w3s-save-progress-info-modal-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal.-slide-up {
+  animation: w3s-save-progress-info-modal-slide-up 0.3s ease-out forwards;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal.-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+@keyframes w3s-save-progress-info-modal-slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0.5;
+  }
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal.-slide-down {
+  animation: w3s-save-progress-info-modal-slide-down 0.3s ease-out forwards;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  margin-left: 0;
+  left: auto;
+  bottom: 0;
+  top: auto;
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper {
+  padding: 40px 15px 15px 15px;
+  text-align: center;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box {
+  height: 100%;
+  overflow: hidden;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-congrats {
+  font-size: 17px;
+  line-height: 22px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-nr-of-completed-lessons {
+  padding-top: 5px;
+  font-size: 30px;
+  line-height: 35px;
+  font-weight: normal;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed {
+  padding-top: 5px;
+  font-size: 14px;
+  line-height: 19px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper {
+  padding-top: 5px;
+  width: 70%;
+  margin-left: 15%;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper:before, .w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper:after {
+  content: " ";
+  display: table;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper:after {
+  clear: both;
+}
+@media (max-height: 639px) {
+  .w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper {
+    display: none;
+  }
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper > .-checkmark {
+  position: relative;
+  width: 20%;
+  height: 25px;
+  float: left;
+  z-index: 10;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper > .-checkmark:before {
+  position: absolute;
+  display: block;
+  font-family: fontawesome;
+  content: "\e82c";
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  font-size: 18px;
+  z-index: 5;
+  color: #04AA6D;
+  opacity: 1;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper > .-checkmark:after {
+  position: absolute;
+  display: block;
+  content: " ";
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-lessons-completed > .-checkmarks-wrapper > .-checkmark > .-wired {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  margin-top: -2px;
+  left: 80%;
+  height: 2px;
+  width: 50%;
+  overflow: hidden;
+  font-size: 1px;
+  line-height: 1px;
+  background-color: #04AA6D;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up {
+  padding-top: 15px;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-save-your-progress {
+  font-size: 14px;
+  line-height: 19px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+}
+@media (max-height: 639px) {
+  .w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-save-your-progress {
+    display: none;
+  }
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-sign-up-for-free {
+  font-size: 14px;
+  line-height: 19px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+  color: #FFF4A3;
+  padding-bottom: 15px;
+}
+@media (max-height: 639px) {
+  .w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-sign-up-for-free {
+    display: none;
+  }
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-sign-up-for-free-mobile {
+  font-size: 14px;
+  line-height: 19px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+  color: #FFF4A3;
+  padding-bottom: 15px;
+}
+@media (min-height: 640px) {
+  .w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-sign-up-for-free-mobile {
+    display: none;
+  }
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-user-session-btns {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 150px;
+  height: 35px;
+  overflow: hidden;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-user-session-btns > .-signup-btn {
+  position: absolute;
+  padding: 8px 16px !important;
+  top: 0;
+  left: 0;
+  width: 58%;
+  height: 100%;
+  border-radius: 25px;
+  margin-right: -39px;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  z-index: 5;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-user-session-btns > .-login-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background-color: #04AA6D;
+  color: #FFFFFF;
+  border-radius: 25px;
+  padding: 8px 16px 8px 35px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  z-index: 4;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-sign-up > .-user-session-btns > .-login-btn:hover {
+  background-color: #059862 !important;
+  color: #FFFFFF !important;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper {
+  padding-top: 25px;
+  display: block;
+  text-align: right;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again {
+  position: relative;
+  cursor: pointer;
+  padding-right: 25px;
+  height: 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again:before, .w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again:after {
+  content: " ";
+  display: table;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again:after {
+  clear: both;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again > .-label {
+  font-size: 13px;
+  line-height: 20px;
+  text-decoration: none;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again > .-checkmark {
+  position: absolute;
+  top: 50%;
+  margin: -8px 0 0 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 2px solid #FFFFFF;
+  border-radius: 4px;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again > .-checkmark > .-svg-icon {
+  display: none;
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+.w3s-my-learning.-side-nav-modal#w3s-myl-save-progress-info-modal > .-body > .-inner-wrapper > .-scroll-box > .-dont-show-again-wrapper > .-dont-show-again.-checked > .-checkmark > .-svg-icon {
+  display: block;
+}
+
+#main h1.with-bookmark {
+  position: relative;
+  padding-right: 20px;
+}
+
+.bookmark-btn {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.bookmark-btn > .-svg-icon {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  color: #04AA6D;
+  background-color: #04AA6D;
+}
+.bookmark-btn > .-svg-icon.-active {
+  opacity: 1;
+}

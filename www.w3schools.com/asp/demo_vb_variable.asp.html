@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Hege<br>Tove
+
+<p>The script above declares a variable, assigns a value to it, and displays the value. Then, it changes the value, and displays the value again.</p>
+
+</body>
+</html>

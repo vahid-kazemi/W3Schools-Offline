@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>
+VBScripts' function <b>WeekdayName</b> is used to get a weekday:
+</p>
+Sunday<br>Monday
+
+<p>Abbreviated name of a weekday:</p>
+Sun<br>Mon
+
+<p>Current weekday:</p>
+Wednesday<br>Wed
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

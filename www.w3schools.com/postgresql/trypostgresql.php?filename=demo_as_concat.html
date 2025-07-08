@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>SQL PostgreSQL Editor v1.0</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="../images/w3schools_logo_436_2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<meta property="og:title" content="W3Schools PostgreSQL editor">
+<meta property="og:description" content="The W3Schools PostgreSQL editor allows you see SQL statements, and their results">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="manifest" href="../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="../lib/fonts/fontawesome.woff2%3F14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="stylesheet" href="../lib/codemirror.css">
+<script src="../lib/codemirror.js"></script>
+<script src="https://www.w3schools.com/lib/codemirror_sql.js"></script>
+<script src="../w3Database.js"></script>
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic.js%3Fv=1.0.5"></script>
+<script src="../lib/uic_prov.js%3Fv=1.2.7"></script>
+<script data-cfasync="false" type="text/javascript">
+uic_prov_pre("tryitdb","",subjectFolder);
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        uic_prov_run();
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+}
+var fileID = "";
+</script>
+<style>
+#tryitLeaderboard {
+    margin-top:5px;
+    margin-bottom:5px;    
+    text-align:center;
+    height:90px;
+}
+
+#resultSQL {
+    font-size:14px;
+    font-family:Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+    background-color:#E7E9EB;
+    height:auto;
+    width:auto;
+}
+#iframeResultSQL {
+    display:none;
+    background-color: #ffffff;
+    height:95%;
+    min-height:400px;
+    top:25px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    border:none;
+}
+#divResultSQL {
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    border:none;
+    overflow:auto;
+}
+#textareaCodeSQL {
+    font-size:15px;
+    font-family:Consolas,"courier new";
+    height:140px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    resize: none;
+}
+.CodeMirror.cm-s-default {
+  height:140px;
+    
+}
+#footerSQL {
+    height:20px;
+    font-family:verdana;
+}
+#dbInfo {
+    height:auto;
+    xxcolor:#222222;
+    font-family:verdana;
+    font-size:12px;
+    text-align:center;
+    max-width:300px;
+    margin:auto;
+    position:relative;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+  top: -15px;
+  position: relative;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+
+#resultpre {
+  background-color:black;
+  color:white;
+  padding:10px;
+  max-height:700px;;
+  overflow:auto;
+}
+
+body.darktheme ::-webkit-scrollbar {width:12px;height:12px;}
+body.darktheme ::-webkit-scrollbar-track-piece {background-color:#273036;}
+body.darktheme ::-webkit-scrollbar-thumb {height:50px;background-color: #4b5b68;}
+body.darktheme ::-webkit-scrollbar-thumb:hover {background-color: #607585;}
+body.darktheme ::-webkit-scrollbar-corner {background-color: #4b5b68;}
+
+.CodeMirror {
+  padding:10px;
+  background-color:black!important;
+}
+
+@media (max-width:992px){
+  #dbInfo {
+    width:auto;
+    position:static;
+  }
+}
+</style>
+</head>
+<body class="darkpagetheme darktheme">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme darkpagetheme";
+  }
+})();
+</script>
+<div id='tryitLeaderboard'>
+<!-- TryitLeaderboard -->
+</div>
+<div class="w3-container">
+  <div class="w3-row">
+    <div class="w3-col l10">
+      <div class="ws-grey" style="padding:15px;padding-bottom:40px;margin-bottom:40px;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+      <form method="post" target="view" id="tryitform" name="tryitform" onsubmit="validateForm();">
+        <a id="getwebsitebtn" class="w3-button w3-bar-item w3-hover-white w3-hover-text-green w3-hide-small" href="../spaces" target="_blank">Get your own SQL server</a>
+        <h3>SQL Statement:</h3>
+                <textarea id="textareaCodeSQL" wrap="logical">SELECT product_name || unit AS product
+FROM products;        </textarea>
+        <input type="hidden" name="code" id="code" />
+        <input type="hidden" id="bt" name="bt" />
+      </form>
+
+
+            <h3>Result:</h3>
+      <div id="resultSQL">
+        <pre id="resultpre">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;product
+---------------------------------------------------
+ Chais10 boxes x 20 bags
+ Chang24 - 12 oz bottles
+ Aniseed Syrup12 - 550 ml bottles
+ Chef Antons Cajun Seasoning48 - 6 oz jars
+ Chef Antons Gumbo Mix36 boxes
+ Grandmas Boysenberry Spread12 - 8 oz jars
+ Uncle Bobs Organic Dried Pears12 - 1 lb pkgs.
+ Northwoods Cranberry Sauce12 - 12 oz jars
+ Mishi Kobe Niku18 - 500 g pkgs.
+ Ikura12 - 200 ml jars
+ Queso Cabrales1 kg pkg.
+ Queso Manchego La Pastora10 - 500 g pkgs.
+ Konbu2 kg box
+ Tofu40 - 100 g pkgs.
+ Genen Shouyu24 - 250 ml bottles
+ Pavlova32 - 500 g boxes
+ Alice Mutton20 - 1 kg tins
+ Carnarvon Tigers16 kg pkg.
+ Teatime Chocolate Biscuits10 boxes x 12 pieces
+ Sir Rodneys Marmalade30 gift boxes
+ Sir Rodneys Scones24 pkgs. x 4 pieces
+ Gustafs Kneckebrod24 - 500 g pkgs.
+ Tunnbrod12 - 250 g pkgs.
+ Guarani Fantastica12 - 355 ml cans
+ NuNuCa Nui-Nougat-Creme20 - 450 g glasses
+ Gumber Gummiberchen100 - 250 g bags
+ Schoggi Schokolade100 - 100 g pieces
+ Rassle Sauerkraut25 - 825 g cans
+ Thoringer Rostbratwurst50 bags x 30 sausgs.
+ Nord-Ost Matjeshering10 - 200 g glasses
+ Gorgonzola Telino12 - 100 g pkgs
+ Mascarpone Fabioli24 - 200 g pkgs.
+ Geitost500 g
+ Sasquatch Ale24 - 12 oz bottles
+ Steeleye Stout24 - 12 oz bottles
+ Inlagd Sill24 - 250 g jars
+ Gravad lax12 - 500 g pkgs.
+ Cote de Blaye12 - 75 cl bottles
+ Chartreuse verte750 cc per bottle
+ Boston Crab Meat24 - 4 oz tins
+ Jacks New England Clam Chowder12 - 12 oz cans
+ Singaporean Hokkien Fried Mee32 - 1 kg pkgs.
+ Ipoh Coffee16 - 500 g tins
+ Gula Malacca20 - 2 kg bags
+ Rogede sild1k pkg.
+ Spegesild4 - 450 g glasses
+ Zaanse koeken10 - 4 oz boxes
+ Chocolade10 pkgs.
+ Maxilaku24 - 50 g pkgs.
+ Valkoinen suklaa12 - 100 g bars
+ Manjimup Dried Apples50 - 300 g pkgs.
+ Filo Mix16 - 2 kg boxes
+ Perth Pasties48 pieces
+ Tourtiare16 pies
+ Pate chinois24 boxes x 2 pies
+ Gnocchi di nonna Alice24 - 250 g pkgs.
+ Ravioli Angelo24 - 250 g pkgs.
+ Escargots de Bourgogne24 pieces
+ Raclette Courdavault5 kg pkg.
+ Camembert Pierrot15 - 300 g rounds
+ Sirop d arable24 - 500 ml bottles
+ Tarte au sucre48 pies
+ Vegie-spread15 - 625 g jars
+ Wimmers gute Semmelknadel20 bags x 4 pieces
+ Louisiana Fiery Hot Pepper Sauce32 - 8 oz bottles
+ Louisiana Hot Spiced Okra24 - 8 oz jars
+ Laughing Lumberjack Lager24 - 12 oz bottles
+ Scottish Longbreads10 boxes x 8 pieces
+ Gudbrandsdalsost10 kg pkg.
+ Outback Lager24 - 355 ml bottles
+ Flotemysost10 - 500 g pkgs.
+ Mozzarella di Giovanni24 - 200 g pkgs.
+ Red Kaviar24 - 150 g jars
+ Longlife Tofu5 kg pkg.
+ Rhenbreu Klosterbier24 - 0.5 l bottles
+ Lakkalikeeri500 ml
+ Original Frankfurter gr?ne Soae12 boxes
+(77 rows)</pre>
+      </div>	
+      </div>      
+    </div>
+    <div class="w3-col l2 w3-padding">
+      <div>
+
+ 
+        <div style="font-size:16px;">Demo Database:</div>
+        <div>
+          <p>
+            <a href="trypostgresql.php%3Ffilename=demo_categories.html">categories</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_customers.html">customers</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_products.html">products</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_orders.html">orders</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_order_details.html">order_details</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_testproducts.html">testproducts</a><br>
+          </p>
+        </div>
+      <div id="sqlstickyadcontainer" style="position:sticky;margin:auto;margin-top:20px;top:0">
+    </div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+<input type="hidden" id="sSupport" value="-1" />
+<script type="text/javascript">
+function colorcoding() {  
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCodeSQL"), {
+    mode: "text/x-sql",
+    htmlMode: true,
+    lineWrapping: true,
+    smartIndent: false,
+    addModeClass: true,
+    readOnly: true
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+function docReady(fn) {
+  document.addEventListener("DOMContentLoaded", fn);
+  if (document.readyState === "interactive" || document.readyState === "complete" ) {
+    fn();
+  }
+}
+uic_prov_al();
+</script>
+</body>
+</html>
+
+

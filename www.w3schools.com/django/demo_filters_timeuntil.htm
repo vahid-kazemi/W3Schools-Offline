@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>
+<script>
+future = new Date(2050,4,17)
+today = new Date()
+var diff = new Date(future.getTime() - today.getTime());
+var years = diff.getUTCFullYear() - 1970;
+var months = diff.getUTCMonth();
+var message = years + " years, " + months + " months"
+document.write(message);
+</script>
+</h1>
+
+<p>In views.py you can see what the marslanding variable looks like.</p>
+
+</body>
+</html>    

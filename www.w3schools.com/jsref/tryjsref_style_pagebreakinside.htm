@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>This is a heading</h1>
+
+<p>This is a paragraph.</p>
+<p id="footer">This is a footer paragraph.</p>
+
+<button type="button" onclick="myFunction()">Avoid page-break inside footer paragraph</button>
+
+<script>
+function myFunction() {
+  document.getElementById("footer").style.pageBreakInside = "avoid";
+}
+</script>
+
+</body>
+</html>

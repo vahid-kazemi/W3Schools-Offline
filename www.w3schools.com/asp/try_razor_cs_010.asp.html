@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>The price is too high.</p>
+</body>
+</html>

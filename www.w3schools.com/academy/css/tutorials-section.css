@@ -1,0 +1,173 @@
+/* Tutorials Section Styles */
+.tutorials-section {
+  background-color: var(--secondary-btn-hover);
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.tutorials-section-content {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  position: relative;
+  padding-right: 0px;
+}
+
+.tutorials-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tutorials-content h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tutorials-content p {
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 480px;
+}
+
+.tutorials-content .academy-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.tutorials-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* display: flex; */
+  justify-content: flex-end;
+  position: relative;
+  overflow: visible;
+  /* right: -70px; */
+}
+
+.tutorials-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin-right: 0;
+}
+
+.desktop-img {
+  display: block;
+}
+
+.mobile-img {
+  display: none;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1300px) {
+  .tutorials-section-content {
+    align-items: center;
+  }
+
+  .tutorials-image {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .tutorials-section-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .tutorials-content {
+    align-items: center;
+  }
+
+  .tutorials-content .academy-btn {
+    align-self: center;
+  }
+
+  .tutorials-image {
+    right: -32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tutorials-section-content {
+    padding: 32px 16px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .tutorials-content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .tutorials-content p {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .tutorials-content .academy-btn {
+    align-self: center;
+  }
+
+  .tutorials-image {
+    /* display: flex; */
+    justify-content: center;
+    right: auto;
+  }
+
+  .tutorials-image img {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tutorials-section {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .tutorials-section-content {
+    padding: 32px 16px;
+    max-width: 100%;
+  }
+
+  .tutorials-image img {
+    max-width: 100%;
+  }
+
+  .tutorials-content {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .tutorials-content .academy-btn {
+    align-self: flex-start;
+  }
+
+  .tutorials-content p {
+    text-align: left;
+  }
+
+  .desktop-img {
+    display: none;
+  }
+
+  .mobile-img {
+    display: block;
+  }
+}

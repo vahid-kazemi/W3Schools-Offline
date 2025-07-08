@@ -1,0 +1,16 @@
+<form>
+<label>Enter your name:
+<input type="text" name="username" value=""></label>
+<label>Enter your age:<input type="number" name="age" value=""></label>
+<input type="submit" onclick="submitForm()">
+</form>
+
+
+<script>
+function submitForm() {
+  var obj = {
+    'username': document.forms[0].username.value,
+    'age': document.forms[0].age.value};
+  console.log(obj);
+}
+</script>

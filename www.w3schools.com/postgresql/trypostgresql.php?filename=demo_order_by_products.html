@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>SQL PostgreSQL Editor v1.0</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="../images/w3schools_logo_436_2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<meta property="og:title" content="W3Schools PostgreSQL editor">
+<meta property="og:description" content="The W3Schools PostgreSQL editor allows you see SQL statements, and their results">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="manifest" href="../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="../lib/fonts/fontawesome.woff2%3F14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="stylesheet" href="../lib/codemirror.css">
+<script src="../lib/codemirror.js"></script>
+<script src="https://www.w3schools.com/lib/codemirror_sql.js"></script>
+<script src="../w3Database.js"></script>
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic.js%3Fv=1.0.5"></script>
+<script src="../lib/uic_prov.js%3Fv=1.2.7"></script>
+<script data-cfasync="false" type="text/javascript">
+uic_prov_pre("tryitdb","",subjectFolder);
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        uic_prov_run();
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+}
+var fileID = "";
+</script>
+<style>
+#tryitLeaderboard {
+    margin-top:5px;
+    margin-bottom:5px;    
+    text-align:center;
+    height:90px;
+}
+
+#resultSQL {
+    font-size:14px;
+    font-family:Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+    background-color:#E7E9EB;
+    height:auto;
+    width:auto;
+}
+#iframeResultSQL {
+    display:none;
+    background-color: #ffffff;
+    height:95%;
+    min-height:400px;
+    top:25px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    border:none;
+}
+#divResultSQL {
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    border:none;
+    overflow:auto;
+}
+#textareaCodeSQL {
+    font-size:15px;
+    font-family:Consolas,"courier new";
+    height:140px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    resize: none;
+}
+.CodeMirror.cm-s-default {
+  height:140px;
+    
+}
+#footerSQL {
+    height:20px;
+    font-family:verdana;
+}
+#dbInfo {
+    height:auto;
+    xxcolor:#222222;
+    font-family:verdana;
+    font-size:12px;
+    text-align:center;
+    max-width:300px;
+    margin:auto;
+    position:relative;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+  top: -15px;
+  position: relative;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+
+#resultpre {
+  background-color:black;
+  color:white;
+  padding:10px;
+  max-height:700px;;
+  overflow:auto;
+}
+
+body.darktheme ::-webkit-scrollbar {width:12px;height:12px;}
+body.darktheme ::-webkit-scrollbar-track-piece {background-color:#273036;}
+body.darktheme ::-webkit-scrollbar-thumb {height:50px;background-color: #4b5b68;}
+body.darktheme ::-webkit-scrollbar-thumb:hover {background-color: #607585;}
+body.darktheme ::-webkit-scrollbar-corner {background-color: #4b5b68;}
+
+.CodeMirror {
+  padding:10px;
+  background-color:black!important;
+}
+
+@media (max-width:992px){
+  #dbInfo {
+    width:auto;
+    position:static;
+  }
+}
+</style>
+</head>
+<body class="darkpagetheme darktheme">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme darkpagetheme";
+  }
+})();
+</script>
+<div id='tryitLeaderboard'>
+<!-- TryitLeaderboard -->
+</div>
+<div class="w3-container">
+  <div class="w3-row">
+    <div class="w3-col l10">
+      <div class="ws-grey" style="padding:15px;padding-bottom:40px;margin-bottom:40px;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+      <form method="post" target="view" id="tryitform" name="tryitform" onsubmit="validateForm();">
+        <a id="getwebsitebtn" class="w3-button w3-bar-item w3-hover-white w3-hover-text-green w3-hide-small" href="../spaces" target="_blank">Get your own SQL server</a>
+        <h3>SQL Statement:</h3>
+                <textarea id="textareaCodeSQL" wrap="logical">SELECT * FROM products
+ORDER BY price;        </textarea>
+        <input type="hidden" name="code" id="code" />
+        <input type="hidden" id="bt" name="bt" />
+      </form>
+
+
+            <h3>Result:</h3>
+      <div id="resultSQL">
+        <pre id="resultpre">
+ product_id |           product_name           | category_id |         unit         | price
+------------+----------------------------------+-------------+----------------------+--------
+         33 | Geitost                          |           4 | 500 g                |   2.50
+         24 | Guarani Fantastica               |           1 | 12 - 355 ml cans     |   4.50
+         13 | Konbu                            |           8 | 2 kg box             |   6.00
+         52 | Filo Mix                         |           5 | 16 - 2 kg boxes      |   7.00
+         54 | Tourtiare                        |           6 | 16 pies              |   7.45
+         75 | Rhenbreu Klosterbier             |           1 | 24 - 0.5 l bottles   |   7.75
+         23 | Tunnbrod                         |           5 | 12 - 250 g pkgs.     |   9.00
+         19 | Teatime Chocolate Biscuits       |           3 | 10 boxes x 12 pieces |   9.20
+         47 | Zaanse koeken                    |           3 | 10 - 4 oz boxes      |   9.50
+         45 | Rogede sild                      |           8 | 1k pkg.              |   9.50
+         41 | Jacks New England Clam Chowder   |           8 | 12 - 12 oz cans      |   9.65
+         74 | Longlife Tofu                    |           7 | 5 kg pkg.            |  10.00
+          3 | Aniseed Syrup                    |           2 | 12 - 550 ml bottles  |  10.00
+         21 | Sir Rodneys Scones               |           3 | 24 pkgs. x 4 pieces  |  10.00
+         46 | Spegesild                        |           8 | 4 - 450 g glasses    |  12.00
+         31 | Gorgonzola Telino                |           4 | 12 - 100 g pkgs      |  12.50
+         68 | Scottish Longbreads              |           3 | 10 boxes x 8 pieces  |  12.50
+         48 | Chocolade                        |           3 | 10 pkgs.             |  12.75
+         77 | Original Frankfurter gr?ne Soae  |           2 | 12 boxes             |  13.00
+         58 | Escargots de Bourgogne           |           8 | 24 pieces            |  13.25
+         42 | Singaporean Hokkien Fried Mee    |           5 | 32 - 1 kg pkgs.      |  14.00
+         34 | Sasquatch Ale                    |           1 | 24 - 12 oz bottles   |  14.00
+         67 | Laughing Lumberjack Lager        |           1 | 24 - 12 oz bottles   |  14.00
+         25 | NuNuCa Nui-Nougat-Creme          |           3 | 20 - 450 g glasses   |  14.00
+         73 | Red Kaviar                       |           8 | 24 - 150 g jars      |  15.00
+         70 | Outback Lager                    |           1 | 24 - 355 ml bottles  |  15.00
+         15 | Genen Shouyu                     |           2 | 24 - 250 ml bottles  |  15.50
+         50 | Valkoinen suklaa                 |           3 | 12 - 100 g bars      |  16.25
+         66 | Louisiana Hot Spiced Okra        |           2 | 24 - 8 oz jars       |  17.00
+         16 | Pavlova                          |           3 | 32 - 500 g boxes     |  17.45
+         39 | Chartreuse verte                 |           1 | 750 cc per bottle    |  18.00
+         35 | Steeleye Stout                   |           1 | 24 - 12 oz bottles   |  18.00
+          1 | Chais                            |           1 | 10 boxes x 20 bags   |  18.00
+         76 | Lakkalikeeri                     |           1 | 500 ml               |  18.00
+         40 | Boston Crab Meat                 |           8 | 24 - 4 oz tins       |  18.40
+         36 | Inlagd Sill                      |           8 | 24 - 250 g jars      |  19.00
+          2 | Chang                            |           1 | 24 - 12 oz bottles   |  19.00
+         44 | Gula Malacca                     |           2 | 20 - 2 kg bags       |  19.45
+         57 | Ravioli Angelo                   |           5 | 24 - 250 g pkgs.     |  19.50
+         49 | Maxilaku                         |           3 | 24 - 50 g pkgs.      |  20.00
+         11 | Queso Cabrales                   |           4 | 1 kg pkg.            |  21.00
+         22 | Gustafs Kneckebrod               |           5 | 24 - 500 g pkgs.     |  21.00
+         65 | Louisiana Fiery Hot Pepper Sauce |           2 | 32 - 8 oz bottles    |  21.05
+          5 | Chef Antons Gumbo Mix            |           2 | 36 boxes             |  21.35
+         71 | Flotemysost                      |           4 | 10 - 500 g pkgs.     |  21.50
+          4 | Chef Antons Cajun Seasoning      |           2 | 48 - 6 oz jars       |  22.00
+         14 | Tofu                             |           7 | 40 - 100 g pkgs.     |  23.25
+         55 | Pate chinois                     |           6 | 24 boxes x 2 pies    |  24.00
+          6 | Grandmas Boysenberry Spread      |           2 | 12 - 8 oz jars       |  25.00
+         30 | Nord-Ost Matjeshering            |           8 | 10 - 200 g glasses   |  25.89
+         37 | Gravad lax                       |           8 | 12 - 500 g pkgs.     |  26.00
+         61 | Sirop d arable                   |           2 | 24 - 500 ml bottles  |  28.50
+          7 | Uncle Bobs Organic Dried Pears   |           7 | 12 - 1 lb pkgs.      |  30.00
+         10 | Ikura                            |           8 | 12 - 200 ml jars     |  31.00
+         26 | Gumber Gummiberchen              |           3 | 100 - 250 g bags     |  31.23
+         32 | Mascarpone Fabioli               |           4 | 24 - 200 g pkgs.     |  32.00
+         53 | Perth Pasties                    |           6 | 48 pieces            |  32.80
+         64 | Wimmers gute Semmelknadel        |           5 | 20 bags x 4 pieces   |  33.25
+         60 | Camembert Pierrot                |           4 | 15 - 300 g rounds    |  34.00
+         72 | Mozzarella di Giovanni           |           4 | 24 - 200 g pkgs.     |  34.80
+         69 | Gudbrandsdalsost                 |           4 | 10 kg pkg.           |  36.00
+         56 | Gnocchi di nonna Alice           |           5 | 24 - 250 g pkgs.     |  38.00
+         12 | Queso Manchego La Pastora        |           4 | 10 - 500 g pkgs.     |  38.00
+         17 | Alice Mutton                     |           6 | 20 - 1 kg tins       |  39.00
+          8 | Northwoods Cranberry Sauce       |           2 | 12 - 12 oz jars      |  40.00
+         27 | Schoggi Schokolade               |           3 | 100 - 100 g pieces   |  43.90
+         63 | Vegie-spread                     |           2 | 15 - 625 g jars      |  43.90
+         28 | Rassle Sauerkraut                |           7 | 25 - 825 g cans      |  45.60
+         43 | Ipoh Coffee                      |           1 | 16 - 500 g tins      |  46.00
+         62 | Tarte au sucre                   |           3 | 48 pies              |  49.30
+         51 | Manjimup Dried Apples            |           7 | 50 - 300 g pkgs.     |  53.00
+         59 | Raclette Courdavault             |           4 | 5 kg pkg.            |  55.00
+         18 | Carnarvon Tigers                 |           8 | 16 kg pkg.           |  62.50
+         20 | Sir Rodneys Marmalade            |           3 | 30 gift boxes        |  81.00
+          9 | Mishi Kobe Niku                  |           6 | 18 - 500 g pkgs.     |  97.00
+         29 | Thoringer Rostbratwurst          |           6 | 50 bags x 30 sausgs. | 123.79
+         38 | Cote de Blaye                    |           1 | 12 - 75 cl bottles   | 263.50
+(77 rows)</pre>
+      </div>	
+      </div>      
+    </div>
+    <div class="w3-col l2 w3-padding">
+      <div>
+
+ 
+        <div style="font-size:16px;">Demo Database:</div>
+        <div>
+          <p>
+            <a href="trypostgresql.php%3Ffilename=demo_categories.html">categories</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_customers.html">customers</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_products.html">products</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_orders.html">orders</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_order_details.html">order_details</a><br>
+            <a href="trypostgresql.php%3Ffilename=demo_testproducts.html">testproducts</a><br>
+          </p>
+        </div>
+      <div id="sqlstickyadcontainer" style="position:sticky;margin:auto;margin-top:20px;top:0">
+    </div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+<input type="hidden" id="sSupport" value="-1" />
+<script type="text/javascript">
+function colorcoding() {  
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCodeSQL"), {
+    mode: "text/x-sql",
+    htmlMode: true,
+    lineWrapping: true,
+    smartIndent: false,
+    addModeClass: true,
+    readOnly: true
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+function docReady(fn) {
+  document.addEventListener("DOMContentLoaded", fn);
+  if (document.readyState === "interactive" || document.readyState === "complete" ) {
+    fn();
+  }
+}
+uic_prov_al();
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,12 @@
+<form onsubmit="mySubmitHandler(event)">
+<p>Enter your name:</p>
+<input type="text" />
+<input type="submit">
+</form>
+
+<script>
+function mySubmitHandler(e) {
+  e.preventDefault();
+  alert("the name you entered was: " + document.getElementsByTagName("input")[0].value);
+}
+</script>

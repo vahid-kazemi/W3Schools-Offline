@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+The value of the item n is: Norway
+
+</body>
+</html>

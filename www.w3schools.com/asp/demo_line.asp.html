@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>This is all the lines in the text file (with line numbers):</p>
+
+Line:1 Hello!<br>Line:2 How are you today?<br>
+
+</body>
+</html>

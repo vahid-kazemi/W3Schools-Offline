@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img src="pic_chart1.jpg" alt="graph">
+</body>
+</html>

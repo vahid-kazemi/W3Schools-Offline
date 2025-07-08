@@ -1,0 +1,2553 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>HTML canvas clip() Method</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="title" property="og:title" content="W3Schools.com">
+<meta name="Keywords" content="HTML, Python, CSS, SQL, JavaScript, How to, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, W3.CSS, XML, MySQL, Icons, NodeJS, React, Graphics, Angular, R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz, Exercises, Courses, Lessons, References, Examples, Learn to code, Source code, Demos, Tips, Website">
+<meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
+<meta property="og:image" content="../images/w3schools_logo_436_2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<meta property="og:description" content="W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="manifest" href="../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="../lib/fonts/fontawesome.woff2%3F14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/roboto-mono-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-sans-pro-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-sans-pro-v14-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../lib/fonts/SourceSansPro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../lib/fonts/freckle-face-v9-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../lib/topnav/main.css%3Fv=1.0.54.css">
+<link rel="stylesheet" href="../lib/my-learning/main.css%3Fv=1.0.42.css">
+<link rel="stylesheet" href="../lib/pathfinder/main.css%3Fv=1.0.7.css">
+<link rel="stylesheet" href="../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="stylesheet" href="../plus/plans/main.css">
+
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic.js%3Fv=1.0.9"></script>
+<script src="../lib/uic_prov.js%3Fv=1.2.7"></script>
+
+<script data-cfasync="false" type="text/javascript">
+
+uic_prov_pre("default","",subjectFolder);
+var stickyadstatus = "";
+function fix_stickyad() {
+  document.getElementById("stickypos").style.position = "sticky";
+  var elem = document.getElementById("stickyadcontainer");
+  if (!elem) {return false;}
+  if (document.getElementById("skyscraper")) {
+    var skyWidth = Number(w3_getStyleValue(document.getElementById("skyscraper"), "width").replace("px", ""));  
+    }
+  else {
+    var skyWidth = Number(w3_getStyleValue(document.getElementById("right"), "width").replace("px", ""));  
+  }
+  elem.style.width = skyWidth + "px";
+  if (window.innerWidth <= 992) {
+    elem.style.position = "";
+    elem.style.top = stickypos + "px";
+    return false;
+  }
+  var stickypos = document.getElementById("stickypos").offsetTop;
+  var docTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  var adHeight = Number(w3_getStyleValue(elem, "height").replace("px", ""));
+  if (stickyadstatus == "") {
+    if ((stickypos - docTop) < 100) {
+      elem.style.position = "fixed";
+      elem.style.top = "100px";
+      stickyadstatus = "sticky";
+      document.getElementById("stickypos").style.position = "sticky";
+
+    }
+  } else {
+    if ((docTop + 100) - stickypos < 0) {  
+      elem.style.position = "";
+      elem.style.top = stickypos + "px";
+      stickyadstatus = "";
+      document.getElementById("stickypos").style.position = "static";
+    }
+  }
+  if (stickyadstatus == "sticky") {
+    if ((docTop + adHeight + 100) > document.getElementById("footer").offsetTop) {
+      elem.style.position = "absolute";
+      elem.style.top = (document.getElementById("footer").offsetTop - adHeight) + "px";
+      document.getElementById("stickypos").style.position = "static";
+    } else {
+        elem.style.position = "fixed";
+        elem.style.top = "100px";
+        stickyadstatus = "sticky";
+        document.getElementById("stickypos").style.position = "sticky";
+    }
+  }
+}
+function w3_getStyleValue(elmnt,style) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+  } else {
+    return elmnt.currentStyle[style];
+  }
+}
+</script>
+
+<script src="../lib/common-deps/main.js%3Fv=1.0.10"></script>
+<script src="../lib/user-session/main.js%3Fv=1.0.40"></script>
+<script src="../lib/my-learning/main.js%3Fv=1.0.42"></script>
+
+<link rel="stylesheet" type="text/css" href="../browserref.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script>
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  var y = localStorage.getItem("preferredpagemode");  
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+  if (y == "dark") {
+    document.body.className += " darkpagetheme";
+  }
+})();
+</script>
+<style>
+#subtopnav {
+  position:fixed;
+  background-color: #282A35;
+  color:#f1f1f1;
+  padding:0;
+  letter-spacing:1px;
+  font-family: 'Source Sans Pro Topnav', sans-serif;
+  font-size:0;
+  top:56px;
+  z-index:2;
+  width:100%;
+  white-space:nowrap;
+  overflow:auto;
+  scrollbar-width: none;
+  max-width:1750px;
+  margin:auto;
+  left:0;
+  right:0;
+}
+#subtopnav a{
+  display:inline-block;
+  width:auto;
+  margin:0!important;
+  padding:5px 15px 5px 15px !important;
+  font-size:15px!important;
+  text-decoration: none;  
+  line-height: 1.5;
+}
+#subtopnav a:hover,#subtopnav a:focus,#subtopnav a:active{
+  background-color:#000000 !important;
+  color:#ffffff !important;
+}
+#subtopnav a.active{
+  background-color: #04AA6D!important;
+  color:#fff!important;  
+}
+#btn_container_subtopnav {
+  position:fixed;
+  right:0;
+  top:56px;
+  font-size:0;
+  xxborder-left:10px solid rgba(40, 42, 53,0.5);
+  
+}
+#btn_container_subtopnav a{
+  line-height:1.3!important;
+  padding-top:7px!important;
+  padding-bottom:6px!important; 
+  font-size:15px;
+  background-color:#282A35;  
+}
+#scroll_left_btn {
+  cursor:pointer;
+  display:none;
+  position:fixed;
+  left:0;
+  top:56px;
+  font-size: 15px;
+  xborder-right: 10px solid rgba(40, 42, 53,0.5);
+  xbackground: red;
+  }
+#scroll_left_btn span {
+  xbackground-color:#282A35;
+  background: linear-gradient(to right, #282A35 70%, transparent 100%);
+  display:block;
+  padding-top:5px;
+  padding-bottom:5px;  
+}
+#scroll_left_btn span:hover {
+  background: linear-gradient(to right, #000 95%, transparent 100%);
+}
+#scroll_right_btn {
+  cursor:pointer;
+  float:left;
+  font-size:15px;
+  xxbackground-color:#282A35;
+  background: linear-gradient(to left, #282A35 70%, transparent 100%);
+  
+  padding-top:5px;
+  padding-bottom:5px;  
+}
+#scroll_right_btn:hover {
+  background: linear-gradient(to left, #000 95%, transparent 100%);
+}
+#menubtn_container {
+  position:fixed;
+  left:0;
+  top:56px;
+  xborder-right:10px solid rgba(40, 42, 53,0.5);
+  height:33px;
+  color:white;
+  font-size:15px;
+}
+#menubtn_container span {
+  background-color:#282A35;  
+}
+#darkmodemenu {
+  position:fixed!important;
+  right:0;!important;  
+}
+#subtopnav::-webkit-scrollbar {
+  display:none!important;
+}
+
+@media screen and (max-width: 992px){
+  #subtopnav a.subtopnav_firstitem {
+    margin-left:50px!important;
+  }
+}
+
+#google_translate_element a{
+  font-size:13px!important;
+
+  line-height: normal;
+}
+#google_translate_element a:hover{
+  background-color:#fff!important;  
+  color:#000!important;    
+}
+</style>
+<script>
+activate_subtopnav_scroll = 0;
+from_scrollpos = -1;
+current_scrollpos = -1;
+goto_tut = 1;
+function startscrolling_subtopnav(event) {
+  event.preventDefault();
+  from_scrollpos = event.clientX;
+  activate_subtopnav_scroll = 1;
+}
+function scrolling_subtopnav(event) {
+  current_scrollpos = event.clientX;
+  if (current_scrollpos == from_scrollpos) return false;
+  event.preventDefault();
+  if (event.buttons == 0) return false;
+  var scrollspeed;
+  if (activate_subtopnav_scroll == 1) {
+    goto_tut = 0;
+    scrollspeed = current_scrollpos - from_scrollpos;
+    scrollspeed = Math.abs(scrollspeed);
+    if (current_scrollpos < from_scrollpos) {
+     document.getElementById("scroll_left_btn").style.display = "block";     
+     document.getElementById("subtopnav").scrollLeft += scrollspeed;        
+    } else {
+      document.getElementById("subtopnav").scrollLeft -= scrollspeed;        
+    }
+    scrollbtn_visible();
+    from_scrollpos = current_scrollpos;
+  }
+}
+function endscrolling_subtopnav(event) {
+  event.preventDefault();
+  activate_subtopnav_scroll = 0;
+  from_scrollpos = -1;
+  current_scrollpos = -1;
+}
+function pellessii(event) {
+  if (goto_tut == 0) {
+    event.preventDefault();  
+    goto_tut = 1;
+    return false;
+  }
+}
+var scrollspeed = 1;
+var scrollinterval
+function scrollmenow(n) {
+  scrollinterval = window.setInterval(function() {
+    scrollspeed = scrollspeed * 1.1;
+    if (scrollspeed > 10) {scrollspeed = 10;}
+    if (n == 1) {
+      document.getElementById("subtopnav").scrollLeft += scrollspeed;  
+    } else {
+      document.getElementById("subtopnav").scrollLeft -= scrollspeed;  
+      
+    }
+    scrollbtn_visible();
+  }, 10);
+}
+
+var p_s_l = 0;
+var x_s_l = 0;
+function scrollbtn_visible() {
+  var c_s_l = document.getElementById("subtopnav").scrollLeft;
+  if (c_s_l < 1) {
+    document.getElementById("scroll_left_btn").style.display = "none";    
+  } else {
+    document.getElementById("scroll_left_btn").style.display = "block";    
+  }
+  if (c_s_l > 1 && c_s_l == p_s_l) {
+    x_s_l++;
+  } else {
+    x_s_l = 0;  
+  }
+  if (x_s_l > 3) {
+    document.getElementById("scroll_right_btn").style.display = "none";    
+  } else {
+    document.getElementById("scroll_right_btn").style.display = "block";  
+  }
+  p_s_l = document.getElementById("subtopnav").scrollLeft;
+}
+
+function stopscrollmenow() {
+  scrollspeed = 1;
+  window.clearInterval(scrollinterval);
+}
+
+window.addEventListener("load", scrollbtn_visible);
+
+function subtopnav_intoview() {
+  var a, b, c, d, i = 0;
+  a = document.getElementById("subtopnav");
+  if (!a || !a.getElementsByClassName) {return false;}
+  var x = a.getElementsByTagName("A");
+  b = document.location.pathname;
+  if (b.indexOf("../python/numpy") > -1 || b.indexOf("../python/pandas") > -1 || b.indexOf("../python/scipy") > -1) {
+    for (i = 0; i < x.length; i++) {
+      c = x[i].pathname;
+      if ((b.indexOf("../python/numpy") > -1 && c == "/python/numpy/default.asp") || (b.indexOf("../python/pandas") > -1 && c == "/python/pandas/default.asp") || (b.indexOf("../python/scipy") > -1 && c == "/python/scipy/index.php")) {
+        x[i].className += " active";
+        break;
+      }
+    }
+  } else {
+    for (i = 0; i < x.length; i++) {
+      c = x[i].pathname;
+      if (c.indexOf("void(0)") == -1 && b.substr(0, b.indexOf("/",1)) ==  c.substr(0, c.indexOf("/",1))) {
+        x[i].className += " active";
+        break;
+      }
+    }
+  }
+  d = a.getElementsByClassName("active");
+  if (d.length < 1) {return false;}  
+  while (!amIIntoView(a, d[0])) {
+    i++
+    if (i > 1000) {break;}
+    a.scrollLeft += 10;
+    //console.log(i);
+  }
+  //scrollbtn_visible();
+}
+
+function amIIntoView(x, y) {
+  var a = x.scrollLeft;
+  var width = Math.min(window.innerWidth, 1750);
+  var b = a + width - 20;
+  var ytop = y.offsetLeft;
+  var c = y.offsetWidth;
+  var d = 0;
+  if (document.getElementById("btn_container_subtopnav")) d = document.getElementById("btn_container_subtopnav").offsetWidth;
+  var ybottom = ytop + c + d + 20;
+  return ((ybottom <= b) && (ytop >= a));
+}
+
+</script>
+<style>
+.topnavcontainer {
+  background-color: #282A35;
+  width:100%;
+  max-width:1750px;
+  left:0;
+  right:0;
+  margin:auto;
+  height:33px;
+  top:56px;
+  position:fixed;
+  z-index:3;
+}
+#scroll_left_btn {
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    left: auto;
+    top: auto;
+    font-size: 15px;
+}
+#scroll_right_btn {
+    cursor: pointer;
+    position: fixed;
+    font-size: 15px;
+    display:none;
+}
+.topnavbackground {
+  background-color:#282A35;
+  position:fixed;
+  width:100%;
+  height:33px;
+  top:56px;
+}
+body.darkpagetheme .topnavbackground, body.darkpagetheme .topnavcontainer, body.darkpagetheme #subtopnav  {
+  background-color:rgb(13,23,33)!important
+}
+
+body.darkpagetheme #scroll_right_btn {
+  background: linear-gradient(to left, rgb(13,23,33) 70%, transparent 100%)
+}
+body.darkpagetheme #scroll_left_btn span {
+  background: linear-gradient(to right, rgb(13,23,33) 70%, transparent 100%)
+}
+</style>
+<div class="topnavbackground"></div>
+<div class="topnavcontainer">
+<div id="subtopnav" onmousedown="startscrolling_subtopnav(event)" onmousemove="scrolling_subtopnav(event)" onmouseup="endscrolling_subtopnav(event)" onclick="return pellessii(event)">
+
+  <div id="scroll_left_btn" class="w3-hide-medium w3-hide-small">
+    <span onmousedown="scrollmenow(-1)" onmouseup="stopscrollmenow()" onmouseout="stopscrollmenow()">&nbsp;&nbsp;&nbsp;&#10094;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+  <div id="scroll_right_btn" style="display:none" class="w3-hide-medium w3-hide-small">
+    <span onmousedown="scrollmenow(1)" onmouseup="stopscrollmenow()" onmouseout="stopscrollmenow()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10095;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+
+  <div id="menubtn_container">
+    <span>
+        
+        <a href='javascript:void(0);' class='topnav-icons fa fa-menu w3-hide-large w3-left w3-bar-item w3-button ga-nav' style="line-height:1.1;padding-top:8px!important;padding-bottom:8px!important;" onclick='open_menu()' title='Menu'></a>
+        
+    </span>      
+  </div>
+  <a href="../html/default.asp.html" class="ga-nav subtopnav_firstitem" title="HTML Tutorial">HTML</a>
+  <a href="../css/default.asp.html" class="ga-nav" title="CSS Tutorial">CSS</a>
+  <a href="../js/default.asp.html" class="ga-nav" title="JavaScript Tutorial">JAVASCRIPT</a>
+  <a href="../sql/default.asp.html" class="ga-nav" title="SQL Tutorial">SQL</a>
+  <a href="../python/default.asp.html" class="ga-nav" title="Python Tutorial">PYTHON</a>
+  <a href="../java/default.asp.html" class="ga-nav" title="Java Tutorial">JAVA</a>
+  <a href="../php/default.asp.html" class="ga-nav" title="PHP Tutorial">PHP</a>
+  <a href="../howto/default.asp.html" class="ga-nav" title="How to">HOW TO</a>
+  <a href="../w3css/default.asp.html" class="ga-nav" title="W3.CSS Tutorial">W3.CSS</a>
+  <a href="../c/index.php.html" class="ga-nav" title="C Tutorial">C</a>
+  <a href="../cpp/default.asp.html" class="ga-nav" title="C++ Tutorial">C++</a>
+  <a href="../cs/index.php.html" class="ga-nav" title="C# Tutorial">C#</a>
+  <a href="../bootstrap/bootstrap_ver.asp.html" class="ga-nav" title="Bootstrap Tutorial">BOOTSTRAP</a>
+  <a href="../react/default.asp.html" class="ga-nav" title="React Tutorial">REACT</a>
+  <a href="../mysql/default.asp.html" class="ga-nav" title="MySQL Tutorial">MYSQL</a>
+  <a href="../jquery/default.asp.html" class="ga-nav" title="JQuery Tutorial">JQUERY</a>
+  <a href="../excel/index.php.html" class="ga-nav" title="Excel Tutorial">EXCEL</a>
+  <a href="../xml/default.asp.html" class="ga-nav" title="XML Tutorial">XML</a>
+  <a href="../django/index.php.html" class="ga-nav" title="Django Tutorial">DJANGO</a>
+  <a href="../python/numpy/default.asp.html" class="ga-nav" title="NumPy Tutorial">NUMPY</a>
+  <a href="../python/pandas/default.asp.html" class="ga-nav" title="Pandas Tutorial">PANDAS</a>
+  <a href="../nodejs/default.asp.html" class="ga-nav" title="Node.js Tutorial">NODEJS</a>
+  <a href="../dsa/index.php.html" class="ga-nav" title="DSA Tutorial">DSA</a>
+  <a href="../typescript/index.php.html" class="ga-nav" title="TypeScript Tutorial">TYPESCRIPT</a>
+  <a href="../angular/default.asp.html" class="ga-nav" title="Angular.js Tutorial">ANGULAR</a>
+  <a href="../git/default.asp.html" class="ga-nav" title="Git Tutorial">GIT</a>
+  <a href="../postgresql/index.php.html" class="ga-nav" title="PostgreSQL Tutorial">POSTGRESQL</a>
+  <a href="../mongodb/index.php.html" class="ga-nav" title="MongoDB Tutorial">MONGODB</a>
+  <a href="../asp/default.asp.html" class="ga-nav" title="ASP Tutorial">ASP</a>
+  <a href="../ai/default.asp.html" class="ga-nav" title="A.I. Tutorial">AI</a>
+  <a href="../r/default.asp.html" class="ga-nav" title="R Tutorial">R</a>
+  <a href="../go/index.php.html" class="ga-nav" title="Go Tutorial">GO</a>
+  <a href="../kotlin/index.php.html" class="ga-nav" title="Kotlin Tutorial">KOTLIN</a>
+  <a href="../sass/default.php.html" class="ga-nav" title="Sass Tutorial">SASS</a>
+  <a href="../vue/index.php.html" class="ga-nav" title="Vue.js Tutorial">VUE</a>
+  <a href="../gen_ai/index.php.html" class="ga-nav" title="Gen A.I. Tutorial">GEN AI</a>
+  <a href="../python/scipy/index.php.html" class="ga-nav" title="SciPy Tutorial">SCIPY</a>
+<!--  <a href="/aws/index.php" class="ga-nav" title="AWS Tutorial">AWS</a>-->
+  <a href="../cybersecurity/index.php.html" class="ga-nav" title="Cyber security Tutorial">CYBERSECURITY</a>
+  <a href="../datascience/default.asp.html" class="ga-nav" title="Data science Tutorial">DATA SCIENCE</a>
+  <a href="../programming/index.php.html" class="ga-nav" title="Introduction to Programming">INTRO TO PROGRAMMING</a>
+  <a href="../bash/index.php.html" class="ga-nav" title="Bash Tutorial">BASH</a>
+  <a href="../rust/index.php.html" class="ga-nav" title="Rust Tutorial">RUST</a>
+  <a href="javascript:void(0)" style="width:50px;visibility:hidden;"></a>  
+
+</div>
+</div>
+<!--
+<div class="topnav notranslate" id='topnav' style="position:fixed!important;top:56px">
+  <div style="overflow:auto;">
+    <div class="w3-bar w3-left topnavbar" style="width:100%;overflow:hidden;height:32px">
+
+      <a href='javascript:void(0);' class='topnav-icons fa fa-menu w3-hide-large w3-left w3-bar-item w3-button ga-nav' style="line-height:1.1;padding-top:8px!important;padding-bottom:7px!important;" onclick='open_menu()' title='Menu'></a>
+
+      <a href='/default.asp' style="display:none" class='topnav-icons fa fa-home w3-left w3-bar-item w3-button ga-nav' title='Home'></a>
+      <a class="w3-bar-item w3-button ga-nav" href='/html/default.asp' title='HTML Tutorial' style="padding-left:18px!important;padding-right:18px!important;">HTML</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/css/default.asp' title='CSS Tutorial'>CSS</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/js/default.asp' title='JavaScript Tutorial'>JAVASCRIPT</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/sql/default.asp' title='SQL Tutorial'>SQL</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/python/default.asp' title='Python Tutorial'>PYTHON</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/java/default.asp' title='Java Tutorial'>JAVA</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/php/default.asp' title='PHP Tutorial'>PHP</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/bootstrap/bootstrap_ver.asp' title='Bootstrap Tutorial'>BOOTSTRAP</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/howto/default.asp' title='How To'>HOW TO</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/w3css/default.asp' title='W3.CSS Tutorial'>W3.CSS</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/c/index.php' title='C Tutorial'>C</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/cpp/default.asp' title='C++ Tutorial'>C++</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/cs/index.php' title='C# Tutorial'>C#</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/react/default.asp' title='React Tutorial'>REACT</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/r/default.asp' title='R Tutorial'>R</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/jquery/default.asp' title='jQuery Tutorial'>JQUERY</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/django/index.php' title='Django Tutorial'>DJANGO</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/typescript/index.php' title='Typescript Tutorial'>TYPESCRIPT</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/nodejs/default.asp' title='NodeJS Tutorial'>NODEJS</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/mysql/default.asp' title='MySQL Tutorial'>MYSQL</a>
+    </div>
+  </div>
+</div>
+-->
+<script>
+subtopnav_intoview();
+</script>
+<style>
+.belowtopnavcontainer {
+  max-width:1750px;
+  margin:auto;
+}
+.contentcontainer {
+   background-color: #f5f6f7;
+}
+body.darkpagetheme .contentcontainer {
+   background-color: #29353e;
+}
+</style>
+<div class='contentcontainer'>
+<div class='belowtopnavcontainer'>
+
+<div class='w3-sidebar w3-collapse' id='sidenav'>
+  <div id='leftmenuinner'>
+    <div id='leftmenuinnerinner'>
+<!--  <a href='javascript:void(0)' onclick='close_menu()' class='w3-button w3-hide-large w3-large w3-display-topright' style='right:16px;padding:3px 12px;font-weight:bold;'>&times;</a>-->
+<script src="content_search.js"></script>
+<link rel="stylesheet" href="content_search.css">
+<!--<div class="notranslate">-->
+  <form class="search_in_content" action="../action_page.php.html">
+    <input type="text" placeholder="Search..." id="search2" autocomplete="off" onkeydown="key_pressed_in_search(this, event)" oninput="find_search_results(this)" onfocus="find_search_results(this);">
+  </form>  
+  <div id="listofsearchresults"></div>
+<br>
+
+<h2 class="left" style="white-space: nowrap;"><span class="left_h2">JS</span> Reference</h2>
+<a target="_top" class="no-checkmark" class="no-checkmark" href="default.asp.html">JS by Category</a>
+<a target="_top" class="no-checkmark" href="jsref_reference.asp.html">JS by Alphabet</a>
+<br>
+<h2 class="left"><span class="left_h2">JavaScript</span></h2>
+<a target="_top" class="no-checkmark" href="jsref_obj_array.asp.html">JS Arrays</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_array[].asp.html">Array[ ]</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_new.asp.html">Array( )</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_at.asp.html">at()</a>
+  <a target="_top" class="no-checkmark" href="jsref_concat_array.asp.html">concat()</a>
+  <a target="_top" class="no-checkmark" href="jsref_constructor_array.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_copywithin.asp.html">copyWithin()</a>
+  <a target="_top" class="no-checkmark" href="jsref_entries.asp.html">entries()</a>
+  <a target="_top" class="no-checkmark" href="jsref_every.asp.html">every()</a>
+  <a target="_top" class="no-checkmark" href="jsref_fill.asp.html">fill()</a>
+  <a target="_top" class="no-checkmark" href="jsref_filter.asp.html">filter()</a>
+  <a target="_top" class="no-checkmark" href="jsref_find.asp.html">find()</a>
+  <a target="_top" class="no-checkmark" href="jsref_findindex.asp.html">findIndex()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_findlast.asp.html">findLast()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_findlastindex.asp.html">findLastIndex()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_flat.asp.html">flat()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_flatmap.asp.html">flatMap()</a>
+  <a target="_top" class="no-checkmark" href="jsref_foreach.asp.html">forEach()</a>
+  <a target="_top" class="no-checkmark" href="jsref_from.asp.html">from()</a>
+  <a target="_top" class="no-checkmark" href="jsref_includes_array.asp.html">includes()</a>
+  <a target="_top" class="no-checkmark" href="jsref_indexof_array.asp.html">indexOf()</a>
+  <a target="_top" class="no-checkmark" href="jsref_isarray.asp.html">isArray()</a>
+  <a target="_top" class="no-checkmark" href="jsref_join.asp.html">join()</a>
+  <a target="_top" class="no-checkmark" href="jsref_keys.asp.html">keys()</a>
+  <a target="_top" class="no-checkmark" href="jsref_lastindexof_array.asp.html">lastIndexOf()</a>
+  <a target="_top" class="no-checkmark" href="jsref_length_array.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="jsref_map.asp.html">map()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_of.asp.html">of()</a>
+  <a target="_top" class="no-checkmark" href="jsref_pop.asp.html">pop()</a>
+  <a target="_top" class="no-checkmark" href="jsref_prototype_array.asp.html">prototype</a>
+  <a target="_top" class="no-checkmark" href="jsref_push.asp.html">push()</a>
+  <a target="_top" class="no-checkmark" href="jsref_reduce.asp.html">reduce()</a>
+  <a target="_top" class="no-checkmark" href="jsref_reduceright.asp.html">reduceRight()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_rest.asp.html">rest (...)</a>
+  <a target="_top" class="no-checkmark" href="jsref_reverse.asp.html">reverse()</a>
+  <a target="_top" class="no-checkmark" href="jsref_shift.asp.html">shift()</a>
+  <a target="_top" class="no-checkmark" href="jsref_slice_array.asp.html">slice()</a>
+  <a target="_top" class="no-checkmark" href="jsref_some.asp.html">some()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sort.asp.html">sort()</a>
+  <a target="_top" class="no-checkmark" href="jsref_splice.asp.html">splice()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_spread.asp.html">spread (...)</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_toreversed.asp.html">toReversed()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_tosorted.asp.html">toSorted()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_tospliced.asp.html">toSpliced()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tostring_array.asp.html">toString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_unshift.asp.html">unshift()</a>
+  <a target="_top" class="no-checkmark" href="jsref_values.asp.html">values()</a>
+  <a target="_top" class="no-checkmark" href="jsref_valueof_array.asp.html">valueOf()</a>
+  <a target="_top" class="no-checkmark" href="jsref_array_with.asp.html">with()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_boolean.asp.html">JS Boolean</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_constructor_boolean.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_prototype_boolean.asp.html">prototype</a>
+  <a target="_top" class="no-checkmark" href="jsref_tostring_boolean.asp.html">toString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_valueof_boolean.asp.html">valueOf()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_classes.asp.html">JS Classes</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_constructor_class.asp.html">constructor()</a>
+  <a target="_top" class="no-checkmark" href="jsref_class_extends.asp.html">extends</a>
+  <a target="_top" class="no-checkmark" href="jsref_class_static.asp.html">static</a>
+  <a target="_top" class="no-checkmark" href="jsref_class_super.asp.html">super</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_date.asp.html">JS Dates</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_date_new.asp.html">new Date()</a>
+  <a target="_top" class="no-checkmark" href="jsref_constructor_date.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_getdate.asp.html">getDate()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getday.asp.html">getDay()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getfullyear.asp.html">getFullYear()</a>
+  <a target="_top" class="no-checkmark" href="jsref_gethours.asp.html">getHours()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getmilliseconds.asp.html">getMilliseconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getminutes.asp.html">getMinutes()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getmonth.asp.html">getMonth()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getseconds.asp.html">getSeconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_gettime.asp.html">getTime()</a>
+  <a target="_top" class="no-checkmark" href="jsref_gettimezoneoffset.asp.html">getTimezoneOffset()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcdate.asp.html">getUTCDate()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcday.asp.html">getUTCDay()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcfullyear.asp.html">getUTCFullYear()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutchours.asp.html">getUTCHours()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcmilliseconds.asp.html">getUTCMilliseconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcminutes.asp.html">getUTCMinutes()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcmonth.asp.html">getUTCMonth()</a>
+  <a target="_top" class="no-checkmark" href="jsref_getutcseconds.asp.html">getUTCSeconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_now.asp.html">now()</a>
+  <a target="_top" class="no-checkmark" href="jsref_parse.asp.html">parse()</a>
+  <a target="_top" class="no-checkmark" href="jsref_prototype_date.asp.html">prototype</a>
+  <a target="_top" class="no-checkmark" href="jsref_setdate.asp.html">setDate()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setfullyear.asp.html">setFullYear()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sethours.asp.html">setHours()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setmilliseconds.asp.html">setMilliseconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setminutes.asp.html">setMinutes()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setmonth.asp.html">setMonth()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setseconds.asp.html">setSeconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_settime.asp.html">setTime()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutcdate.asp.html">setUTCDate()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutcfullyear.asp.html">setUTCFullYear()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutchours.asp.html">setUTCHours()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutcmilliseconds.asp.html">setUTCMilliseconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutcminutes.asp.html">setUTCMinutes()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutcmonth.asp.html">setUTCMonth()</a>
+  <a target="_top" class="no-checkmark" href="jsref_setutcseconds.asp.html">setUTCSeconds()</a>
+  <a target="_top" class="no-checkmark" href="jsref_todatestring.asp.html">toDateString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_toisostring.asp.html">toISOString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tojson.asp.html">toJSON()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolocaledatestring.asp.html">toLocaleDateString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolocaletimestring.asp.html">toLocaleTimeString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolocalestring.asp.html">toLocaleString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tostring_date.asp.html">toString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_totimestring.asp.html">toTimeString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_toutcstring.asp.html">toUTCString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_utc.asp.html">UTC()</a>
+  <a target="_top" class="no-checkmark" href="jsref_valueof_date.asp.html">valueOf()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_error.asp.html">JS Error</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="prop_error_name.asp.html">name</a>
+  <a target="_top" class="no-checkmark" href="prop_error_message.asp.html">message</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_global.asp.html">JS Global</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_decodeuri.asp.html">decodeURI()</a>
+  <a target="_top" class="no-checkmark" href="jsref_decodeuricomponent.asp.html">decodeURIComponent()</a>
+  <a target="_top" class="no-checkmark" href="jsref_encodeuri.asp.html">encodeURI()</a>
+  <a target="_top" class="no-checkmark" href="jsref_encodeuricomponent.asp.html">encodeURIComponent()</a>
+  <a target="_top" class="no-checkmark" href="jsref_escape.asp.html">escape()</a>
+  <a target="_top" class="no-checkmark" href="jsref_eval.asp.html">eval()</a>
+  <a target="_top" class="no-checkmark" href="jsref_infinity.asp.html">Infinity</a>
+  <a target="_top" class="no-checkmark" href="jsref_isfinite.asp.html">isFinite()</a>
+  <a target="_top" class="no-checkmark" href="jsref_isnan.asp.html">isNaN()</a>
+  <a target="_top" class="no-checkmark" href="jsref_nan.asp.html">NaN</a>
+  <a target="_top" class="no-checkmark" href="jsref_number.asp.html">Number()</a>
+  <a target="_top" class="no-checkmark" href="jsref_parsefloat.asp.html">parseFloat()</a>
+  <a target="_top" class="no-checkmark" href="jsref_parseint.asp.html">parseInt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_string.asp.html">String()</a>
+  <a target="_top" class="no-checkmark" href="jsref_undefined.asp.html">undefined</a>
+  <a target="_top" class="no-checkmark" href="jsref_unescape.asp.html">unescape()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_json.asp.html">JS JSON</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_parse_json.asp.html">parse()</a>
+  <a target="_top" class="no-checkmark" href="jsref_stringify.asp.html">stringify()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_map.asp.html">JS Maps</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_map_new.asp.html">new Map</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_clear.asp.html">clear()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_delete.asp.html">delete()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_entries.asp.html">entries()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_foreach.asp.html">forEach()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_get.asp.html">get()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_groupby.asp.html">groupBy()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_has.asp.html">has()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_keys.asp.html">keys()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_set.asp.html">set()</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_size.asp.html">size</a>
+  <a target="_top" class="no-checkmark" href="jsref_map_values.asp.html">values()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_math.asp.html">JS Math</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_abs.asp.html">abs()</a>
+  <a target="_top" class="no-checkmark" href="jsref_acos.asp.html">acos()</a>
+  <a target="_top" class="no-checkmark" href="jsref_acosh.asp.html">acosh()</a>
+  <a target="_top" class="no-checkmark" href="jsref_asin.asp.html">asin()</a>
+  <a target="_top" class="no-checkmark" href="jsref_asinh.asp.html">asinh()</a>
+  <a target="_top" class="no-checkmark" href="jsref_atan.asp.html">atan()</a>
+  <a target="_top" class="no-checkmark" href="jsref_atan2.asp.html">atan2()</a>
+  <a target="_top" class="no-checkmark" href="jsref_atanh.asp.html">atanh()</a>
+  <a target="_top" class="no-checkmark" href="jsref_cbrt.asp.html">cbrt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_ceil.asp.html">ceil()</a>
+  <a target="_top" class="no-checkmark" href="jsref_clz32.asp.html">clz32()</a>
+  <a target="_top" class="no-checkmark" href="jsref_cos.asp.html">cos()</a>
+  <a target="_top" class="no-checkmark" href="jsref_cosh.asp.html">cosh()</a>
+  <a target="_top" class="no-checkmark" href="jsref_e.asp.html">E</a>
+  <a target="_top" class="no-checkmark" href="jsref_exp.asp.html">exp()</a>
+  <a target="_top" class="no-checkmark" href="jsref_expm1.asp.html">expm1()</a>
+  <a target="_top" class="no-checkmark" href="jsref_floor.asp.html">floor()</a>
+  <a target="_top" class="no-checkmark" href="jsref_fround.asp.html">fround()</a>
+  <a target="_top" class="no-checkmark" href="jsref_ln2.asp.html">LN2</a>
+  <a target="_top" class="no-checkmark" href="jsref_ln10.asp.html">LN10</a>
+  <a target="_top" class="no-checkmark" href="jsref_log.asp.html">log()</a>
+  <a target="_top" class="no-checkmark" href="jsref_log10.asp.html">log10()</a>
+  <a target="_top" class="no-checkmark" href="jsref_log1p.asp.html">log1p()</a>
+  <a target="_top" class="no-checkmark" href="jsref_log2.asp.html">log2()</a>
+  <a target="_top" class="no-checkmark" href="jsref_log2e.asp.html">LOG2E</a>
+  <a target="_top" class="no-checkmark" href="jsref_log10e.asp.html">LOG10E</a>
+  <a target="_top" class="no-checkmark" href="jsref_max.asp.html">max()</a>
+  <a target="_top" class="no-checkmark" href="jsref_min.asp.html">min()</a>
+  <a target="_top" class="no-checkmark" href="jsref_pi.asp.html">PI</a>
+  <a target="_top" class="no-checkmark" href="jsref_pow.asp.html">pow()</a>
+  <a target="_top" class="no-checkmark" href="jsref_random.asp.html">random()</a>
+  <a target="_top" class="no-checkmark" href="jsref_round.asp.html">round()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sign.asp.html">sign()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sin.asp.html">sin()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sinh.asp.html">sinh()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sqrt.asp.html">sqrt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_sqrt1_2.asp.html">SQRT1_2</a>
+  <a target="_top" class="no-checkmark" href="jsref_sqrt2.asp.html">SQRT2</a>
+  <a target="_top" class="no-checkmark" href="jsref_tan.asp.html">tan()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tanh.asp.html">tanh()</a>
+  <a target="_top" class="no-checkmark" href="jsref_trunc.asp.html">trunc()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_number.asp.html">JS Numbers</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_constructor_number.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_number_epsilon.asp.html">EPSILON</a>
+  <a target="_top" class="no-checkmark" href="jsref_isfinite_number.asp.html">isFinite()</a>
+  <a target="_top" class="no-checkmark" href="jsref_isinteger.asp.html">isInteger()</a>
+  <a target="_top" class="no-checkmark" href="jsref_isnan_number.asp.html">isNaN()</a>
+  <a target="_top" class="no-checkmark" href="jsref_issafeinteger.asp.html">isSafeInteger()</a>
+  <a target="_top" class="no-checkmark" href="jsref_max_safe_integer.asp.html">MAX_SAFE_INTEGER</a>
+  <a target="_top" class="no-checkmark" href="jsref_min_safe_integer.asp.html">MIN_SAFE_INTEGER</a>
+  <a target="_top" class="no-checkmark" href="jsref_max_value.asp.html">MAX_VALUE</a>
+  <a target="_top" class="no-checkmark" href="jsref_min_value.asp.html">MIN_VALUE</a>
+  <a target="_top" class="no-checkmark" href="jsref_number_nan.asp.html">NaN</a>
+  <a target="_top" class="no-checkmark" href="jsref_negative_infinity.asp.html">NEGATIVE_INFINITY</a>
+  <a target="_top" class="no-checkmark" href="jsref_positive_infinity.asp.html">POSITIVE_INFINITY</a>
+  <a target="_top" class="no-checkmark" href="jsref_number_parsefloat.asp.html">parseFloat()</a>
+  <a target="_top" class="no-checkmark" href="jsref_number_parseint.asp.html">parseInt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_prototype_num.asp.html">prototype</a>
+  <a target="_top" class="no-checkmark" href="jsref_toexponential.asp.html">toExponential()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tofixed.asp.html">toFixed()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolocalestring_number.asp.html">toLocaleString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_toprecision.asp.html">toPrecision()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tostring_number.asp.html">toString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_valueof_number.asp.html">valueOf()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_object.asp.html">JS Objects</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_object_assign.asp.html">assign()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_constructor.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_create.asp.html">create()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_defineproperties.asp.html">defineProperties()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_defineproperty.asp.html">defineProperty()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_entries.asp.html">entries()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_freeze.asp.html">freeze()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_fromentries.asp.html">fromEntries()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_getownpropertydescriptor.asp.html">getOwnPropertyDescriptor()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_getownpropertydescriptors.asp.html">getOwnPropertyDescriptors()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_getownpropertynames.asp.html">getOwnPropertyNames()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_groupby.asp.html">groupBy()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_isextensible.asp.html">isExtensible()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_isfrozen.asp.html">isFrozen()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_issealed.asp.html">isSealed()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_keys.asp.html">keys()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_preventextensions.asp.html">preventExtensions()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_prototype.asp.html">prototype</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_seal.asp.html">seal()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_tostring.asp.html">toString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_valueof.asp.html">valueOf()</a>
+  <a target="_top" class="no-checkmark" href="jsref_object_values.asp.html">values()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_operators.asp.html">JS Operators</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_oper_assignment.asp.html">Assignment</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_arithmetic.asp.html">Arithmetic</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_string.asp.html">String</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_exponentiation.asp.html">Exponentiation</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_remainder.asp.html">Remainder</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_increment.asp.html">Increment</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_decrement.asp.html">Decrement</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_comparison.asp.html">Comparison</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_logical.asp.html">Logical</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_bitwise.asp.html">Bitwise</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_spread.asp.html">Spread</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_relational.asp.html">Relational</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_typeof.asp.html">typeof</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_instanceof.asp.html">instanceof</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_delete.asp.html">delete</a>
+  <a target="_top" class="no-checkmark" href="jsref_oper_void.asp.html">void</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_precedence.asp.html">JS Precedence</a>
+<a target="_top" class="no-checkmark" href="jsref_obj_promise.asp.html">JS Promises</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_promise_all.asp.html">all()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_allsettled.asp.html">allSettled()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_any.asp.html">any()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_catch.asp.html">catch()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_finally.asp.html">finally()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_race.asp.html">race()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_reject.asp.html">reject()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_resolve.asp.html">resolve()</a>
+  <a target="_top" class="no-checkmark" href="jsref_promise_then.asp.html">then()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_regexp.asp.html">JS RegExp</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <span style="display:inline-block;margin-left:35px;padding:5px;margin-top:2px;">Modifiers:</span>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_g.asp.html">g</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_i.asp.html">i</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_d.asp.html">d</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_m.asp.html">m</a>
+  <span style="display:inline-block;margin-left:35px;padding:5px;margin-top:4px;">Groups:</span>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_charset.asp.html">[abc]</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_charset_not.asp.html">[^abc]</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_0-9.asp.html">[0-9]</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_not_0-9.asp.html">[^0-9]</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_xy.asp.html">(x|y)</a>
+  <span style="display:inline-block;margin-left:35px;padding:5px;margin-top:4px;">Metacharacters:</span>  
+  <a target="_top" class="no-checkmark" href="jsref_regexp_dot.asp.html">.</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_wordchar.asp.html">\w</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_wordchar_non.asp.html">\W</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_digit.asp.html">\d</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_digit_non.asp.html">\D</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_whitespace.asp.html">\s</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_whitespace_non.asp.html">\S</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_begin.asp.html">\b</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_begin_not.asp.html">\B</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_nul.asp.html">\0</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_newline.asp.html">\n</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_formfeed.asp.html">\f</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_carriagereturn.asp.html">\r</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_tab.asp.html">\t</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_vtab.asp.html">\v</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_octal.asp.html">\xxx</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_hex.asp.html">\xdd</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_unicode_hex.asp.html">\uxxxx</a>
+  <span style="display:inline-block;margin-left:35px;padding:5px;margin-top:4px;">Quantifiers:</span>  
+  <a target="_top" class="no-checkmark" href="jsref_regexp_onemore.asp.html">+</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_zeromore.asp.html">*</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_zeroone.asp.html">?</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_nx.asp.html">{X}</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_nxy.asp.html">{X,Y}</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_nxcomma.asp.html">{X,}</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_ndollar.asp.html">$</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_ncaret.asp.html">^</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_nfollow.asp.html">?=</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_nfollow_not.asp.html">?!</a>
+  <span style="display:inline-block;margin-left:35px;padding:5px;margin-top:4px;">Properties:</span>  
+  <a target="_top" class="no-checkmark" href="jsref_regexp_constructor.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_global.asp.html">global</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_ignorecase.asp.html">ignoreCase</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_lastindex.asp.html">lastIndex</a>  
+  <a target="_top" class="no-checkmark" href="jsref_regexp_multiline.asp.html">multiline</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_source.asp.html">source</a>
+  <span style="display:inline-block;margin-left:35px;padding:5px;margin-top:4px;">Methods:</span>  
+  <a target="_top" class="no-checkmark" href="jsref_regexp_compile.asp.html">compile()</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_exec.asp.html">exec()</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_test.asp.html">test()</a>
+  <a target="_top" class="no-checkmark" href="jsref_regexp_tostring.asp.html">toString()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_set.asp.html">JS Sets</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_set_new.asp.html">new Set</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_add.asp.html">add()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_clear.asp.html">clear()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_delete.asp.html">delete()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_entries.asp.html">entries()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_foreach.asp.html">forEach()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_has.asp.html">has()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_keys.asp.html">keys()</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_size.asp.html">size</a>
+  <a target="_top" class="no-checkmark" href="jsref_set_values.asp.html">values()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_statements.asp.html">JS Statements</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_break.asp.html">break</a>
+  <a target="_top" class="no-checkmark" href="jsref_class.asp.html">class</a>
+  <a target="_top" class="no-checkmark" href="jsref_const.asp.html">const</a>
+  <a target="_top" class="no-checkmark" href="jsref_continue.asp.html">continue</a>
+  <a target="_top" class="no-checkmark" href="jsref_debugger.asp.html">debugger</a>
+  <a target="_top" class="no-checkmark" href="jsref_dowhile.asp.html">do...while</a>
+  <a target="_top" class="no-checkmark" href="jsref_for.asp.html">for</a>
+  <a target="_top" class="no-checkmark" href="jsref_forin.asp.html">for...in</a>
+  <a target="_top" class="no-checkmark" href="jsref_forof.asp.html">for...of</a>  
+  <a target="_top" class="no-checkmark" href="jsref_function.asp.html">function</a>
+  <a target="_top" class="no-checkmark" href="jsref_if.asp.html">if...else</a>
+  <a target="_top" class="no-checkmark" href="jsref_let.asp.html">let</a>
+  <a target="_top" class="no-checkmark" href="jsref_return.asp.html">return</a>
+  <a target="_top" class="no-checkmark" href="jsref_switch.asp.html">switch</a>
+  <a target="_top" class="no-checkmark" href="jsref_throw.asp.html">throw</a>
+  <a target="_top" class="no-checkmark" href="jsref_try_catch.asp.html">try...catch</a>
+  <a target="_top" class="no-checkmark" href="jsref_var.asp.html">var</a>
+  <a target="_top" class="no-checkmark" href="jsref_while.asp.html">while</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_obj_string.asp.html">JS Strings</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="jsref_string_at.asp.html">at()</a>
+  <a target="_top" class="no-checkmark" href="jsref_charat.asp.html">charAt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_charcodeat.asp.html">charCodeAt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_codepointat.asp.html">codePointAt()</a>
+  <a target="_top" class="no-checkmark" href="jsref_concat_string.asp.html">concat()</a>
+  <a target="_top" class="no-checkmark" href="jsref_constructor_string.asp.html">constructor</a>
+  <a target="_top" class="no-checkmark" href="jsref_endswith.asp.html">endsWith()</a>
+  <a target="_top" class="no-checkmark" href="jsref_fromcharcode.asp.html">fromCharCode()</a>
+  <a target="_top" class="no-checkmark" href="jsref_includes.asp.html">includes()</a>
+  <a target="_top" class="no-checkmark" href="jsref_indexof.asp.html">indexOf()</a>
+  <a target="_top" class="no-checkmark" href="jsref_lastindexof.asp.html">lastIndexOf()</a>
+  <a target="_top" class="no-checkmark" href="jsref_length_string.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="jsref_localecompare.asp.html">localeCompare()</a>
+  <a target="_top" class="no-checkmark" href="jsref_match.asp.html">match()</a>
+  <a target="_top" class="no-checkmark" href="jsref_string_padend.asp.html">padEnd()</a>
+  <a target="_top" class="no-checkmark" href="jsref_string_padstart.asp.html">padStart()</a>
+  <a target="_top" class="no-checkmark" href="jsref_prototype_string.asp.html">prototype</a>
+  <a target="_top" class="no-checkmark" href="jsref_repeat.asp.html">repeat()</a>
+  <a target="_top" class="no-checkmark" href="jsref_replace.asp.html">replace()</a>
+  <a target="_top" class="no-checkmark" href="jsref_string_replaceall.asp.html">replaceAll()</a>
+  <a target="_top" class="no-checkmark" href="jsref_search.asp.html">search()</a>
+  <a target="_top" class="no-checkmark" href="jsref_slice_string.asp.html">slice()</a>
+  <a target="_top" class="no-checkmark" href="jsref_split.asp.html">split()</a>
+  <a target="_top" class="no-checkmark" href="jsref_startswith.asp.html">startsWith()</a>
+  <a target="_top" class="no-checkmark" href="jsref_substr.asp.html">substr()</a>
+  <a target="_top" class="no-checkmark" href="jsref_substring.asp.html">substring()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolocalelowercase.asp.html">toLocaleLowerCase()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolocaleuppercase.asp.html">toLocaleUpperCase()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tolowercase.asp.html">toLowerCase()</a>
+  <a target="_top" class="no-checkmark" href="jsref_tostring_string.asp.html">toString()</a>
+  <a target="_top" class="no-checkmark" href="jsref_touppercase.asp.html">toUpperCase()</a>
+  <a target="_top" class="no-checkmark" href="jsref_trim_string.asp.html">trim()</a>
+  <a target="_top" class="no-checkmark" href="jsref_string_trim_end.asp.html">trimEnd()</a>
+  <a target="_top" class="no-checkmark" href="jsref_string_trim_start.asp.html">trimStart()</a>
+  <a target="_top" class="no-checkmark" href="jsref_valueof_string.asp.html">valueOf()</a>
+</div>
+<a target="_top" class="no-checkmark" href="jsref_obj_typed_array.asp.html">JS TypedArray</a>
+<br>
+<h2 class="left"><span class="left_h2">Window</span></h2>
+<a target="_top" class="no-checkmark" href="obj_window.asp.html">Window Object</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_win_addeventlistener.asp.html">addeventlistener()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_alert.asp.html">alert()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_atob.asp.html">atob()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_blur.asp.html">blur()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_btoa.asp.html">btoa()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_clearinterval.asp.html">clearInterval()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_cleartimeout.asp.html">clearTimeout()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_close.asp.html">close()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_closed.asp.html">closed</a>  
+  <a target="_top" class="no-checkmark" href="met_win_confirm.asp.html">confirm()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_console.asp.html">console</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_defaultstatus.asp.html">defaultStatus</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_document.asp.html">document</a> 
+  <a target="_top" class="no-checkmark" href="met_win_focus.asp.html">focus()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_frameelement.asp.html">frameElement</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_frames.asp.html">frames</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_history.asp.html">history</a>  
+  <a target="_top" class="no-checkmark" href="jsref_getcomputedstyle.asp.html">getComputedStyle()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_innerheight.asp.html">innerHeight</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_innerwidth.asp.html">innerWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_length.asp.html">length</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_localstorage.asp.html">localStorage</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_location.asp.html">location</a> 
+  <a target="_top" class="no-checkmark" href="met_win_matchmedia.asp.html">matchMedia()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_moveby.asp.html">moveBy()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_moveto.asp.html">moveTo()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_name.asp.html">name</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_navigator.asp.html">navigator</a> 
+  <a target="_top" class="no-checkmark" href="met_win_open.asp.html">open()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_opener.asp.html">opener</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_outerheight.asp.html">outerHeight</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_outerwidth.asp.html">outerWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_pagexoffset.asp.html">pageXOffset</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_pageyoffset.asp.html">pageYOffset</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_parent.asp.html">parent</a>  
+  <a target="_top" class="no-checkmark" href="met_win_print.asp.html">print()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_prompt.asp.html">prompt()</a> 
+  <a target="_top" class="no-checkmark" href="met_win_removeeventlistener.asp.html">removeEventlistener()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_resizeby.asp.html">resizeBy()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_resizeto.asp.html">resizeTo()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_screen.asp.html">screen</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_screenleft.asp.html">screenLeft</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_screentop.asp.html">screenTop</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_screenx.asp.html">screenX</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_screeny.asp.html">screenY</a>  
+  <a target="_top" class="no-checkmark" href="met_win_scrollby.asp.html">scrollBy()</a>  
+  <a target="_top" class="no-checkmark" href="met_win_scrollto.asp.html">scrollTo()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_scrollx.asp.html">scrollX</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_scrolly.asp.html">scrollY</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_sessionstorage.asp.html">sessionStorage</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_self.asp.html">self</a>  
+  <a target="_top" class="no-checkmark" href="met_win_setinterval.asp.html">setInterval()</a> 
+  <a target="_top" class="no-checkmark" href="met_win_settimeout.asp.html">setTimeout()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_status.asp.html">status</a>
+  <a target="_top" class="no-checkmark" href="met_win_stop.asp.html">stop()</a>  
+  <a target="_top" class="no-checkmark" href="prop_win_top.asp.html">top</a>  
+</div>
+
+<a target="_top" class="no-checkmark" href="obj_console.asp.html">Window Console</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark"  href="met_console_assert.asp.html">assert()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_clear.asp.html">clear()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_count.asp.html">count()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_error.asp.html">error()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_group.asp.html">group()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_groupcollapsed.asp.html">groupCollapsed()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_groupend.asp.html">groupEnd()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_info.asp.html">info()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_log.asp.html">log()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_table.asp.html">table()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_time.asp.html">time()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_timeend.asp.html">timeEnd()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_trace.asp.html">trace()</a>
+  <a target="_top" class="no-checkmark"  href="met_console_warn.asp.html">warn()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="obj_history.asp.html">Window History</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_his_back.asp.html">back()</a>
+  <a target="_top" class="no-checkmark" href="met_his_forward.asp.html">forward()</a>
+  <a target="_top" class="no-checkmark" href="met_his_go.asp.html">go()</a>
+  <a target="_top" class="no-checkmark" href="prop_his_length.asp.html">length</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="obj_location.asp.html">Window Location</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_loc_assign.asp.html">assign()</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_hash.asp.html">hash</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_host.asp.html">host</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_hostname.asp.html">hostname</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_href.asp.html">href</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_origin.asp.html">origin</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_pathname.asp.html">pathname</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_port.asp.html">port</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_protocol.asp.html">protocol</a>
+  <a target="_top" class="no-checkmark" href="met_loc_reload.asp.html">reload()</a>
+  <a target="_top" class="no-checkmark" href="met_loc_replace.asp.html">replace()</a>
+  <a target="_top" class="no-checkmark" href="prop_loc_search.asp.html">search</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="obj_navigator.asp.html">Window Navigator</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="prop_nav_appcodename.asp.html">appCodeName</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_appname.asp.html">appName</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_appversion.asp.html">appVersion</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_cookieenabled.asp.html">cookieEnabled</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_geolocation.asp.html">geolocation</a>
+  <a target="_top" class="no-checkmark" href="met_nav_javaenabled.asp.html">javaEnabled()</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_language.asp.html">language</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_online.asp.html">onLine</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_platform.asp.html">platform</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_product.asp.html">product</a>
+  <a target="_top" class="no-checkmark" href="met_nav_taintenabled.asp.html">taintEnabled()</a>
+  <a target="_top" class="no-checkmark" href="prop_nav_useragent.asp.html">userAgent</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="obj_screen.asp.html">Window Screen</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="prop_screen_availheight.asp.html">availHeight</a>
+  <a target="_top" class="no-checkmark" href="prop_screen_availwidth.asp.html">availWidth</a>
+  <a target="_top" class="no-checkmark" href="prop_screen_colordepth.asp.html">colorDepth</a>
+  <a target="_top" class="no-checkmark" href="prop_screen_height.asp.html">height</a>
+  <a target="_top" class="no-checkmark" href="prop_screen_pixeldepth.asp.html">pixelDepth</a>
+  <a target="_top" class="no-checkmark" href="prop_screen_width.asp.html">width</a>
+</div>
+<br>
+<h2 class="left"><span class="left_h2">HTML DOM</span></h2>
+<a target="_top" class="no-checkmark" href="dom_obj_document.asp.html">HTML Documents</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark"  href="prop_document_activeelement.asp.html">activeElement</a>
+  <a target="_top" class="no-checkmark"  href="met_document_addeventlistener.asp.html">addEventListener()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_adoptnode.asp.html">adoptNode()</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_anchors.asp.html">anchors</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_applets.asp.html">applets</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_baseuri.asp.html">baseURI</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_body.asp.html">body</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_charset.asp.html">charset</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_characterset.asp.html">characterSet</a>
+  <a target="_top" class="no-checkmark"  href="met_doc_close.asp.html">close()</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_cookie.asp.html">cookie</a>
+  <a target="_top" class="no-checkmark"  href="met_document_createattribute.asp.html">createAttribute()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_createcomment.asp.html">createComment()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_createdocumentfragment.asp.html">createDocumentFragment()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_createelement.asp.html">createElement()</a>
+  <a target="_top" class="no-checkmark"  href="event_createevent.asp.html">createEvent()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_createtextnode.asp.html">createTextNode()</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_defaultview.asp.html">defaultView</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_designmode.asp.html">designMode</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_doctype.asp.html">doctype</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_documentelement.asp.html">documentElement</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_documentmode.asp.html">documentMode</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_documenturi.asp.html">documentURI</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_domain.asp.html">domain</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_domconfig.asp.html">domConfig</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_embeds.asp.html">embeds</a>
+  <a target="_top" class="no-checkmark"  href="met_document_execcommand.asp.html">execCommand()</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_forms.asp.html">forms</a>
+  <a target="_top" class="no-checkmark"  href="met_document_getelementbyid.asp.html">getElementById()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_getelementsbyclassname.asp.html">getElementsByClassName()</a>
+  <a target="_top" class="no-checkmark"  href="met_doc_getelementsbyname.asp.html">getElementsByName()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_getelementsbytagname.asp.html">getElementsByTagName()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_hasfocus.asp.html">hasFocus()</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_head.asp.html">head</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_images.asp.html">images</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_implementation.asp.html">implementation</a>
+  <a target="_top" class="no-checkmark"  href="met_document_importnode.asp.html">importNode()</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_inputencoding.asp.html">inputEncoding</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_lastmodified.asp.html">lastModified</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_links.asp.html">links</a>
+  <a target="_top" class="no-checkmark"  href="met_document_normalize.asp.html">normalize()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_normalizedocument.asp.html">normalizeDocument()</a>
+  <a target="_top" class="no-checkmark"  href="met_doc_open.asp.html">open()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_queryselector.asp.html">querySelector()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_queryselectorall.asp.html">querySelectorAll()</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_readystate.asp.html">readyState</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_referrer.asp.html">referrer</a>
+  <a target="_top" class="no-checkmark"  href="met_document_removeeventlistener.asp.html">removeEventListener()</a>
+  <a target="_top" class="no-checkmark"  href="met_document_renamenode.asp.html">renameNode()</a>
+  <a target="_top" class="no-checkmark"  href="coll_doc_scripts.asp.html">scripts</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_stricterrorchecking.asp.html">strictErrorChecking</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_title.asp.html">title</a>
+  <a target="_top" class="no-checkmark"  href="prop_doc_url.asp.html">URL</a>
+  <a target="_top" class="no-checkmark"  href="met_doc_write.asp.html">write()</a>
+  <a target="_top" class="no-checkmark"  href="met_doc_writeln.asp.html">writeln()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="dom_obj_all.asp.html">HTML Elements</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark"  href="prop_html_accesskey.asp.html">accessKey</a>
+  <a target="_top" class="no-checkmark" href="met_element_addeventlistener.asp.html">addEventListener()</a>
+  <a target="_top" class="no-checkmark" href="met_element_after.asp.html">after()</a>
+  <a target="_top" class="no-checkmark" href="met_element_append.asp.html">append()</a>  
+  <a target="_top" class="no-checkmark" href="met_node_appendchild.asp.html">appendChild()</a>
+  <a target="_top" class="no-checkmark" href="prop_node_attributes.asp.html">attributes</a>
+  <a target="_top" class="no-checkmark" href="met_element_before.asp.html">before()</a>  
+  <a target="_top" class="no-checkmark" href="met_html_blur.asp.html">blur()</a>
+  <a target="_top" class="no-checkmark" href="prop_element_childelementcount.asp.html">childElementCount</a>
+  <a target="_top" class="no-checkmark" href="prop_node_childnodes.asp.html">childNodes</a>
+  <a target="_top" class="no-checkmark" href="prop_element_children.asp.html">children</a>
+  <a target="_top" class="no-checkmark" href="prop_element_classlist.asp.html">classList</a>
+  <a target="_top" class="no-checkmark" href="prop_html_classname.asp.html">className</a>
+  <a target="_top" class="no-checkmark" href="met_html_click.asp.html">click()</a>
+  <a target="_top" class="no-checkmark" href="prop_element_clientheight.asp.html">clientHeight</a>
+  <a target="_top" class="no-checkmark" href="prop_element_clientleft.asp.html">clientLeft</a>
+  <a target="_top" class="no-checkmark" href="prop_element_clienttop.asp.html">clientTop</a>
+  <a target="_top" class="no-checkmark" href="prop_element_clientwidth.asp.html">clientWidth</a>
+  <a target="_top" class="no-checkmark" href="met_node_clonenode.asp.html">cloneNode()</a>
+  <a target="_top" class="no-checkmark" href="met_element_closest.asp.html">closest()</a>
+  <a target="_top" class="no-checkmark" href="met_node_comparedocumentposition.asp.html">compareDocumentPosition()</a>
+  <a target="_top" class="no-checkmark" href="met_node_contains.asp.html">contains()</a>
+  <a target="_top" class="no-checkmark" href="prop_html_contenteditable.asp.html">contentEditable</a>
+  <a target="_top" class="no-checkmark" href="prop_html_dir.asp.html">dir</a>
+  <a target="_top" class="no-checkmark" href="prop_node_firstchild.asp.html">firstChild</a>
+  <a target="_top" class="no-checkmark" href="prop_element_firstelementchild.asp.html">firstElementChild</a>
+  <a target="_top" class="no-checkmark" href="met_html_focus.asp.html">focus()</a>
+  <a target="_top" class="no-checkmark" href="met_element_getattribute.asp.html">getAttribute()</a>
+  <a target="_top" class="no-checkmark" href="met_element_getattributenode.asp.html">getAttributeNode()</a>
+  <a target="_top" class="no-checkmark" href="met_element_getboundingclientrect.asp.html">getBoundingClientRect()</a>
+  <a target="_top" class="no-checkmark" href="met_element_getelementsbyclassname.asp.html">getElementsByClassName()</a>
+  <a target="_top" class="no-checkmark" href="met_element_getelementsbytagname.asp.html">getElementsByTagName()</a>
+  <a target="_top" class="no-checkmark" href="met_element_hasattribute.asp.html">hasAttribute()</a>
+  <a target="_top" class="no-checkmark" href="met_node_hasattributes.asp.html">hasAttributes()</a>
+  <a target="_top" class="no-checkmark" href="met_node_haschildnodes.asp.html">hasChildNodes()</a>
+  <a target="_top" class="no-checkmark" href="prop_html_id.asp.html">id</a>
+  <a target="_top" class="no-checkmark" href="prop_html_innerhtml.asp.html">innerHTML</a>
+  <a target="_top" class="no-checkmark" href="prop_node_innertext.asp.html">innerText</a>
+  <a target="_top" class="no-checkmark" href="met_node_insertadjacentelement.asp.html">insertAdjacentElement()</a>
+  <a target="_top" class="no-checkmark" href="met_node_insertadjacenthtml.asp.html">insertAdjacentHTML()</a>
+  <a target="_top" class="no-checkmark" href="met_node_insertadjacenttext.asp.html">insertAdjacentText()</a>
+  <a target="_top" class="no-checkmark" href="met_node_insertbefore.asp.html">insertBefore()</a>
+  <a target="_top" class="no-checkmark" href="prop_html_iscontenteditable.asp.html">isContentEditable</a>
+  <a target="_top" class="no-checkmark" href="met_node_isdefaultnamespace.asp.html">isDefaultNamespace()</a>
+  <a target="_top" class="no-checkmark" href="met_node_isequalnode.asp.html">isEqualNode()</a>
+  <a target="_top" class="no-checkmark" href="met_node_issamenode.asp.html">isSameNode()</a>
+  <a target="_top" class="no-checkmark" href="met_node_issupported.asp.html">isSupported()</a>
+  <a target="_top" class="no-checkmark" href="prop_html_lang.asp.html">lang</a>
+  <a target="_top" class="no-checkmark" href="prop_node_lastchild.asp.html">lastChild</a>
+  <a target="_top" class="no-checkmark" href="prop_element_lastelementchild.asp.html">lastElementChild</a>
+  <a target="_top" class="no-checkmark" href="met_element_matches.asp.html">matches()</a>
+  <a target="_top" class="no-checkmark" href="prop_node_namespaceuri.asp.html">namespaceURI</a>
+  <a target="_top" class="no-checkmark" href="prop_node_nextsibling.asp.html">nextSibling</a>
+  <a target="_top" class="no-checkmark" href="prop_element_nextelementsibling.asp.html">nextElementSibling</a>
+  <a target="_top" class="no-checkmark" href="prop_node_nodename.asp.html">nodeName</a>
+  <a target="_top" class="no-checkmark" href="prop_node_nodetype.asp.html">nodeType</a>
+  <a target="_top" class="no-checkmark" href="prop_node_nodevalue.asp.html">nodeValue</a>
+  <a target="_top" class="no-checkmark" href="met_node_normalize.asp.html">normalize()</a>
+  <a target="_top" class="no-checkmark" href="prop_element_offsetheight.asp.html">offsetHeight</a>
+  <a target="_top" class="no-checkmark" href="prop_element_offsetwidth.asp.html">offsetWidth</a>
+  <a target="_top" class="no-checkmark" href="prop_element_offsetleft.asp.html">offsetLeft</a>
+  <a target="_top" class="no-checkmark" href="prop_element_offsetparent.asp.html">offsetParent</a>
+  <a target="_top" class="no-checkmark" href="prop_element_offsettop.asp.html">offsetTop</a>
+  <a target="_top" class="no-checkmark" href="prop_html_outerhtml.asp.html">outerHTML</a>
+  <a target="_top" class="no-checkmark" href="prop_node_outertext.asp.html">outerText</a>
+  <a target="_top" class="no-checkmark" href="prop_node_ownerdocument.asp.html">ownerDocument</a>
+  <a target="_top" class="no-checkmark" href="prop_node_parentnode.asp.html">parentNode</a>
+  <a target="_top" class="no-checkmark" href="prop_node_parentelement.asp.html">parentElement</a>
+  <a target="_top" class="no-checkmark" href="prop_node_previoussibling.asp.html">previousSibling</a>
+  <a target="_top" class="no-checkmark" href="prop_element_previouselementsibling.asp.html">previousElementSibling</a>
+  <a target="_top" class="no-checkmark" href="met_element_queryselector.asp.html">querySelector()</a>
+  <a target="_top" class="no-checkmark" href="met_element_queryselectorall.asp.html">querySelectorAll()</a>
+  <a target="_top" class="no-checkmark" href="met_element_remove.asp.html">remove()</a>
+  <a target="_top" class="no-checkmark" href="met_element_removeattribute.asp.html">removeAttribute()</a>
+  <a target="_top" class="no-checkmark" href="met_element_removeattributenode.asp.html">removeAttributeNode()</a>
+  <a target="_top" class="no-checkmark" href="met_node_removechild.asp.html">removeChild()</a>
+  <a target="_top" class="no-checkmark" href="met_element_removeeventlistener.asp.html">removeEventListener()</a>
+  <a target="_top" class="no-checkmark" href="met_node_replacechild.asp.html">replaceChild()</a>
+  <a target="_top" class="no-checkmark" href="prop_element_scrollheight.asp.html">scrollHeight</a>
+  <a target="_top" class="no-checkmark" href="met_element_scrollintoview.asp.html">scrollIntoView()</a>
+  <a target="_top" class="no-checkmark" href="prop_element_scrollleft.asp.html">scrollLeft</a>
+  <a target="_top" class="no-checkmark" href="prop_element_scrolltop.asp.html">scrollTop</a>
+  <a target="_top" class="no-checkmark" href="prop_element_scrollwidth.asp.html">scrollWidth</a>
+  <a target="_top" class="no-checkmark" href="met_element_setattribute.asp.html">setAttribute()</a>
+  <a target="_top" class="no-checkmark" href="met_element_setattributenode.asp.html">setAttributeNode()</a>
+  <a target="_top" class="no-checkmark" href="prop_html_style.asp.html">style</a>
+  <a target="_top" class="no-checkmark" href="prop_html_tabindex.asp.html">tabIndex</a>
+  <a target="_top" class="no-checkmark" href="prop_element_tagname.asp.html">tagName</a>
+  <a target="_top" class="no-checkmark" href="prop_node_textcontent.asp.html">textContent</a>
+  <a target="_top" class="no-checkmark" href="prop_html_title.asp.html">title</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="dom_obj_attributes.asp.html">HTML Attributes</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_namednodemap_getnameditem.asp.html">getNamedItem()</a>
+  <a target="_top" class="no-checkmark" href="prop_attr_isid.asp.html">isId</a>
+  <a target="_top" class="no-checkmark" href="met_namednodemap_item.asp.html">item()</a>
+  <a target="_top" class="no-checkmark" href="prop_namednodemap_length.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="prop_attr_name.asp.html">name</a>  
+  <a target="_top" class="no-checkmark" href="met_namednodemap_removenameditem.asp.html">removeNamedItem()</a>
+  <a target="_top" class="no-checkmark" href="met_namednodemap_setnameditem.asp.html">setNamedItem()</a>
+  <a target="_top" class="no-checkmark" href="prop_attr_specified.asp.html">specified</a>
+  <a target="_top" class="no-checkmark" href="prop_attr_value.asp.html">value</a>
+</div>
+
+
+<a target="_top" class="no-checkmark" href="dom_obj_htmlcollection.asp.html">HTML Collection</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_htmlcollection_item.asp.html">item()</a>
+  <a target="_top" class="no-checkmark" href="prop_htmlcollection_length.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="met_htmlcollection_nameditem.asp.html">namedItem()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="dom_obj_html_nodelist.asp.html">HTML NodeList</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_nodelist_entries.asp.html">entries()</a>
+  <a target="_top" class="no-checkmark" href="met_nodelist_forEach.asp.html">forEach()</a>
+  <a target="_top" class="no-checkmark" href="met_nodelist_item.asp.html">item()</a>
+  <a target="_top" class="no-checkmark" href="met_nodelist_keys.asp.html">keys()</a>
+  <a target="_top" class="no-checkmark" href="prop_nodelist_length.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="met_nodelist_values.asp.html">values()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="dom_obj_html_domtokenlist.asp.html">HTML DOMTokenList</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_add.asp.html">add()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_contains.asp.html">contains()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_entries.asp.html">entries()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_forEach.asp.html">forEach()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_item.asp.html">item()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_keys.asp.html">keys()</a>
+  <a target="_top" class="no-checkmark" href="prop_domtokenlist_length.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_remove.asp.html">remove()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_replace.asp.html">replace()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_supports.asp.html">supports()</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_toggle.asp.html">toggle()</a>
+  <a target="_top" class="no-checkmark" href="prop_domtokenlist_value.asp.html">value</a>
+  <a target="_top" class="no-checkmark" href="met_domtokenlist_values.asp.html">values()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="dom_obj_style.asp.html">HTML Styles</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="prop_style_aligncontent.asp.html">alignContent</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_alignitems.asp.html">alignItems</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_alignself.asp.html">alignSelf</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animation.asp.html">animation</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationdelay.asp.html">animationDelay</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationdirection.asp.html">animationDirection</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationduration.asp.html">animationDuration</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationfillmode.asp.html">animationFillMode</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationiterationcount.asp.html">animationIterationCount</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationname.asp.html">animationName</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationtimingfunction.asp.html">animationTimingFunction</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_animationplaystate.asp.html">animationPlayState</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_background.asp.html">background</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundattachment.asp.html">backgroundAttachment</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundclip.asp.html">backgroundClip</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundcolor.asp.html">backgroundColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundimage.asp.html">backgroundImage</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundorigin.asp.html">backgroundOrigin</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundposition.asp.html">backgroundPosition</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundrepeat.asp.html">backgroundRepeat</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backgroundsize.asp.html">backgroundSize</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_backfacevisibility.asp.html">backfaceVisibility</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_border.asp.html">border</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderbottom.asp.html">borderBottom</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderbottomcolor.asp.html">borderBottomColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderbottomleftradius.asp.html">borderBottomLeftRadius</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderbottomrightradius.asp.html">borderBottomRightRadius</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderbottomstyle.asp.html">borderBottomStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderbottomwidth.asp.html">borderBottomWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordercollapse.asp.html">borderCollapse</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordercolor.asp.html">borderColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderimage.asp.html">borderImage</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderimageoutset.asp.html">borderImageOutset</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderimagerepeat.asp.html">borderImageRepeat</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderimageslice.asp.html">borderImageSlice</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderimagesource.asp.html">borderImageSource</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderimagewidth.asp.html">borderImageWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderleft.asp.html">borderLeft</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderleftcolor.asp.html">borderLeftColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderleftstyle.asp.html">borderLeftStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderleftwidth.asp.html">borderLeftWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderradius.asp.html">borderRadius</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderright.asp.html">borderRight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderrightcolor.asp.html">borderRightColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderrightstyle.asp.html">borderRightStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderrightwidth.asp.html">borderRightWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderspacing.asp.html">borderSpacing</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderstyle.asp.html">borderStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordertop.asp.html">borderTop</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordertopcolor.asp.html">borderTopColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordertopleftradius.asp.html">borderTopLeftRadius</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordertoprightradius.asp.html">borderTopRightRadius</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordertopstyle.asp.html">borderTopStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bordertopwidth.asp.html">borderTopWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_borderwidth.asp.html">borderWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_bottom.asp.html">bottom</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_boxshadow.asp.html">boxShadow</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_boxsizing.asp.html">boxSizing</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_captionside.asp.html">captionSide</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_caretcolor.asp.html">caretColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_clear.asp.html">clear</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_clip.asp.html">clip</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_color.asp.html">color</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columncount.asp.html">columnCount</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnfill.asp.html">columnFill</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columngap.asp.html">columnGap</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnrule.asp.html">columnRule</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnrulecolor.asp.html">columnRuleColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnrulestyle.asp.html">columnRuleStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnrulewidth.asp.html">columnRuleWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columns.asp.html">columns</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnspan.asp.html">columnSpan</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_columnwidth.asp.html">columnWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_counterincrement.asp.html">counterIncrement</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_counterreset.asp.html">counterReset</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_cssfloat.asp.html">cssFloat</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_cursor.asp.html">cursor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_direction.asp.html">direction</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_display.asp.html">display</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_emptycells.asp.html">emptyCells</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_filter.asp.html">filter</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flex.asp.html">flex</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flexbasis.asp.html">flexBasis</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flexdirection.asp.html">flexDirection</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flexflow.asp.html">flexFlow</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flexgrow.asp.html">flexGrow</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flexshrink.asp.html">flexShrink</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_flexwrap.asp.html">flexWrap</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_font.asp.html">font</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_fontfamily.asp.html">fontFamily</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_fontsize.asp.html">fontSize</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_fontstyle.asp.html">fontStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_fontvariant.asp.html">fontVariant</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_fontweight.asp.html">fontWeight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_fontsizeadjust.asp.html">fontSizeAdjust</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_height.asp.html">height</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_isolation.asp.html">isolation</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_justifycontent.asp.html">justifyContent</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_left.asp.html">left</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_letterspacing.asp.html">letterSpacing</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_lineheight.asp.html">lineHeight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_liststyle.asp.html">listStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_liststyleimage.asp.html">listStyleImage</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_liststyleposition.asp.html">listStylePosition</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_liststyletype.asp.html">listStyleType</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_margin.asp.html">margin</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_marginbottom.asp.html">marginBottom</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_marginleft.asp.html">marginLeft</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_marginright.asp.html">marginRight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_margintop.asp.html">marginTop</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_maxheight.asp.html">maxHeight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_maxwidth.asp.html">maxWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_minheight.asp.html">minHeight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_minwidth.asp.html">minWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_objectfit.asp.html">objectFit</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_objectposition.asp.html">objectPosition</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_opacity.asp.html">opacity</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_order.asp.html">order</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_orphans.asp.html">orphans</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_outline.asp.html">outline</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_outlinecolor.asp.html">outlineColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_outlineoffset.asp.html">outlineOffset</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_outlinestyle.asp.html">outlineStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_outlinewidth.asp.html">outlineWidth</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_overflow.asp.html">overflow</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_overflowx.asp.html">overflowX</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_overflowy.asp.html">overflowY</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_padding.asp.html">padding</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_paddingbottom.asp.html">paddingBottom</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_paddingleft.asp.html">paddingLeft</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_paddingright.asp.html">paddingRight</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_paddingtop.asp.html">paddingTop</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_pagebreakafter.asp.html">pageBreakAfter</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_pagebreakbefore.asp.html">pageBreakBefore</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_pagebreakinside.asp.html">pageBreakInside</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_perspective.asp.html">perspective</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_perspectiveorigin.asp.html">perspectiveOrigin</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_position.asp.html">position</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_quotes.asp.html">quotes</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_resize.asp.html">resize</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_right.asp.html">right</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_scrollbehavior.asp.html">scrollBehavior</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_tablelayout.asp.html">tableLayout</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_tabsize.asp.html">tabSize</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textalign.asp.html">textAlign</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textalignlast.asp.html">textAlignLast</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textdecoration.asp.html">textDecoration</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textdecorationcolor.asp.html">textDecorationColor</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textdecorationline.asp.html">textDecorationLine</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textdecorationstyle.asp.html">textDecorationStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textindent.asp.html">textIndent</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textoverflow.asp.html">textOverflow</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_textshadow.asp.html">textShadow</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_texttransform.asp.html">textTransform</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_top.asp.html">top</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transform.asp.html">transform</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transformorigin.asp.html">transformOrigin</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transformstyle.asp.html">transformStyle</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transition.asp.html">transition</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transitionproperty.asp.html">transitionProperty</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transitionduration.asp.html">transitionDuration</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transitiontimingfunction.asp.html">transitionTimingFunction</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_transitiondelay.asp.html">transitionDelay</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_unicodebidi.asp.html">unicodeBidi</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_userselect.asp.html">userSelect</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_verticalalign.asp.html">verticalAlign</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_visibility.asp.html">visibility</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_width.asp.html">width</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_wordbreak.asp.html">wordBreak</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_wordspacing.asp.html">wordSpacing</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_wordwrap.asp.html">wordWrap</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_widows.asp.html">widows</a>  
+  <a target="_top" class="no-checkmark" href="prop_style_zindex.asp.html">zIndex</a>  
+</div>
+<br>
+<h2 class="left"><span class="left_h2">HTML Events</span></h2>
+<a target="_top" class="no-checkmark" href="dom_obj_event.asp.html">HTML Events</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="event_onabort_media.asp.html">abort</a>
+  <a target="_top" class="no-checkmark" href="event_onafterprint.asp.html">afterprint</a>
+  <a target="_top" class="no-checkmark" href="event_animationend.asp.html">animationend</a>
+  <a target="_top" class="no-checkmark" href="event_animationiteration.asp.html">animationiteration</a>
+  <a target="_top" class="no-checkmark" href="event_animationstart.asp.html">animationstart</a>
+  <a target="_top" class="no-checkmark" href="event_onbeforeprint.asp.html">beforeprint</a>
+  <a target="_top" class="no-checkmark" href="event_onbeforeunload.asp.html">beforeunload</a>
+  <a target="_top" class="no-checkmark" href="event_onblur.asp.html">blur</a>
+  <a target="_top" class="no-checkmark" href="event_oncanplay.asp.html">canplay</a>
+  <a target="_top" class="no-checkmark" href="event_oncanplaythrough.asp.html">canplaythrough</a>
+  <a target="_top" class="no-checkmark" href="event_onchange.asp.html">change</a>
+  <a target="_top" class="no-checkmark" href="event_onclick.asp.html">click</a>
+  <a target="_top" class="no-checkmark" href="event_oncontextmenu.asp.html">contextmenu</a>
+  <a target="_top" class="no-checkmark" href="event_oncopy.asp.html">copy</a>
+  <a target="_top" class="no-checkmark" href="event_oncut.asp.html">cut</a>
+  <a target="_top" class="no-checkmark" href="event_ondblclick.asp.html">dblclick</a>
+  <a target="_top" class="no-checkmark" href="event_ondrag.asp.html">drag</a>
+  <a target="_top" class="no-checkmark" href="event_ondragend.asp.html">dragend</a>
+  <a target="_top" class="no-checkmark" href="event_ondragenter.asp.html">dragenter</a>
+  <a target="_top" class="no-checkmark" href="event_ondragleave.asp.html">dragleave</a>
+  <a target="_top" class="no-checkmark" href="event_ondragover.asp.html">dragover</a>
+  <a target="_top" class="no-checkmark" href="event_ondragstart.asp.html">dragstart</a>
+  <a target="_top" class="no-checkmark" href="event_ondrop.asp.html">drop</a>
+  <a target="_top" class="no-checkmark" href="event_ondurationchange.asp.html">durationchange</a>
+  <a target="_top" class="no-checkmark" href="event_onended.asp.html">ended</a>
+  <a target="_top" class="no-checkmark" href="event_onerror.asp.html">error</a>
+  <a target="_top" class="no-checkmark" href="event_onfocus.asp.html">focus</a>
+  <a target="_top" class="no-checkmark" href="event_onfocusin.asp.html">focusin</a>
+  <a target="_top" class="no-checkmark" href="event_onfocusout.asp.html">focusout</a>
+  <a target="_top" class="no-checkmark" href="event_fullscreenchange.asp.html">fullscreenchange</a>
+  <a target="_top" class="no-checkmark" href="event_fullscreenerror.asp.html">fullscreenerror</a>
+  <a target="_top" class="no-checkmark" href="event_onhashchange.asp.html">hashchange</a>
+  <a target="_top" class="no-checkmark" href="event_oninput.asp.html">input</a>
+  <a target="_top" class="no-checkmark" href="event_oninvalid.asp.html">invalid</a>
+  <a target="_top" class="no-checkmark" href="event_onkeydown.asp.html">keydown</a>
+  <a target="_top" class="no-checkmark" href="event_onkeypress.asp.html">keypress</a>
+  <a target="_top" class="no-checkmark" href="event_onkeyup.asp.html">keyup</a>
+  <a target="_top" class="no-checkmark" href="event_onload.asp.html">load</a>
+  <a target="_top" class="no-checkmark" href="event_onloadeddata.asp.html">loadeddata</a>
+  <a target="_top" class="no-checkmark" href="event_onloadedmetadata.asp.html">loadedmetadata</a>
+  <a target="_top" class="no-checkmark" href="event_onloadstart.asp.html">loadstart</a>
+  <a target="_top" class="no-checkmark" href="event_onmessage_sse.asp.html">message</a>
+  <a target="_top" class="no-checkmark" href="event_onmousedown.asp.html">mousedown</a>
+  <a target="_top" class="no-checkmark" href="event_onmouseenter.asp.html">mouseenter</a>
+  <a target="_top" class="no-checkmark" href="event_onmouseleave.asp.html">mouseleave</a>
+  <a target="_top" class="no-checkmark" href="event_onmousemove.asp.html">mousemove</a>
+  <a target="_top" class="no-checkmark" href="event_onmouseover.asp.html">mouseover</a>
+  <a target="_top" class="no-checkmark" href="event_onmouseout.asp.html">mouseout</a>
+  <a target="_top" class="no-checkmark" href="event_onmouseup.asp.html">mouseup</a>
+  <a target="_top" class="no-checkmark" href="event_onoffline.asp.html">offline</a>
+  <a target="_top" class="no-checkmark" href="event_ononline.asp.html">online</a>
+  <a target="_top" class="no-checkmark" href="event_onopen_sse.asp.html">open</a>
+  <a target="_top" class="no-checkmark" href="event_onpagehide.asp.html">pagehide</a>
+  <a target="_top" class="no-checkmark" href="event_onpageshow.asp.html">pageshow</a>
+  <a target="_top" class="no-checkmark" href="event_onpaste.asp.html">paste</a>
+  <a target="_top" class="no-checkmark" href="event_onpause.asp.html">pause</a>
+  <a target="_top" class="no-checkmark" href="event_onplay.asp.html">play</a>
+  <a target="_top" class="no-checkmark" href="event_onplaying.asp.html">playing</a>
+  <a target="_top" class="no-checkmark" href="event_onprogress.asp.html">progress</a>
+  <a target="_top" class="no-checkmark" href="event_onratechange.asp.html">ratechange</a>
+  <a target="_top" class="no-checkmark" href="event_onresize.asp.html">resize</a>
+  <a target="_top" class="no-checkmark" href="event_onreset.asp.html">reset</a>
+  <a target="_top" class="no-checkmark" href="event_onscroll.asp.html">scroll</a>
+  <a target="_top" class="no-checkmark" href="event_onsearch.asp.html">search</a>
+  <a target="_top" class="no-checkmark" href="event_onseeked.asp.html">seeked</a>
+  <a target="_top" class="no-checkmark" href="event_onseeking.asp.html">seeking</a>
+  <a target="_top" class="no-checkmark" href="event_onselect.asp.html">select</a>
+  <a target="_top" class="no-checkmark" href="event_onshow.asp.html">show</a>
+  <a target="_top" class="no-checkmark" href="event_onstalled.asp.html">stalled</a>
+  <a target="_top" class="no-checkmark" href="event_onsubmit.asp.html">submit</a>
+  <a target="_top" class="no-checkmark" href="event_onsuspend.asp.html">suspend</a>
+  <a target="_top" class="no-checkmark" href="event_ontimeupdate.asp.html">timeupdate</a>
+  <a target="_top" class="no-checkmark" href="event_ontoggle.asp.html">toggle</a>
+  <a target="_top" class="no-checkmark" href="event_touchcancel.asp.html">touchcancel</a>
+  <a target="_top" class="no-checkmark" href="event_touchend.asp.html">touchend</a>
+  <a target="_top" class="no-checkmark" href="event_touchmove.asp.html">touchmove</a>
+  <a target="_top" class="no-checkmark" href="event_touchstart.asp.html">touchstart</a>
+  <a target="_top" class="no-checkmark" href="event_transitionend.asp.html">transitionend</a>
+  <a target="_top" class="no-checkmark" href="event_onunload.asp.html">unload</a>
+  <a target="_top" class="no-checkmark" href="event_onvolumechange.asp.html">volumechange</a>
+  <a target="_top" class="no-checkmark" href="event_onwaiting.asp.html">waiting</a>
+  <a target="_top" class="no-checkmark" href="event_onwheel.asp.html">wheel</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="obj_events.asp.html">HTML Event Objects</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a href="obj_animationevent.asp.html">Animation Events</a>
+  <a href="obj_clipboardevent.asp.html">Clipboard Events</a>
+  <a href="obj_dragevent.asp.html">Drag Events</a>
+  <a href="obj_event.asp.html">Events</a>
+  <a href="obj_focusevent.asp.html">Focus Events</a>
+  <a href="obj_hashchangeevent.asp.html">HashChange Events</a>
+  <a href="obj_inputevent.asp.html">Input Events</a>
+  <a href="obj_keyboardevent.asp.html">Keyboard Events</a>
+  <a href="obj_mouseevent.asp.html">Mouse Events</a>
+  <a href="obj_pagetransitionevent.asp.html">PageTransition Events</a>
+  <a href="obj_popstateevent.asp.html">PopState Events</a>
+  <a href="obj_progressevent.asp.html">Progress Events</a>
+  <a href="obj_storageevent.asp.html">Storage Events</a>
+  <a href="obj_touchevent.asp.html">Touch Events</a>
+  <a href="obj_transitionevent.asp.html">Transition Events</a>
+  <a href="obj_uievent.asp.html">Ui Events</a>
+  <a href="obj_wheelevent.asp.html">Wheel Events</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="dom_obj_event_prop.asp.html">HTML Event Properties</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="event_altkey.asp.html">altKey (Mouse)</a>
+  <a target="_top" class="no-checkmark" href="event_key_altkey.asp.html">altKey (Key)</a>
+  <a target="_top" class="no-checkmark" href="event_animation_animationname.asp.html">animationName</a>
+  <a target="_top" class="no-checkmark" href="event_bubbles.asp.html">bubbles</a>
+  <a target="_top" class="no-checkmark" href="event_button.asp.html">button</a>
+  <a target="_top" class="no-checkmark" href="event_buttons.asp.html">buttons</a>
+  <a target="_top" class="no-checkmark" href="event_cancelable.asp.html">cancelable</a>
+  <a target="_top" class="no-checkmark" href="event_key_charcode.asp.html">charCode</a>
+  <a target="_top" class="no-checkmark" href="event_clientx.asp.html">clientX</a>
+  <a target="_top" class="no-checkmark" href="event_clienty.asp.html">clientY</a>
+  <a target="_top" class="no-checkmark" href="event_key_code.asp.html">code</a>
+  <a target="_top" class="no-checkmark" href="event_ctrlkey.asp.html">ctrlKey (Mouse)</a>
+  <a target="_top" class="no-checkmark" href="event_key_ctrlkey.asp.html">ctrlKey (Key)</a>
+  <a target="_top" class="no-checkmark" href="event_currenttarget.asp.html">currentTarget</a>
+  <a target="_top" class="no-checkmark" href="event_inputevent_data.asp.html">data</a>
+  <a target="_top" class="no-checkmark" href="event_defaultprevented.asp.html">defaultPrevented</a>
+  <a target="_top" class="no-checkmark" href="event_wheel_deltax.asp.html">deltaX</a>
+  <a target="_top" class="no-checkmark" href="event_wheel_deltay.asp.html">deltaY</a>
+  <a target="_top" class="no-checkmark" href="event_wheel_deltaz.asp.html">deltaZ</a>
+  <a target="_top" class="no-checkmark" href="event_wheel_deltamode.asp.html">deltaMode</a>
+  <a target="_top" class="no-checkmark" href="event_detail.asp.html">detail</a>
+  <a target="_top" class="no-checkmark" href="event_animation_elapsedtime.asp.html">elapsedTime</a>
+  <a target="_top" class="no-checkmark" href="event_transition_elapsedtime.asp.html">elapsedTime</a>
+  <a target="_top" class="no-checkmark" href="event_eventphase.asp.html">eventPhase</a>
+  <a target="_top" class="no-checkmark" href="event_inputevent_inputtype.asp.html">inputType</a>
+  <a target="_top" class="no-checkmark" href="event_istrusted.asp.html">isTrusted</a>
+  <a target="_top" class="no-checkmark" href="event_key_key.asp.html">key</a>
+  <a target="_top" class="no-checkmark" href="event_key_keycode.asp.html">keyCode</a>
+  <a target="_top" class="no-checkmark" href="event_key_location.asp.html">location</a>
+  <a target="_top" class="no-checkmark" href="event_metakey.asp.html">metaKey (Mouse)</a>
+  <a target="_top" class="no-checkmark" href="event_key_metakey.asp.html">metaKey (Key)</a>
+  <a target="_top" class="no-checkmark" href="event_hashchange_newurl.asp.html">newURL</a>
+  <a target="_top" class="no-checkmark" href="event_hashchange_oldurl.asp.html">oldURL</a>
+  <a target="_top" class="no-checkmark" href="event_offsetx.asp.html">offsetX</a>
+  <a target="_top" class="no-checkmark" href="event_offsety.asp.html">offsetY</a>
+  <a target="_top" class="no-checkmark" href="event_pagex.asp.html">pageX</a>
+  <a target="_top" class="no-checkmark" href="event_pagey.asp.html">pageY</a>
+  <a target="_top" class="no-checkmark" href="event_pagetransition_persisted.asp.html">persisted</a>
+  <a target="_top" class="no-checkmark" href="event_transition_propertyName.asp.html">propertyName</a>
+  <a target="_top" class="no-checkmark" href="event_relatedtarget.asp.html">relatedTarget</a>
+  <a target="_top" class="no-checkmark" href="event_focus_relatedtarget.asp.html">relatedTarget</a>
+  <a target="_top" class="no-checkmark" href="event_screenx.asp.html">screenX</a>
+  <a target="_top" class="no-checkmark" href="event_screeny.asp.html">screenY</a>
+  <a target="_top" class="no-checkmark" href="event_shiftkey.asp.html">shiftKey (Mouse)</a>
+  <a target="_top" class="no-checkmark" href="event_key_shiftkey.asp.html">shiftKey (Key)</a>
+  <a target="_top" class="no-checkmark" href="event_target.asp.html">target</a>
+  <a target="_top" class="no-checkmark" href="event_touch_targettouches.asp.html">targetTouches</a>
+  <a target="_top" class="no-checkmark" href="event_timestamp.asp.html">timeStamp</a>
+  <a target="_top" class="no-checkmark" href="event_touch_touches.asp.html">touches</a>
+  <a target="_top" class="no-checkmark" href="event_type.asp.html">type</a>
+  <a target="_top" class="no-checkmark" href="event_which.asp.html">which (Mouse)</a>
+  <a target="_top" class="no-checkmark" href="event_key_which.asp.html">which (Key)</a>
+  <a target="_top" class="no-checkmark" href="event_view.asp.html">view</a>
+</div>
+<a target="_top" class="no-checkmark" href="dom_obj_event_methods.asp.html">HTML Event Methods</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="event_mouse_getmodifierstate.asp.html">getModifierState()</a>
+  <a target="_top" class="no-checkmark" href="event_preventdefault.asp.html">preventDefault()</a>
+  <a target="_top" class="no-checkmark" href="event_stopimmediatepropagation.asp.html">stopImmidiatePropagation()</a>
+  <a target="_top" class="no-checkmark" href="event_stoppropagation.asp.html">stopPropagation()</a>
+</div>
+<br>
+<h2 class="left"><span class="left_h2">Web APIs</span></h2>
+<a target="_top" class="no-checkmark" href="api_canvas.asp.html">API Canvas</a>
+<a target="_top" class="no-checkmark" href="api_console.asp.html">API Console</a>
+<a target="_top" class="no-checkmark" href="api_fetch.asp.html">API Fetch</a>
+<a target="_top" class="no-checkmark" href="api_fullscreen.asp.html">API Fullscreen</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_element_exitfullscreen.asp.html">exitFullscreen()</a>
+  <a target="_top" class="no-checkmark"  href="prop_document_fullscreenelement.asp.html">fullscreenElement</a>
+  <a target="_top" class="no-checkmark"  href="met_document_fullscreenenabled.asp.html">fullscreenEnabled()</a>
+  <a target="_top" class="no-checkmark" href="met_element_requestfullscreen.asp.html">requestFullscreen()</a>
+</div>
+<a target="_top" class="no-checkmark" href="api_geolocation.asp.html">API Geolocation</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="prop_geo_coordinates.asp.html">coordinates</a>
+  <a target="_top" class="no-checkmark" href="met_geo_getcurrentposition.asp.html">getCurrentPosition()</a>  
+  <a target="_top" class="no-checkmark" href="prop_geo_position.asp.html">position</a>
+</div>
+<a target="_top" class="no-checkmark" href="api_history.asp.html">API History</a>
+<a target="_top" class="no-checkmark" href="api_mediaquerylist.asp.html">API MediaQueryList</a>
+<a target="_top" class="no-checkmark" href="api_storage.asp.html">API Storage</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_storage_clear.asp.html">clear()</a>
+  <a target="_top" class="no-checkmark" href="met_storage_getitem.asp.html">getItem()</a>
+  <a target="_top" class="no-checkmark" href="met_storage_key.asp.html">key()</a>
+  <a target="_top" class="no-checkmark" href="prop_storage_length.asp.html">length</a>
+  <a target="_top" class="no-checkmark" href="met_storage_removeitem.asp.html">removeItem()</a>
+  <a target="_top" class="no-checkmark" href="met_storage_setitem.asp.html">setItem()</a>
+</div>
+<a target="_top" class="no-checkmark" href="api_validation.asp.html">API Validation</a>
+<a target="_top" class="no-checkmark" href="api_web.asp.html">API Web</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a target="_top" class="no-checkmark" href="met_crypto_getrandomvalues.asp.html">crypto.getRandomNumber()</a>
+</div>
+<br>
+<h2 class="left"><span class="left_h2">HTML Objects</span></h2>
+<a target="_top" class="no-checkmark" href="dom_obj_anchor.asp.html">&lt;a&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_abbr.asp.html">&lt;abbr&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_address.asp.html">&lt;address&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_area.asp.html">&lt;area&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_article.asp.html">&lt;article&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_aside.asp.html">&lt;aside&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_audio.asp.html">&lt;audio&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_b.asp.html">&lt;b&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_base.asp.html">&lt;base&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_bdo.asp.html">&lt;bdo&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_blockquote.asp.html">&lt;blockquote&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_body.asp.html">&lt;body&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_br.asp.html">&lt;br&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_pushbutton.asp.html">&lt;button&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_canvas.asp.html">&lt;canvas&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_caption.asp.html">&lt;caption&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_cite.asp.html">&lt;cite&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_code.asp.html">&lt;code&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_col.asp.html">&lt;col&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_colgroup.asp.html">&lt;colgroup&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_datalist.asp.html">&lt;datalist&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_dd.asp.html">&lt;dd&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_del.asp.html">&lt;del&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_details.asp.html">&lt;details&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_dfn.asp.html">&lt;dfn&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_dialog.asp.html">&lt;dialog&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_div.asp.html">&lt;div&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_dl.asp.html">&lt;dl&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_dt.asp.html">&lt;dt&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_em.asp.html">&lt;em&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_embed.asp.html">&lt;embed&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_fieldset.asp.html">&lt;fieldset&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_figcaption.asp.html">&lt;figcaption&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_figure.asp.html">&lt;figure&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_footer.asp.html">&lt;footer&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_form.asp.html">&lt;form&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_head.asp.html">&lt;head&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_header.asp.html">&lt;header&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_heading.asp.html">&lt;h1&gt; - &lt;h6&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_hr.asp.html">&lt;hr&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_html.asp.html">&lt;html&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_i.asp.html">&lt;i&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_frame.asp.html">&lt;iframe&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_image.asp.html">&lt;img&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_ins.asp.html">&lt;ins&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_button.asp.html">&lt;input&gt; button</a>
+<a target="_top" class="no-checkmark" href="dom_obj_checkbox.asp.html">&lt;input&gt; checkbox</a>
+<a target="_top" class="no-checkmark" href="dom_obj_color.asp.html">&lt;input&gt; color</a>
+<a target="_top" class="no-checkmark" href="dom_obj_date.asp.html">&lt;input&gt; date</a>
+<a target="_top" class="no-checkmark" href="dom_obj_datetime.asp.html">&lt;input&gt; datetime</a>
+<a target="_top" class="no-checkmark" href="dom_obj_datetime-local.asp.html">&lt;input&gt; datetime-local</a>
+<a target="_top" class="no-checkmark" href="dom_obj_email.asp.html">&lt;input&gt; email</a>
+<a target="_top" class="no-checkmark" href="dom_obj_fileupload.asp.html">&lt;input&gt; file</a>
+<a target="_top" class="no-checkmark" href="dom_obj_hidden.asp.html">&lt;input&gt; hidden</a>
+<a target="_top" class="no-checkmark" href="dom_obj_input_image.asp.html">&lt;input&gt; image</a>
+<a target="_top" class="no-checkmark" href="dom_obj_month.asp.html">&lt;input&gt; month</a>
+<a target="_top" class="no-checkmark" href="dom_obj_number.asp.html">&lt;input&gt; number</a>
+<a target="_top" class="no-checkmark" href="dom_obj_password.asp.html">&lt;input&gt; password</a>
+<a target="_top" class="no-checkmark" href="dom_obj_radio.asp.html">&lt;input&gt; radio</a>
+<a target="_top" class="no-checkmark" href="dom_obj_range.asp.html">&lt;input&gt; range</a>
+<a target="_top" class="no-checkmark" href="dom_obj_reset.asp.html">&lt;input&gt; reset</a>
+<a target="_top" class="no-checkmark" href="dom_obj_search.asp.html">&lt;input&gt; search</a>
+<a target="_top" class="no-checkmark" href="dom_obj_submit.asp.html">&lt;input&gt; submit</a>
+<a target="_top" class="no-checkmark" href="dom_obj_text.asp.html">&lt;input&gt; text</a>
+<a target="_top" class="no-checkmark" href="dom_obj_input_time.asp.html">&lt;input&gt; time</a>
+<a target="_top" class="no-checkmark" href="dom_obj_url.asp.html">&lt;input&gt; url</a>
+<a target="_top" class="no-checkmark" href="dom_obj_week.asp.html">&lt;input&gt; week</a>
+<a target="_top" class="no-checkmark" href="dom_obj_kbd.asp.html">&lt;kbd&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_label.asp.html">&lt;label&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_legend.asp.html">&lt;legend&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_li.asp.html">&lt;li&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_link.asp.html">&lt;link&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_map.asp.html">&lt;map&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_mark.asp.html">&lt;mark&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_menu.asp.html">&lt;menu&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_menuitem.asp.html">&lt;menuitem&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_meta.asp.html">&lt;meta&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_meter.asp.html">&lt;meter&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_nav.asp.html">&lt;nav&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_object.asp.html">&lt;object&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_ol.asp.html">&lt;ol&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_optgroup.asp.html">&lt;optgroup&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_option.asp.html">&lt;option&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_output.asp.html">&lt;output&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_paragraph.asp.html">&lt;p&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_param.asp.html">&lt;param&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_pre.asp.html">&lt;pre&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_progress.asp.html">&lt;progress&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_quote.asp.html">&lt;q&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_s.asp.html">&lt;s&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_samp.asp.html">&lt;samp&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_script.asp.html">&lt;script&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_section.asp.html">&lt;section&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_select.asp.html">&lt;select&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_small.asp.html">&lt;small&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_source.asp.html">&lt;source&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_span.asp.html">&lt;span&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_strong.asp.html">&lt;strong&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_style.asp.html">&lt;style&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_sub.asp.html">&lt;sub&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_summary.asp.html">&lt;summary&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_sup.asp.html">&lt;sup&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_table.asp.html">&lt;table&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_tbody.asp.html">&lt;tbody&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_tabledata.asp.html">&lt;td&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_tfoot.asp.html">&lt;tfoot&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_tablehead.asp.html">&lt;th&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_thead.asp.html">&lt;thead&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_tablerow.asp.html">&lt;tr&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_textarea.asp.html">&lt;textarea&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_time.asp.html">&lt;time&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_title.asp.html">&lt;title&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_track.asp.html">&lt;track&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_u.asp.html">&lt;u&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_ul.asp.html">&lt;ul&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_var.asp.html">&lt;var&gt;</a>
+<a target="_top" class="no-checkmark" href="dom_obj_video.asp.html">&lt;video&gt;</a>
+<br>
+<h2 class="left"><span class="left_h2">Other References</span></h2>
+<a target="_top" class="no-checkmark" href="obj_cssstyledeclaration.asp.html">CSSStyleDeclaration</a>
+<div class="ref_overview" style="margin-left:10px;">
+  <a class="no-checkmark" href="prop_cssstyle_csstext.asp.html">cssText</a>
+  <a class="no-checkmark" href="met_cssstyle_getpropertypriority.asp.html">getPropertyPriority()</a>
+  <a class="no-checkmark" href="met_cssstyle_getpropertyvalue.asp.html">getPropertyValue()</a>
+  <a class="no-checkmark" href="met_cssstyle_item.asp.html">item()</a>
+  <a class="no-checkmark" href="prop_cssstyle_length.asp.html">length</a>
+  <a class="no-checkmark" href="prop_cssstyle_parentrule.asp.html">parentRule</a>
+  <a class="no-checkmark" href="met_cssstyle_removeproperty.asp.html">removeProperty()</a>
+  <a class="no-checkmark" href="met_cssstyle_setproperty.asp.html">setProperty()</a>
+</div>
+
+<a target="_top" class="no-checkmark" href="jsref_type_conversion.asp.html">JS Conversion</a>
+<br>
+<!--</div>-->
+      <br><br>
+    </div>
+  </div>
+</div>
+<div class='w3-main w3-light-grey' id='belowtopnav' style='margin-left:250px;'>
+
+  <div class='w3-row w3-white'>
+
+    <div class='w3-col l10 m12' id='main'>
+      <div id='mainLeaderboard' style='overflow:hidden;'>
+        <!-- MainLeaderboard-->
+      </div>
+
+
+<h1>Canvas <span class="color_h1">clip()</span> Method</h1>
+<p><a href="api_canvas.asp.html" class="w3-btn w3-white w3-border" title="Canvas Reference">&#10094; Canvas Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Clip a 200*120 pixels region from the context. Then, draw a 
+red rectangle. Only the part of the red rectangle that is inside the clipped 
+area is visible:</p>
+
+<p>Without clip():</p>
+<canvas id="myCanvas1" width="300" height="150" style="border:1px solid grey"></canvas>
+
+<p>With clip():</p>
+<canvas id="myCanvas2" width="300" height="150" style="border:1px solid grey"></canvas>
+
+<script>
+const c1 = document.getElementById("myCanvas1");
+const ctx1 = c1.getContext("2d");
+// Draw a rectangle
+ctx1.rect(50, 20, 200, 120);
+ctx1.stroke();
+// Draw red rectangle
+ctx1.fillStyle = "red";
+ctx1.fillRect(0, 0, 150, 100);
+
+const c2 = document.getElementById("myCanvas2");
+const ctx2 = c2.getContext("2d");
+// Clip a rectangular area
+ctx2.rect(50, 20, 200, 120);
+ctx2.stroke();
+ctx2.clip();
+// Draw red rectangle after clip()
+ctx2.fillStyle = "red";
+ctx2.fillRect(0, 0, 150, 100);
+</script> 
+
+<p>JavaScript:</p>
+<div class="w3-code notranslate jsHigh">
+const canvas = document.getElementById(&quot;myCanvas&quot;);<br>
+const ctx = canvas.getContext(&quot;2d&quot;);<br>
+<br>
+// Clip a rectangular area<br>
+ctx.rect(50, 20, 200, 120);<br>
+ctx.stroke();<br>
+ctx.clip();<br>
+<br>
+// Draw red rectangle after clip()<br>
+ctx.fillStyle = &quot;red&quot;;<br>
+ctx.fillRect(0, 0, 150, 100);<br>
+&lt;/script&gt;</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp%3Ffilename=tryhtml5_canvas_clip.html" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Description</h2>
+<p>The <code class="w3-codespan">clip()</code> method clips a region of any size from the original context.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>When a region is clipped, future drawing is limited to 
+the clipped region.</p>
+<p>However, you can save the context settings with the save() method before using 
+the clip() method, and use restore() to restore it later.</p>
+</div>
+
+<hr>
+<h2>Syntax</h2>
+<table class="ws-table-all">
+  <tr>
+    <td><i>context</i>.clip();</td>
+  </tr>
+</table>
+<hr>
+<h2>Parameters</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <td>NONE</td>
+  </tr>
+</table>
+<hr>
+<h2>Return Value</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <td>NONE</td>
+  </tr>
+</table>
+
+<hr>
+<h2>Browser Support</h2>
+<p>The <code class="w3-codespan">&lt;canvas&gt;</code> element is an HTML5 standard (2014).</p>
+<p><code class="w3-codespan">clip()</code> is supported in all modern browsers:</p>
+<table class="browserref notranslate" style="font-size:14px">
+  <tr style="height:60px">
+    <th style="width:16.6%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16.6%;" class="bsEdge" title="Edge"></th>
+    <th style="width:16.6%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16.6%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16.6%;" class="bsOpera" title="Opera"></th>                
+    <th style="width:16.6%;" class="bsIE" title="Internet Explorer"></th>
+  </tr>
+  <tr>
+    <td style="padding-left:2px;padding-right:2px">Chrome</td>
+    <td style="padding-left:2px;padding-right:2px">Edge</td>
+    <td style="padding-left:2px;padding-right:2px">Firefox</td>
+    <td style="padding-left:2px;padding-right:2px">Safari</td>
+    <td style="padding-left:2px;padding-right:2px">Opera</td>
+    <td style="padding-left:2px;padding-right:2px">IE</td>
+  </tr>
+  <tr>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">9-11</td>
+  </tr>
+</table>
+
+<hr>
+<a href="api_canvas.asp.html" class="w3-btn w3-white w3-border" title="Canvas Reference">&#10094; Canvas Reference</a>
+<div
+  id="user-profile-bottom-wrapper"
+  class="user-profile-bottom-wrapper"
+>
+  <div class="user-authenticated w3-hide">
+    <a
+      href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com"
+      class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile"
+      title="Your W3Schools Profile"
+      aria-label="Your W3Schools Profile"
+      target="_top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 2048 2048"
+        class="user-profile-icon"
+        aria-label="Your W3Schools Profile Icon"
+      >
+        <path
+          d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155"
+          stroke="none"
+          fill="#2a93fb"
+          fill-rule="evenodd"
+        />
+        <path
+          d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584"
+          stroke="none"
+          fill="#0aaa8a"
+          fill-rule="evenodd"
+        />
+      </svg>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="user-progress"
+        aria-label="Your W3Schools Profile Progress"
+      >
+        <path
+          class="user-progress-circle1"
+          fill="none"
+          d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"
+        ></path>
+        <path
+          class="user-progress-circle2"
+          fill="none"
+          d="M 26 15 A 20 20 0 0 0 26 15"
+        ></path>
+      </svg>
+
+      <span class="user-progress-star">&#x2605;</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="-background-image -variant-t2">&nbsp;</div>
+
+  <div class="-inner-wrapper">
+    <div class="-main-section">
+      <div class="-inner-wrapper">
+        <div class="-headline">Track your progress - it's free!</div>
+        <div class="-body">
+          <div class="-progress-bar">
+            <div class="-slider" style="width: 20%;">&nbsp;</div>    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="-right-side-section">
+      <div class="-user-session-btns">
+        <a
+          href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com"
+          class="-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-bottom ga-bottom-login"
+          title="Login to your account"
+          aria-label="Login to your account"
+          target="_top"
+        >
+          Log in
+        </a>
+
+        <a
+          href="https://profile.w3schools.com/sign-up?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com"
+          class="-signup-btn w3-button w3-right ws-green ws-hover-green ga-bottom ga-bottom-signup"
+          title="Sign Up to Improve Your Learning Experience"
+          aria-label="Sign Up to Improve Your Learning Experience"
+          target="_top"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div class="w3-col l2 m12" id="right">
+
+<div class="sidesection">
+  <div id="skyscraper">
+  </div>
+</div>
+  
+<style>
+.ribbon-vid {
+  font-size:12px;
+  font-weight:bold;
+  padding: 6px 20px;
+  left:-20px;
+  top:-10px;
+  text-align: center;
+  color:black;
+  border-radius:25px;
+}
+</style>
+<div class="sidesection" style="margin-top:20px;margin-bottom:20px;">
+<a id="upperfeatureshowcaselink" class="ga-right ga-top-fa-25" href="https://campus.w3schools.com/products/w3schools-full-access-course" target="_blank">
+<picture id="upperfeatureshowcase">
+  <source id="upperfeatureshowcase3001" srcset="../images/img_fa_up_300.webp" media="(max-width: 990px)" style="border-radius: 5px;">
+  <source id="upperfeatureshowcase120" srcset="../images/img_fa_up_120.webp" media="(max-width: 1260px)" style="border-radius: 5px;">
+  <source id="upperfeatureshowcase160" srcset="../images/img_fa_up_160.webp" media="(max-width: 1700px)" style="border-radius: 5px;">
+  <img id="upperfeatureshowcase300" src="../images/img_fa_up_300.png" alt="Get Certified" style="width:auto;border-radius: 5px;" loading="lazy">
+</picture>
+</a>
+</div>
+
+<div class="sidesection">
+<h4><a href="../colors/colors_picker.asp.html">COLOR PICKER</a></h4>
+<a href="../colors/colors_picker.asp.html" class="ga-right">
+<picture>
+  <source srcset="../images/colorpicker2000.webp" type="image/webp">
+  <img src="../images/colorpicker2000.png" alt="colorpicker" loading="lazy">
+</picture>
+</a>
+</div>
+
+<div class="sidesection">
+  <div class="sharethis">
+    <a href="https://www.youtube.com/@w3schools" target="_blank" title="W3Schools on YouTube"><span class="fa fa-youtube ga-right w3-hover-text-red" style="font-size:25px;"></span></a>
+    <a href="https://www.linkedin.com/company/w3schools.com/" target="_blank" title="W3Schools on LinkedIn"><span class="fa fa-linkedin-square ga-right" style="font-size:25px;"></span></a>
+    <a href="https://discord.com/invite/w3schools" target="_blank" title='Join the W3schools community on Discord'><span class="fa fa-discord ga-right" style="font-size:25px;"></span></a> 
+    <a href="https://www.facebook.com/w3schoolscom/" target="_blank" title="W3Schools on Facebook"><span class="fa fa-facebook-square ga-right" style="font-size:25px;"></span></a>
+    <a href="https://www.instagram.com/w3schools.com_official/" target="_blank" title="W3Schools on Instagram"><span class="fa fa-instagram ga-right" style="font-size:25px;"></span></a>
+    <a href="https://www.tiktok.com/@w3schools.com" target="_blank" title="New: W3Schools on TikTok"><span class="fa fa-tiktok ga-right w3-hover-text-grey" style="font-size:20px;"></span></a>
+  </div>
+</div>
+
+
+<div id="vidpos" class="sidesection" style="text-align:center;margin-bottom:0;height:0;">
+</div>
+
+
+<div id="stickypos" class="sidesection" style="text-align:center;position:sticky;top:50px;">
+  <div id="stickyadcontainer">
+    <div style="position:relative;margin:auto;">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div id="footer" class="footer w3-container w3-white">
+<hr>
+<div id="bottomads" style="overflow:auto">
+</div>
+<!--<hr>-->
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="wrappercontainer">
+<style>
+#wrappercontainer {
+  width:100%;
+  height:100px;
+  background-color:red;
+  position:relative;
+  z-index:2;
+}
+#footerwrapper {
+  background-color: #282A35;
+/*  background-image:url('/images/background_in_space.webp');
+  background-repeat: repeat;
+  background-position: right bottom;*/
+}
+#spacemyfooter {
+  padding:40px 80px 20px 80px;
+  max-width:1500px;
+  margin:auto;
+}
+.footerlinks_1 {
+  width:auto;
+  float:left;
+  padding:40px 60px;
+  color:#FFF4A3;
+  font-family: Source Sans Pro, sans-serif;
+}
+.footerlinks_1 .fa-logo {
+  font-size:46px!important;
+  color:#ddd;
+}
+.footerlinks_1:nth-child(1) {
+  padding:30px 10px 30px 40px;
+}
+.footerlinks_1 a{
+  text-decoration:none;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3!;
+}
+.footerlinks_1 a:hover i{
+  color:#FFF4A3!important;
+}
+.footerlinks_2 {
+  width:auto;
+  float:left;
+  padding-left:90px;
+  padding-right:135px;
+  color:#ddd;
+  font-family: Source Sans Pro, sans-serif;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footerlinks_2:nth-child(4) {
+  padding-right:0;
+}
+.footerlinks_2 h5 {
+  margin-bottom:20px;
+}
+.footerlinks_2 a:visited,.footerlinks_2 a:link{
+  text-decoration:none;
+}
+.footerlinks_2 a:hover,.footerlinks_2 a:active{
+  color:#FFF4A3;
+}
+.footersome {
+  padding:60px 40px 10px 40px;
+  color:#ddd;
+  font-size:20px;
+  text-align:center;
+}
+.footersome a {
+  margin-right:10px;
+}
+.footersome a:hover,.footersome a:active{
+  color:#FFF4A3;
+}
+.footersome .textlink {
+  font-size:15px;
+  text-decoration:none;
+}
+.footersome .textlink:active,.footersome .textlink:hover {
+  text-decoration:underline;
+}
+.footertext {
+  color:#ddd;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footertext a:hover,.footertext a:active{
+  color:#FFF4A3;
+}
+@media screen and (max-width: 992px) {
+  #wrappercontainer {
+    z-index:0;
+  }
+  .footerlinks_1 {
+    width:100%;
+    margin:auto;
+    float:none;
+    text-align:center;
+    padding:10px 20px!important;
+    font-size:20px;
+  }
+  .footerlinks_1:nth-child(1) {
+    padding:40px 20px;
+  }
+  .footerlinks_2 {
+    width:100%;
+    float:none;
+    margin:auto;
+    font-size:16px;
+    line-height:20px;
+    padding:0;
+  }
+  .footerlinks_2 h5 {
+    font-size:26px;
+    margin-top:40px;
+  }
+  .footertext {
+    padding:0;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+/*
+@media screen and (max-width: 992px) {
+  #footerwrapper {
+    background-image:url('/images/background_in_space.webp');
+    background-color: #282A35;
+    background-repeat: repeat;
+    background-position: left top;
+  }
+}*/
+</style>
+<div id="footerwrapper">
+
+<style>
+@media screen and (max-width: 1450px) {
+  #spacemyfooter {
+    max-width:1100px;
+  }
+  .footerlinks_1 {
+    padding-left:30px;
+    padding-right:30px;
+  }
+  .footerlinks_2 {
+    padding-right:30px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:50px;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #spacemyfooter {
+    max-width:1000px;
+  }
+  .footerlinks_1 {
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .footerlinks_2 {
+    padding-right:20px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:20px;
+  }
+}
+</style>
+<div id="spacemyfooter">
+
+
+
+
+<div style="overflow:hidden;">
+<div class="footerlinks_1">
+  <a href="../index.html" class="ga-bottom" aria-label="W3Schools.com" alt="W3Schools.com">
+    <i class="fa fa-logo"></i>
+  </a>
+</div>
+<div class="footerlinks_1"><a href="../plus/index.php.html" title="Become a PLUS user and unlock powerful features" class="ga-bottom ga-bottom-plus">PLUS</a></div>
+<div class="footerlinks_1"><a href="../spaces/index.php.html" title="Get your own website with W3Schools Spaces" class="ga-bottom ga-bottom-spaces">SPACES</a></div>
+<div class="footerlinks_1"><a href="https://campus.w3schools.com/collections/certifications" title="Document your knowledge by getting certified" target="_blank" class="ga-bottom ga-bottom-cert">GET CERTIFIED</a></div>
+<div class="footerlinks_1"><a href="../academy/index.php.html" title="Contact us about W3Schools Academy for educational institutions" target="_blank" class="ga-bottom ga-bottom-teachers">FOR TEACHERS</a></div>
+<div class="footerlinks_1"><a href="../academy/index.php.html" target="_blank">FOR BUSINESS</a></div>
+<div class="footerlinks_1"><a href="javascript:void(0);" title="Contact us about sales or errors" onclick="reportError();return false">CONTACT US</a></div>
+</div>
+<style>
+/*Remove this style after 20. April 2024*/
+#err_message {
+  padding:8px 16px 16px 40px;
+  border-radius:5px;
+  display:none;
+  position:relative;
+  background-color:#2D3748;
+  color:#FFF4A3;
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message h2 {
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message p {
+  color:#f1f1f1;
+}
+#err_message #close_err_message {
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:20px;
+  cursor:pointer;
+  width:30px;
+  height:30px;
+  text-align:center;
+}
+#err_message #close_err_message:hover {
+  background-color:#FFF4A3;
+  color:#2D3748;
+  border-radius:50%
+}
+</style>
+
+<div id="err_message">
+  <span id="close_err_message" onclick="this.parentElement.style.display='none'">&times;</span>
+  <h2>Contact Sales</h2>
+  <p>If you want to use W3Schools services as an educational institution, team or enterprise, send us an e-mail:<br>sales@w3schools.com</p>
+  <h2>Report Error</h2>
+  <p>If you want to report an error, or if you want to make a suggestion, send us an e-mail:<br>help@w3schools.com</p>
+</div>
+
+
+<div style="overflow:hidden;">
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top Tutorials</h5>
+  <a href="../html/default.asp.html" class="ga-bottom">HTML Tutorial</a><br>
+  <a href="../css/default.asp.html" class="ga-bottom">CSS Tutorial</a><br>
+  <a href="../js/default.asp.html" class="ga-bottom">JavaScript Tutorial</a><br>
+  <a href="../howto/default.asp.html" class="ga-bottom">How To Tutorial</a><br>
+  <a href="../sql/default.asp.html" class="ga-bottom">SQL Tutorial</a><br>
+  <a href="../python/default.asp.html" class="ga-bottom">Python Tutorial</a><br>
+  <a href="../w3css/default.asp.html" class="ga-bottom">W3.CSS Tutorial</a><br>
+  <a href="../bootstrap/bootstrap_ver.asp.html" class="ga-bottom">Bootstrap Tutorial</a><br>
+  <a href="../php/default.asp.html" class="ga-bottom">PHP Tutorial</a><br>
+  <a href="../java/default.asp.html" class="ga-bottom">Java Tutorial</a><br>
+  <a href="../cpp/default.asp.html" class="ga-bottom">C++ Tutorial</a><br>
+  <a href="../jquery/default.asp.html" class="ga-bottom">jQuery Tutorial</a><br>
+</div>
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top References</h5>
+  <a href="../tags/default.asp.html" class="ga-bottom">HTML Reference</a><br>
+  <a href="../cssref/index.php.html" class="ga-bottom">CSS Reference</a><br>
+  <a href="default.asp.html" class="ga-bottom">JavaScript Reference</a><br>
+  <a href="../sql/sql_ref_keywords.asp.html" class="ga-bottom">SQL Reference</a><br>
+  <a href="../python/python_reference.asp.html" class="ga-bottom">Python Reference</a><br>
+  <a href="../w3css/w3css_references.asp.html" class="ga-bottom">W3.CSS Reference</a><br>
+  <a href="../bootstrap/bootstrap_ref_all_classes.asp.html" class="ga-bottom">Bootstrap Reference</a><br>
+  <a href="../php/php_ref_overview.asp.html" class="ga-bottom">PHP Reference</a><br>
+  <a href="../colors/colors_names.asp.html" class="ga-bottom">HTML Colors</a><br>
+  <a href="../java/java_ref_keywords.asp.html" class="ga-bottom">Java Reference</a><br>
+  <a href="../angular/angular_ref_directives.asp.html" class="ga-bottom">Angular Reference</a><br>
+  <a href="../jquery/jquery_ref_overview.asp.html" class="ga-bottom">jQuery Reference</a><br>
+</div>
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top Examples</h5>
+  <a href="../html/html_examples.asp.html" class="ga-bottom">HTML Examples</a><br>
+  <a href="../css/css_examples.asp.html" class="ga-bottom">CSS Examples</a><br>
+  <a href="../js/js_examples.asp.html" class="ga-bottom">JavaScript Examples</a><br>
+  <a href="../howto/default.asp.html" class="ga-bottom">How To Examples</a><br>
+  <a href="../sql/sql_examples.asp.html" class="ga-bottom">SQL Examples</a><br>
+  <a href="../python/python_examples.asp.html" class="ga-bottom">Python Examples</a><br>
+  <a href="../w3css/w3css_examples.asp.html" class="ga-bottom">W3.CSS Examples</a><br>
+  <a href="../bootstrap/bootstrap_examples.asp.html" class="ga-bottom">Bootstrap Examples</a><br>
+  <a href="../php/php_examples.asp.html" class="ga-bottom">PHP Examples</a><br>
+  <a href="../java/java_examples.asp.html" class="ga-bottom">Java Examples</a><br>
+  <a href="../xml/xml_examples.asp.html" class="ga-bottom">XML Examples</a><br>
+  <a href="../jquery/jquery_examples.asp.html" class="ga-bottom">jQuery Examples</a><br>
+</div>
+<div class="footerlinks_2">
+  <a href="https://campus.w3schools.com/collections/course-catalog" target="_blank" class="ga-bottom"><h5 style="font-family: 'Source Sans Pro', sans-serif;">Get Certified</h5></a>
+  <a href="https://campus.w3schools.com/collections/certifications/products/html-certificate" target="_blank" class="ga-bottom">HTML Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/css-certificate" target="_blank" class="ga-bottom">CSS Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/javascript-certificate" target="_blank" class="ga-bottom">JavaScript Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/front-end-certificate" target="_blank" class="ga-bottom">Front End Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/sql-certificate" target="_blank" class="ga-bottom">SQL Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/python-certificate" target="_blank" class="ga-bottom">Python Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/php-certificate" target="_blank" class="ga-bottom">PHP Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/jquery-certificate" target="_blank" class="ga-bottom">jQuery Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/java-certificate" target="_blank" class="ga-bottom">Java Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/c-certificate" target="_blank" class="ga-bottom">C++ Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/c-certificate-1" target="_blank" class="ga-bottom">C# Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/xml-certificate" target="_blank" class="ga-bottom">XML Certificate</a><br>
+</div>
+</div>
+
+
+<div class="footersome">
+  <a target="_blank" href="https://www.youtube.com/@w3schools" title="W3Schools on YouTube"><i class="fa fa-youtube"></i></a>
+  <a target="_blank" href="https://www.linkedin.com/company/w3schools.com/" title="W3Schools on LinkedIn"><i class="fa">&#62220;</i></a>
+  <a target="_blank" href="https://discord.com/invite/w3schools" title="Join the W3schools community on Discord"><i class="fa">&#59399;</i></a>
+  <a target="_blank" href="https://www.facebook.com/w3schoolscom/" title="W3Schools on Facebook"><i class="fa">&#59398;</i></a>
+  <a target="_blank" href="https://www.instagram.com/w3schools.com_official/" title="W3Schools on Instagram"><i class="fa">&#61805;</i></a>
+  <div class="w3-hide-large" style="margin-top:16px"></div>
+  <a target="_blank" href="https://www.w3schools.com/forum/default.asp" title="Forum" class="textlink">FORUM</a>
+  <a target="_blank" href="../about/default.asp.html" title="About W3Schools" class="textlink">ABOUT</a>
+  <a target="_blank" href="../academy/index.php.html"
+     title="Contact us about W3Schools Academy for educational institutions and organizations" class="textlink ga-bottom-textlink-academy">ACADEMY</a>
+</div>
+
+<div class="footertext">
+W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning.<br class="footer-hide-special">
+Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness<br class="footer-hide-special">
+of all content. While using W3Schools, you agree to have read and accepted our <a href="../about/about_copyright.asp.html" class="ga-bottom">terms of use</a>, 
+<a href="../about/about_privacy.asp.html" class="ga-bottom">cookie and privacy policy</a>.<br><br>
+<a href="../about/about_copyright.asp.html" class="ga-bottom">Copyright 1999-2025</a> by Refsnes Data. All Rights Reserved.
+<a href="../w3css/default.asp.html" class="ga-bottom">W3Schools is Powered by W3.CSS</a>.<br><br>
+</div>
+</div>
+</div>
+
+
+</div>
+<script src="../lib/topnav/amazon-cognito-identity.min.js"></script>
+<script src="../lib/topnav/main.js%3Fv=1.0.54"></script>
+<script src="../lib/w3schools_footer.js%3Fupdate=20250211"></script>
+<script src="../lib/w3schools_features.js%3Fupdate=20241220"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
+
+<script>
+  MyLearning.loadUser('footer', function () {
+    // if (!UserSession.loggedIn) {
+    //  addMyLearnButt();
+    // }
+  });
+  function docReady(fn) {
+    document.addEventListener("DOMContentLoaded", fn);
+    if (document.readyState === "interactive" || document.readyState === "complete" ) {
+      fn();
+    }
+  }
+  uic_prov_al();
+
+const upperfeatureshowcaselink = document.getElementById("upperfeatureshowcaselink");
+if (upperfeatureshowcaselink) {
+ displayInternalFeatures();
+}
+/*
+function addMyLearnButt() {
+  let nav = document.getElementsByClassName("nextprev");
+  if (document.body.contains(nav[1])) {
+    if ((nav[1].firstElementChild.innerHTML.indexOf("Previous") || nav[1].firstElementChild.innerHTML.indexOf("Home") !== -1) && (nav[1].firstElementChild.nextElementSibling.innerHTML.indexOf("Next") !== -1)) {
+      let myLearnButt = document.createElement("a");
+      myLearnButt.innerHTML="Log in to track progress";
+      myLearnButt.classList.add("w3-btn", "w3-hide-small", "myl-nav-butt");
+      myLearnButt.href="../signup?utm_source=classic&utm_medium=" + subjectFolder + "_tutorial&utm_campaign=button_lower_navigation";
+      myLearnButt.setAttribute("title", "Sign Up and improve Your Learning Experience");
+      myLearnButt.setAttribute("target", "_blank");
+      nav[1].classList.add("w3-center");
+      nav[1].firstElementChild.insertAdjacentElement("afterend", myLearnButt);
+    }
+  }
+}
+*/
+</script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

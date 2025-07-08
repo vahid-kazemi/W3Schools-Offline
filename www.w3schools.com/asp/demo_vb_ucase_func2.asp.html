@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+THIS IS A BEAUTIFUL DAY! 
+
+</body>
+</html>

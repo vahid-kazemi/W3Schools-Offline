@@ -1,0 +1,2368 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>W3Schools Tryit Editor</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="../../images/w3schools_logo_436_2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<meta property="og:title" content="W3Schools online PANDAS editor">
+<meta property="og:description" content="The W3Schools online code editor allows you to edit code and view the result in your browser">
+<link rel="stylesheet" href="../../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="icon" href="../../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="manifest" href="../../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<link rel='stylesheet' href='../../lib/codemirror.css'>
+<script src='../../lib/codemirror.js'></script>
+<script src='https://www.w3schools.com/lib/codemirror_python.js'></script>
+
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../../lib/uic.js%3Fv=1.0.5"></script>
+<script src="../../lib/uic_prov.js%3Fv=1.2.7"></script>
+<script data-cfasync="false" type="text/javascript">
+
+uic_prov_pre("tryit","",subjectFolder);
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        uic_prov_run();
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+    fixDragBtn();
+    showFrameSize();  
+  
+      
+}
+var fileID = "";
+</script>
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  margin:0px;
+  font-size:100%;
+}
+.trytopnav {
+  height:48px;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+
+  background-color:#E7E9EB;
+}
+.topnav-icons {
+  margin-right:8px;
+}
+.trytopnav a,.trytopnav button {
+  color:#999999;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize {
+  font-family: 'Montserrat', 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+}
+#container {
+  background-color:#E7E9EB;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:144px;
+
+  bottom:0;
+  height:auto;
+}
+#textareacontainer, #iframecontainer {
+  float:left;
+  height:100%;
+  width:50%;
+}
+
+#iframecontainer {
+  padding-top:32px;
+}
+
+#textarea, #textarea2, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;  
+  position:relative;  
+    
+    color:#ffffff;
+    font-family: consolas,"courier new",monospace;    
+  
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  
+  overflow:auto;
+  
+  background-color: #ffffff;
+  position:relative;
+  
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  
+    color:#ffffff;
+    font-family: consolas,"courier new",monospace;  
+  
+}
+#textareaCode, #textareaCode2 {
+  background-color: #ffffff;
+  font-family: consolas,Menlo,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+/*
+  .localhostcontainer {
+    position:absolute;
+    width:auto;
+    right:0;
+    left:0;
+    z-index:2;
+    padding:4px 12px;
+    border-bottom:1px solid #d9d9d9;
+    background-color:#E7E9EB;
+  }
+  .localhostdiv {
+    overflow:hidden;
+    font-family:arial;
+    border:1px solid #d9d9d9;
+    background-color:#fff;
+    font-size:14px;
+    padding-left:10px;
+  }
+*/
+
+.localhostoutercontainer {
+  position: absolute;
+  width: auto;
+  left:5px;
+  right:10px;
+  background-color: #E7E9EB;
+  height: 30px;
+  z-index: 9;
+}
+.localhostoutercontainer.horizontal {
+  left:10px;
+}
+.localhostcontainer {
+  position:relative;
+  width:auto;
+  right:0;
+  left:0;
+  z-index:2;
+  xpadding:6px 12px;
+  xxborder-bottom:1px solid #d9d9d9;
+  background-color:#F1F1F1;
+  background-color:#38444d;
+  border-top-right-radius:10px;
+  border-top-left-radius:10px;
+  overflow:hidden;
+  padding-top:4px;
+}
+.localhostdiv {
+  overflow:hidden;
+  font-family:arial;
+  color:#000;
+  background-color:#fff;
+  font-size:15px;
+  padding-left:10px;
+  border-radius:20px;
+  width:60%;
+  float:left;
+  font-family: consolas,Menlo,"courier new",monospace;  
+}
+.localhostbuttoncontainer {
+  width:20%;
+  min-width:100px;
+  color:#ffc107;
+  float:left;  
+  font-size:16px;
+  overflow:auto;
+}
+div.localhostbuttoncontainer span{
+  display:inline-block;
+  color:#ffc107;
+  position:relative;
+  padding-bottom:4px;
+  padding-left:2px;  
+}
+
+div.localhostbuttoncontainer span:first-child{
+  color:#dc3545;
+  padding-left:12px;
+
+}
+div.localhostbuttoncontainer span:last-child{
+  color:#04AA6D;
+  padding-left:2px;    
+}
+
+body.darktheme .localhostoutercontainer {
+  background-color: #38444d;
+}
+body.darktheme .localhostcontainer {
+  background-color:rgb(21,32,43)
+}
+
+body.darktheme .localhostdiv {
+  border:1px solid #595959;
+  background-color:#ffffff;
+}
+
+/**/
+
+
+  #filenamecontainer {
+    position:absolute;
+    text-align:center;
+    z-index:4;
+    width:100%;
+  }
+  #filenamecontainer span {
+    opacity:0.9;
+    padding:1px 6px;
+    font-family:Consolas;
+    background-color:#E7E9EB;
+    font-size:16px;
+  }
+  body.darktheme #filenamecontainer span {
+    background-color:#555555;
+    color:#E7E9EB;
+  }
+
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  
+  height:100%;
+  width:100%;
+}
+
+    .CodeMirror-scroll {
+      overflow:auto!important;
+      margin-right:0!important;
+      padding-bottom:0!important;
+    }
+    
+#iframeResult, #iframeSource {
+  background-color: #ffffff;
+  
+    background-color: #000000;
+    color:#ffffff;
+    font-family: consolas,"courier new",monospace!important;      
+    padding:8px;    
+  
+  
+  height:100%;
+  width:100%;  
+}
+
+  #iframeResult * {
+    font-family: consolas,"courier new",monospace!important;  
+  }
+
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+
+#iframecontainer.horizontal {
+  padding-top:0;
+}
+
+
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:90px;
+}
+.w3-dropdown-content {width:350px}
+
+#breadcrumb ul {
+  font-family:'Montserrat', 'Source Sans Pro', sans-serif;
+  list-style: none;
+  display: inline-table;
+  padding-inline-start: 1px;
+  font-size: 12px;
+  margin-block-start: 6px;
+  margin-block-end: 6px;	
+}
+#breadcrumb li {
+  display: inline;
+}
+#breadcrumb a {
+  float: left;
+  background: #E7E9EB;
+  padding: 3px 10px 3px 20px;
+  position: relative;
+  margin: 0 5px 0 0; 
+  text-decoration: none;
+  color: #555;
+}
+#breadcrumb a:after {
+  content: "";  
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #E7E9EB;
+  position: absolute; 
+  right: -12px;
+  top: 0;
+  z-index: 1;
+}
+#breadcrumb a:before {
+  content: "";  
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #fff;
+  position: absolute; 
+  left: 0; 
+  top: 0;
+}
+#breadcrumb ul li:first-child a:before {
+  display: none; 
+}
+#breadcrumb ul:last-child li{
+  padding-right: 5px;
+}
+#breadcrumb ul li a:hover {
+  background: #04AA6D;
+  color:#fff;
+}
+#breadcrumb ul li a:hover:after {
+  border-left-color: #04AA6D;
+  color:#fff;
+}
+#breadcrumb li:last-child {
+  display: inline-block!important;
+  margin-top: 3px!important;
+}
+#runbtn {
+  background-color:#04AA6D;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:18px;
+  padding:6px 25px;
+  margin-top:4px;
+  border-radius:5px;
+  word-spacing:10px;
+}
+#runbtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:116px;}
+  #breadcrumb {display:none;}
+  #tryhome  {display:block;}
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:106px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:310px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+  .trytopnav     {min-width:310px;}  
+}
+
+  #runloadercontainer{
+    display:none;
+    position:absolute;
+    background-color:#000;
+    z-index:9;
+  }
+  #runloader{
+    margin:auto;
+    border: 10px solid #333;
+    border-top: 10px solid #04AA6D;
+    border-radius: 50%;
+    max-width: 150px;
+    max-height: 150px;
+    animation: spin 2s linear infinite;
+    position:relative;
+  }
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
+#iframewrapper {
+	
+}
+
+/*
+  .tabs-container {
+  height:100%;
+  overflow:auto;
+  }
+  .tabs {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color:#E7E9EB;
+    
+  }
+  .tab {
+    padding: 5px 10px;
+    background: #ddd;
+    width: fit-content;
+    display: inline-block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;            
+  
+    }
+  .tab.active {
+    background: #fff;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  .tab-pane.active { 
+    display: block;
+  }
+*/
+
+.tabitem, #resttab {
+  position:absolute;
+  z-index:2;
+  font-family: Consolas, 'Source Code Pro', Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  padding:4px 15px;  
+  width:70px;
+  cursor:pointer;
+}
+#Pythontab {width: 80px;left: 0px;}#data_q_csvtab {width: 100px;left: 80px;}
+/*  
+#progqcstab {
+  width:120px;
+  left:0;
+}
+#prog2qcstab {
+  width:100px;
+  left:120px;
+}
+#childtemplatetab {
+  width:150px;
+  left:220px;
+}
+*/
+.tabitem {
+  background-color:lightgray;  
+  color:#000;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  border: 1px solid #E7E9EB;
+  border-bottom:none;
+}
+#resttab {
+  cursor:default;
+  z-index:1;
+  background-color:#E7E9EB;
+  border-bottom: 1px solid #E7E9EB;
+  width:100%;
+  left:0px;
+}
+.tabitem.tabselected{
+  background-color:#ffffff;  
+  border: 1px solid #ffffff;
+}
+.tabitem:hover {
+  background-color:#bfbfbf;;
+}
+.tabitem.tabselected:hover {
+  background-color:#ffffff;;
+}
+
+.darktheme .tabitem {
+  background-color: #4b5b68;
+  color: #ffffff !important;
+  border: 1px solid #444;
+  border-bottom-color:rgb(21,32,43);
+}
+.darktheme .tabitem.tabselected{
+  background-color:rgb(21,32,43);  
+  border: 1px solid rgb(21,32,43);
+}
+.darktheme .tabitem:hover {
+  background-color: #404e59;
+}
+.darktheme .tabitem.tabselected:hover{
+  background-color:rgb(21,32,43);  
+}
+.darktheme #resttab {
+  background-color:#38444d;
+  border-bottom: 1px solid #38444d;  
+}
+
+/**/
+.fa {
+  padding: 10px 10px!important;
+}
+a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
+    font-size: 28px!important;
+}
+.darktheme #breadcrumb li {
+  color:#fff;
+}
+.darktheme #breadcrumb a {
+  background:#616161;
+  background-color:#38444d;  
+  color: #ddd;
+}	
+.darktheme #breadcrumb a:after {
+  border-left: 12px solid #616161;
+  border-left: 12px solid #38444d; 
+}
+.darktheme #breadcrumb a:before {
+  border-left: 12px solid rgb(40, 44, 52);
+  border-left: 12px solid #1d2a35;  
+}
+.darktheme .currentcrumb {
+  color:#ddd;
+}
+
+body.darktheme {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;
+}
+body.darktheme #tryitLeaderboard{
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+}
+body.darktheme .trytopnav{
+  background-color:#616161;
+  background-color:#38444d;
+  color:#dddddd;
+}
+body.darktheme #container {
+  background-color:#616161;
+  background-color:#38444d;
+}
+body.darktheme .trytopnav a {
+  color:#dddddd;
+}
+body.darktheme #textareaCode {
+  background-color:rgb(40, 44, 52);
+  color:#fff;
+}
+
+body.darktheme #textareawrapper {
+  background-color:rgb(21,32,43);
+}
+body.darktheme .tabs {
+    background-color:#38444d;
+  }
+body.darktheme .tab {
+    background: rgb(21,32,43);
+    color:#fff;
+    opacity:0.5;
+    }
+body.darktheme .tab.active {
+    background: rgb(21,32,43);
+    color:#fff;    
+    opacity:1;
+  }
+
+body.darktheme ::-webkit-scrollbar {width:12px;height:3px;}
+body.darktheme ::-webkit-scrollbar-track-piece {background-color:#000;}
+body.darktheme ::-webkit-scrollbar-thumb {height:50px;background-color: #616161; background-color:#38444d;}
+body.darktheme ::-webkit-scrollbar-thumb:hover {background-color: #aaaaaa;background-color: #4b5b68}
+
+
+/*
+#file1filetab, #resttab {
+  position:absolute;
+  z-index:2;
+  font-family:arial;
+  padding:4px 12px;
+}
+#file1filetab {
+  width:auto;
+  left:0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;            
+}
+#resttab {
+  z-index:1;
+  background-color:#E7E9EB;
+  width:100%;
+  left:0px;
+}
+.tabitem {
+  background-color:#eaeaea;
+}
+.tabitem.tabselected{ 
+  background-color:#fff;
+}
+.darktheme .tabitem {
+  background-color:#444;
+}
+.darktheme .tabitem.tabselected{
+  background-color:rgb(21,32,43);
+}
+.darktheme #resttab {
+  background-color:#38444d;
+}
+*/
+.darktheme #file1filetab {
+  border-right:1px solid rgb(21,32,43);
+}
+
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #textareaCode2, #iframeResult, .codewindow {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id='tryitLeaderboard'>
+</div>
+
+<div class="trytopnav">
+<div class="w3-bar" style="overflow:auto">
+  <a id="tryhome" href="../.." target="_blank" title="w3schools.com Home" class="w3-button w3-bar-item topnav-icons fa fa-home ga-tryit" style="margin-top:-2px;"></a>
+  <a href="javascript:void(0);" onclick="openMenu()" id="menuButton" title="Open Menu" class="w3-dropdown-click w3-button w3-bar-item topnav-icons fa fa-menu ga-tryit" style="margin-top:-2px;"></a>
+
+  <a href="javascript:void(0);" onclick="restack(currentStack)" title="Change Orientation" class="w3-button w3-bar-item w3-hide-small topnav-icons fa fa-rotate ga-tryit" style="margin-top:-2px;"></a>
+  <a href="javascript:void(0);" onclick="retheme()" title="Change Theme" class="w3-button w3-bar-item topnav-icons fa fa-adjust ga-tryit" style="margin-top:-2px;"></a>
+
+  <button id="runbtn" class="w3-button w3-bar-item w3-hover-white w3-hover-text-green ga-tryit" onclick="submitTryit(1);uic_prov_run();">Run &#10095;</button>
+
+  <a id="getwebsitebtn" class="w3-button w3-bar-item w3-hover-white w3-hover-text-green w3-hide-small ga-tryit" href="../../spaces" target="_blank">Get your <span class='w3-hide-medium'> own Python</span> server</a>
+  <!--<span class="w3-right w3-hide-small xxw3-hide-medium" style="padding:8px 8px 8px 8px;display:block"></span>-->
+  <span class="w3-right w3-hide-small" style="padding:8px 16px 8px 0;display:block;float:right;font-size:16px;margin-top:4px"><span id="framesize"></span></span>
+</div>
+
+</div>
+
+<div id="shield"></div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<div id="container">
+  <div id="navbarDropMenu" class="w3-dropdown-content w3-bar-block w3-border" style="z-index:5">
+    <!--<span onclick="openMenu()" class="w3-button w3-display-topright w3-transparent ws-hover-black" title="Close Menu" style="font-weight:bold;padding-top:10px;padding-bottom:11px;">&times;</span>-->
+    <div class="w3-bar-block">
+      
+      <a class="w3-bar-item w3-button ga-tryit" href='javascript:void(0);' title="Run Code" onclick="openMenu();submitTryit(1);uic_prov_run();"><span style="display:inline-block;font-size:26px;margin-left:15px;margin-right:22px">&#10095;</span><span style="position:relative;top:-4px;left:2px;">Run Code <span style="float:right;font-size:10px;color:#333;margin-top:18px;">Ctrl+Alt+R</span></span></a>
+      
+      <a class="w3-bar-item w3-button ga-tryit" href='javascript:void(0);' title="Change Orientaton" onclick="openMenu();restack(currentStack)"><i class="fa fa-rotate" style="font-size:26px;margin-left:-4px;margin-right:8px"></i><span style="position:relative;top:-4px;left:2px;">Change Orientation  <span style="float:right;font-size:10px;color:#333;margin-top:18px;">Ctrl+Alt+O</span></span></a>
+      <a class="w3-bar-item w3-button ga-tryit" href='javascript:void(0);' title="Change Theme" onclick="openMenu();retheme()"><i class="fa fa-adjust" style="font-size:26px;margin-right:8px"></i><span style="position:relative;top:-4px;left:2px;">Change Theme  <span style="float:right;font-size:10px;color:#333;margin-top:18px;">Ctrl+Alt+D</span></span></a>
+      <a class="w3-bar-item w3-button ga-tryit" style="height: 62px;padding-top: 18px;" href='https://spaces.w3schools.com' target="_blank" title="Go to Spaces"><img style="margin-left:9px;margin-right:15px;margin-bottom: 8px;" src="../../images/spaces-icon-tryit.svg" loading="lazy" /><span style="position:relative;top:-4px;left:2px;">Go to Spaces <span style="float:right;font-size:10px;color:#333;margin-top:8px;">Ctrl+Alt+P</span></span></a>    
+    </div>
+    <footer class="w3-container w3-small ws-grey">
+      <p>
+        <a style="display:inline;padding:0;" href="../../about/about_privacy.asp.html" target="_blank" onclick="openMenu();" class="w3-hover-none ws-hover-text-green ga-tryit">Privacy policy</a> and 
+        <a style="display:inline;padding:0;" href="../../about/about_copyright.asp.html" target="_blank" onclick="openMenu();" class="w3-hover-none ws-hover-text-green ga-tryit">Copyright 1999-2025</a>
+      </p>
+    </footer>
+  </div>
+  <div id="menuOverlay" class="w3-overlay w3-transparent" style="cursor:pointer;z-index:4"></div>
+  <div id="textareacontainer">
+    <div id="textarea">
+      <div id="textareawrapper">
+        
+                <div id="Pythontab" class="tabitem" onclick="clickTab('Python')">
+                  Python
+                </div>
+              
+                <div id="data_q_csvtab" class="tabitem" onclick="clickTab('data_q_csv')">
+                  data.csv
+                </div>
+              
+              <div id="resttab">&nbsp;</div>
+
+
+
+              
+                <div style="padding-top:32px;height:100%;" id='Python'>
+                  <textarea class="editor" id="textareaCode">import pandas as pd
+
+df = pd.read_csv('data.csv')
+
+newdf = df.melt()
+
+print(newdf.to_string())
+#Note that we use the to_string() method to return the entire DataFrame.
+</textarea>
+                </div>
+              
+                <div style="padding-top:32px;height:100%;" id='data_q_csv'>
+                  <textarea class="editor" id="textareaCode2">Duration,Pulse,Maxpulse,Calories
+60,110,130,409.1
+60,117,145,479.0
+60,103,135,340.0
+45,109,175,282.4
+45,117,148,406.0
+60,102,127,300.5
+60,110,136,374.0
+45,104,134,253.3
+30,109,133,195.1
+60,98,124,269.0
+60,103,147,329.3
+60,100,120,250.7
+60,106,128,345.3
+60,104,132,379.3
+60,98,123,275.0
+60,98,120,215.2
+60,100,120,300.0
+45,90,112,
+60,103,123,323.0
+45,97,125,243.0
+60,108,131,364.2
+45,100,119,282.0
+60,130,101,300.0
+45,105,132,246.0
+60,102,126,334.5
+60,100,120,250.0
+60,92,118,241.0
+60,103,132
+60,100,132,280.0
+60,102,129,380.3
+60,92,115,243.0
+45,90,112,180.1
+60,101,124,299.0
+60,93,113,223.0
+60,107,136,361.0
+60,114,140,415.0
+60,102,127,300.5
+60,100,120,300.1
+60,100,120,300.0
+45,104,129,266.0
+45,90,112,180.1
+60,98,126,286.0
+60,100,122,329.4
+60,111,138,400.0
+60,111,131,397.0
+60,99,119,273.0
+60,109,153,387.6
+45,111,136,300.0
+45,108,129,298.0
+60,111,139,397.6
+60,107,136,380.2
+80,123,146,643.1
+60,106,130,263.0
+60,118,151,486.0
+30,136,175,238.0
+60,121,146,450.7
+60,118,121,413.0
+45,115,144,305.0
+20,153,172,226.4
+45,123,152,321.0
+210,108,160,1376.0
+160,110,137,1034.4
+160,109,135,853.0
+45,118,141,341.0
+20,110,130,131.4
+180,90,130,800.4
+150,105,135,873.4
+150,107,130,816.0
+20,106,136,110.4
+300,108,143,1500.2
+150,97,129,1115.0
+60,109,153,387.6
+90,100,127,700.0
+150,97,127,953.2
+45,114,146,304.0
+90,98,125,563.2
+45,105,134,251.0
+45,110,141,300.0
+120,100,130,500.4
+270,100,131,1729.0
+30,159,182,319.2
+45,149,169,344.0
+30,103,139,151.1
+120,100,130,500.0
+45,100,120,225.3
+30,151,170,300.1
+45,102,136,234.0
+120,100,157,1000.1
+45,129,103,242.0
+20,83,107,50.3
+180,101,127,600.1
+45,107,137,
+30,90,107,105.3
+15,80,100,50.5
+20,150,171,127.4
+20,151,168,229.4
+30,95,128,128.2
+25,152,168,244.2
+30,109,131,188.2
+90,93,124,604.1
+20,95,112,77.7
+90,90,110,500.0
+90,90,100,500.0
+90,90,100,500.4
+30,92,108,92.7
+30,93,128,124.0
+180,90,120,800.3
+30,90,120,86.2
+90,90,120,500.3
+210,137,184,1860.4
+60,102,124,325.2
+45,107,124,275.0
+15,124,139,124.2
+45,100,120,225.3
+60,108,131,367.6
+60,108,151,351.7
+60,116,141,443.0
+60,97,122,277.4
+60,105,125,
+60,103,124,332.7
+30,112,137,193.9
+45,100,120,100.7
+60,119,169,336.7
+60,107,127,344.9
+60,111,151,368.5
+60,98,122,271.0
+60,97,124,275.3
+60,109,127,382.0
+90,99,125,466.4
+60,114,151,384.0
+60,104,134,342.5
+60,107,138,357.5
+60,103,133,335.0
+60,106,132,327.5
+60,103,136,339.0
+20,136,156,189.0
+45,117,143,317.7
+45,115,137,318.0
+45,113,138,308.0
+20,141,162,222.4
+60,108,135,390.0
+60,97,127,
+45,100,120,250.4
+45,122,149,335.4
+60,136,170,470.2
+45,106,126,270.8
+60,107,136,400.0
+60,112,146,361.9
+30,103,127,185.0
+60,110,150,409.4
+60,106,134,343.0
+60,109,129,353.2
+60,109,138,374.0
+30,150,167,275.8
+60,105,128,328.0
+60,111,151,368.5
+60,97,131,270.4
+60,100,120,270.4
+60,114,150,382.8
+30,80,120,240.9
+30,85,120,250.4
+45,90,130,260.4
+45,95,130,270.0
+45,100,140,280.9
+60,105,140,290.8
+60,110,145,300.4
+60,115,145,310.2
+75,120,150,320.4
+75,125,150,330.4
+</textarea>
+                </div>
+              
+          
+<!--
+            <div class="tabs-container">
+              <ul class="tabs">
+                
+                  <li class="tab active" data-tab="0" style="cursor:pointer">Python</li>
+                
+                  <li class="tab " data-tab="1" style="cursor:pointer">data.csv</li>
+                
+              </ul>
+                
+
+                  <div class="tab-pane active" data-pane="0">
+                    <textarea class="editor" id="textareaCode">import pandas as pd
+
+df = pd.read_csv('data.csv')
+
+newdf = df.melt()
+
+print(newdf.to_string())
+#Note that we use the to_string() method to return the entire DataFrame.
+</textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="1">
+                    <textarea class="editor" id="textareaCode2">Duration,Pulse,Maxpulse,Calories
+60,110,130,409.1
+60,117,145,479.0
+60,103,135,340.0
+45,109,175,282.4
+45,117,148,406.0
+60,102,127,300.5
+60,110,136,374.0
+45,104,134,253.3
+30,109,133,195.1
+60,98,124,269.0
+60,103,147,329.3
+60,100,120,250.7
+60,106,128,345.3
+60,104,132,379.3
+60,98,123,275.0
+60,98,120,215.2
+60,100,120,300.0
+45,90,112,
+60,103,123,323.0
+45,97,125,243.0
+60,108,131,364.2
+45,100,119,282.0
+60,130,101,300.0
+45,105,132,246.0
+60,102,126,334.5
+60,100,120,250.0
+60,92,118,241.0
+60,103,132
+60,100,132,280.0
+60,102,129,380.3
+60,92,115,243.0
+45,90,112,180.1
+60,101,124,299.0
+60,93,113,223.0
+60,107,136,361.0
+60,114,140,415.0
+60,102,127,300.5
+60,100,120,300.1
+60,100,120,300.0
+45,104,129,266.0
+45,90,112,180.1
+60,98,126,286.0
+60,100,122,329.4
+60,111,138,400.0
+60,111,131,397.0
+60,99,119,273.0
+60,109,153,387.6
+45,111,136,300.0
+45,108,129,298.0
+60,111,139,397.6
+60,107,136,380.2
+80,123,146,643.1
+60,106,130,263.0
+60,118,151,486.0
+30,136,175,238.0
+60,121,146,450.7
+60,118,121,413.0
+45,115,144,305.0
+20,153,172,226.4
+45,123,152,321.0
+210,108,160,1376.0
+160,110,137,1034.4
+160,109,135,853.0
+45,118,141,341.0
+20,110,130,131.4
+180,90,130,800.4
+150,105,135,873.4
+150,107,130,816.0
+20,106,136,110.4
+300,108,143,1500.2
+150,97,129,1115.0
+60,109,153,387.6
+90,100,127,700.0
+150,97,127,953.2
+45,114,146,304.0
+90,98,125,563.2
+45,105,134,251.0
+45,110,141,300.0
+120,100,130,500.4
+270,100,131,1729.0
+30,159,182,319.2
+45,149,169,344.0
+30,103,139,151.1
+120,100,130,500.0
+45,100,120,225.3
+30,151,170,300.1
+45,102,136,234.0
+120,100,157,1000.1
+45,129,103,242.0
+20,83,107,50.3
+180,101,127,600.1
+45,107,137,
+30,90,107,105.3
+15,80,100,50.5
+20,150,171,127.4
+20,151,168,229.4
+30,95,128,128.2
+25,152,168,244.2
+30,109,131,188.2
+90,93,124,604.1
+20,95,112,77.7
+90,90,110,500.0
+90,90,100,500.0
+90,90,100,500.4
+30,92,108,92.7
+30,93,128,124.0
+180,90,120,800.3
+30,90,120,86.2
+90,90,120,500.3
+210,137,184,1860.4
+60,102,124,325.2
+45,107,124,275.0
+15,124,139,124.2
+45,100,120,225.3
+60,108,131,367.6
+60,108,151,351.7
+60,116,141,443.0
+60,97,122,277.4
+60,105,125,
+60,103,124,332.7
+30,112,137,193.9
+45,100,120,100.7
+60,119,169,336.7
+60,107,127,344.9
+60,111,151,368.5
+60,98,122,271.0
+60,97,124,275.3
+60,109,127,382.0
+90,99,125,466.4
+60,114,151,384.0
+60,104,134,342.5
+60,107,138,357.5
+60,103,133,335.0
+60,106,132,327.5
+60,103,136,339.0
+20,136,156,189.0
+45,117,143,317.7
+45,115,137,318.0
+45,113,138,308.0
+20,141,162,222.4
+60,108,135,390.0
+60,97,127,
+45,100,120,250.4
+45,122,149,335.4
+60,136,170,470.2
+45,106,126,270.8
+60,107,136,400.0
+60,112,146,361.9
+30,103,127,185.0
+60,110,150,409.4
+60,106,134,343.0
+60,109,129,353.2
+60,109,138,374.0
+30,150,167,275.8
+60,105,128,328.0
+60,111,151,368.5
+60,97,131,270.4
+60,100,120,270.4
+60,114,150,382.8
+30,80,120,240.9
+30,85,120,250.4
+45,90,130,260.4
+45,95,130,270.0
+45,100,140,280.9
+60,105,140,290.8
+60,110,145,300.4
+60,115,145,310.2
+75,120,150,320.4
+75,125,150,330.4
+</textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="2">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="3">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="4">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="5">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="6">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="7">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="8">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="9">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                
+
+                  <div class="tab-pane " data-pane="10">
+                    <textarea class="editor" id="textareaCode"></textarea>
+                  </div>
+                            
+            </div>
+-->
+            <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
+              <input type="hidden" name="code" id="code" />
+              <input type="hidden" name="mcode" id="mcode" />
+            </form>
+                  
+       </div>
+    </div>
+  </div>
+  <div id="iframecontainer">
+    <div id="iframe">
+      
+        <div id="runloadercontainer"><div id="runloader"></div></div>
+      
+      
+      <div id="iframewrapper">
+              
+          <div id="iframeResult" style="position:relative;white-space:nowrap;overflow:auto;">
+            <div>
+              <pre>
+       variable   value
+  0    Duration    60.0
+  1    Duration    60.0
+  2    Duration    60.0
+  3    Duration    45.0
+  4    Duration    45.0
+  5    Duration    60.0
+  6    Duration    60.0
+  7    Duration    45.0
+  8    Duration    30.0
+  9    Duration    60.0
+  10   Duration    60.0
+  11   Duration    60.0
+  12   Duration    60.0
+  13   Duration    60.0
+  14   Duration    60.0
+  15   Duration    60.0
+  16   Duration    60.0
+  17   Duration    45.0
+  18   Duration    60.0
+  19   Duration    45.0
+  20   Duration    60.0
+  21   Duration    45.0
+  22   Duration    60.0
+  23   Duration    45.0
+  24   Duration    60.0
+  25   Duration    60.0
+  26   Duration    60.0
+  27   Duration    60.0
+  28   Duration    60.0
+  29   Duration    60.0
+  30   Duration    60.0
+  31   Duration    45.0
+  32   Duration    60.0
+  33   Duration    60.0
+  34   Duration    60.0
+  35   Duration    60.0
+  36   Duration    60.0
+  37   Duration    60.0
+  38   Duration    60.0
+  39   Duration    45.0
+  40   Duration    45.0
+  41   Duration    60.0
+  42   Duration    60.0
+  43   Duration    60.0
+  44   Duration    60.0
+  45   Duration    60.0
+  46   Duration    60.0
+  47   Duration    45.0
+  48   Duration    45.0
+  49   Duration    60.0
+  50   Duration    60.0
+  51   Duration    80.0
+  52   Duration    60.0
+  53   Duration    60.0
+  54   Duration    30.0
+  55   Duration    60.0
+  56   Duration    60.0
+  57   Duration    45.0
+  58   Duration    20.0
+  59   Duration    45.0
+  60   Duration   210.0
+  61   Duration   160.0
+  62   Duration   160.0
+  63   Duration    45.0
+  64   Duration    20.0
+  65   Duration   180.0
+  66   Duration   150.0
+  67   Duration   150.0
+  68   Duration    20.0
+  69   Duration   300.0
+  70   Duration   150.0
+  71   Duration    60.0
+  72   Duration    90.0
+  73   Duration   150.0
+  74   Duration    45.0
+  75   Duration    90.0
+  76   Duration    45.0
+  77   Duration    45.0
+  78   Duration   120.0
+  79   Duration   270.0
+  80   Duration    30.0
+  81   Duration    45.0
+  82   Duration    30.0
+  83   Duration   120.0
+  84   Duration    45.0
+  85   Duration    30.0
+  86   Duration    45.0
+  87   Duration   120.0
+  88   Duration    45.0
+  89   Duration    20.0
+  90   Duration   180.0
+  91   Duration    45.0
+  92   Duration    30.0
+  93   Duration    15.0
+  94   Duration    20.0
+  95   Duration    20.0
+  96   Duration    30.0
+  97   Duration    25.0
+  98   Duration    30.0
+  99   Duration    90.0
+  100  Duration    20.0
+  101  Duration    90.0
+  102  Duration    90.0
+  103  Duration    90.0
+  104  Duration    30.0
+  105  Duration    30.0
+  106  Duration   180.0
+  107  Duration    30.0
+  108  Duration    90.0
+  109  Duration   210.0
+  110  Duration    60.0
+  111  Duration    45.0
+  112  Duration    15.0
+  113  Duration    45.0
+  114  Duration    60.0
+  115  Duration    60.0
+  116  Duration    60.0
+  117  Duration    60.0
+  118  Duration    60.0
+  119  Duration    60.0
+  120  Duration    30.0
+  121  Duration    45.0
+  122  Duration    60.0
+  123  Duration    60.0
+  124  Duration    60.0
+  125  Duration    60.0
+  126  Duration    60.0
+  127  Duration    60.0
+  128  Duration    90.0
+  129  Duration    60.0
+  130  Duration    60.0
+  131  Duration    60.0
+  132  Duration    60.0
+  133  Duration    60.0
+  134  Duration    60.0
+  135  Duration    20.0
+  136  Duration    45.0
+  137  Duration    45.0
+  138  Duration    45.0
+  139  Duration    20.0
+  140  Duration    60.0
+  141  Duration    60.0
+  142  Duration    45.0
+  143  Duration    45.0
+  144  Duration    60.0
+  145  Duration    45.0
+  146  Duration    60.0
+  147  Duration    60.0
+  148  Duration    30.0
+  149  Duration    60.0
+  150  Duration    60.0
+  151  Duration    60.0
+  152  Duration    60.0
+  153  Duration    30.0
+  154  Duration    60.0
+  155  Duration    60.0
+  156  Duration    60.0
+  157  Duration    60.0
+  158  Duration    60.0
+  159  Duration    30.0
+  160  Duration    30.0
+  161  Duration    45.0
+  162  Duration    45.0
+  163  Duration    45.0
+  164  Duration    60.0
+  165  Duration    60.0
+  166  Duration    60.0
+  167  Duration    75.0
+  168  Duration    75.0
+  169     Pulse   110.0
+  170     Pulse   117.0
+  171     Pulse   103.0
+  172     Pulse   109.0
+  173     Pulse   117.0
+  174     Pulse   102.0
+  175     Pulse   110.0
+  176     Pulse   104.0
+  177     Pulse   109.0
+  178     Pulse    98.0
+  179     Pulse   103.0
+  180     Pulse   100.0
+  181     Pulse   106.0
+  182     Pulse   104.0
+  183     Pulse    98.0
+  184     Pulse    98.0
+  185     Pulse   100.0
+  186     Pulse    90.0
+  187     Pulse   103.0
+  188     Pulse    97.0
+  189     Pulse   108.0
+  190     Pulse   100.0
+  191     Pulse   130.0
+  192     Pulse   105.0
+  193     Pulse   102.0
+  194     Pulse   100.0
+  195     Pulse    92.0
+  196     Pulse   103.0
+  197     Pulse   100.0
+  198     Pulse   102.0
+  199     Pulse    92.0
+  200     Pulse    90.0
+  201     Pulse   101.0
+  202     Pulse    93.0
+  203     Pulse   107.0
+  204     Pulse   114.0
+  205     Pulse   102.0
+  206     Pulse   100.0
+  207     Pulse   100.0
+  208     Pulse   104.0
+  209     Pulse    90.0
+  210     Pulse    98.0
+  211     Pulse   100.0
+  212     Pulse   111.0
+  213     Pulse   111.0
+  214     Pulse    99.0
+  215     Pulse   109.0
+  216     Pulse   111.0
+  217     Pulse   108.0
+  218     Pulse   111.0
+  219     Pulse   107.0
+  220     Pulse   123.0
+  221     Pulse   106.0
+  222     Pulse   118.0
+  223     Pulse   136.0
+  224     Pulse   121.0
+  225     Pulse   118.0
+  226     Pulse   115.0
+  227     Pulse   153.0
+  228     Pulse   123.0
+  229     Pulse   108.0
+  230     Pulse   110.0
+  231     Pulse   109.0
+  232     Pulse   118.0
+  233     Pulse   110.0
+  234     Pulse    90.0
+  235     Pulse   105.0
+  236     Pulse   107.0
+  237     Pulse   106.0
+  238     Pulse   108.0
+  239     Pulse    97.0
+  240     Pulse   109.0
+  241     Pulse   100.0
+  242     Pulse    97.0
+  243     Pulse   114.0
+  244     Pulse    98.0
+  245     Pulse   105.0
+  246     Pulse   110.0
+  247     Pulse   100.0
+  248     Pulse   100.0
+  249     Pulse   159.0
+  250     Pulse   149.0
+  251     Pulse   103.0
+  252     Pulse   100.0
+  253     Pulse   100.0
+  254     Pulse   151.0
+  255     Pulse   102.0
+  256     Pulse   100.0
+  257     Pulse   129.0
+  258     Pulse    83.0
+  259     Pulse   101.0
+  260     Pulse   107.0
+  261     Pulse    90.0
+  262     Pulse    80.0
+  263     Pulse   150.0
+  264     Pulse   151.0
+  265     Pulse    95.0
+  266     Pulse   152.0
+  267     Pulse   109.0
+  268     Pulse    93.0
+  269     Pulse    95.0
+  270     Pulse    90.0
+  271     Pulse    90.0
+  272     Pulse    90.0
+  273     Pulse    92.0
+  274     Pulse    93.0
+  275     Pulse    90.0
+  276     Pulse    90.0
+  277     Pulse    90.0
+  278     Pulse   137.0
+  279     Pulse   102.0
+  280     Pulse   107.0
+  281     Pulse   124.0
+  282     Pulse   100.0
+  283     Pulse   108.0
+  284     Pulse   108.0
+  285     Pulse   116.0
+  286     Pulse    97.0
+  287     Pulse   105.0
+  288     Pulse   103.0
+  289     Pulse   112.0
+  290     Pulse   100.0
+  291     Pulse   119.0
+  292     Pulse   107.0
+  293     Pulse   111.0
+  294     Pulse    98.0
+  295     Pulse    97.0
+  296     Pulse   109.0
+  297     Pulse    99.0
+  298     Pulse   114.0
+  299     Pulse   104.0
+  300     Pulse   107.0
+  301     Pulse   103.0
+  302     Pulse   106.0
+  303     Pulse   103.0
+  304     Pulse   136.0
+  305     Pulse   117.0
+  306     Pulse   115.0
+  307     Pulse   113.0
+  308     Pulse   141.0
+  309     Pulse   108.0
+  310     Pulse    97.0
+  311     Pulse   100.0
+  312     Pulse   122.0
+  313     Pulse   136.0
+  314     Pulse   106.0
+  315     Pulse   107.0
+  316     Pulse   112.0
+  317     Pulse   103.0
+  318     Pulse   110.0
+  319     Pulse   106.0
+  320     Pulse   109.0
+  321     Pulse   109.0
+  322     Pulse   150.0
+  323     Pulse   105.0
+  324     Pulse   111.0
+  325     Pulse    97.0
+  326     Pulse   100.0
+  327     Pulse   114.0
+  328     Pulse    80.0
+  329     Pulse    85.0
+  330     Pulse    90.0
+  331     Pulse    95.0
+  332     Pulse   100.0
+  333     Pulse   105.0
+  334     Pulse   110.0
+  335     Pulse   115.0
+  336     Pulse   120.0
+  337     Pulse   125.0
+  338  Maxpulse   130.0
+  339  Maxpulse   145.0
+  340  Maxpulse   135.0
+  341  Maxpulse   175.0
+  342  Maxpulse   148.0
+  343  Maxpulse   127.0
+  344  Maxpulse   136.0
+  345  Maxpulse   134.0
+  346  Maxpulse   133.0
+  347  Maxpulse   124.0
+  348  Maxpulse   147.0
+  349  Maxpulse   120.0
+  350  Maxpulse   128.0
+  351  Maxpulse   132.0
+  352  Maxpulse   123.0
+  353  Maxpulse   120.0
+  354  Maxpulse   120.0
+  355  Maxpulse   112.0
+  356  Maxpulse   123.0
+  357  Maxpulse   125.0
+  358  Maxpulse   131.0
+  359  Maxpulse   119.0
+  360  Maxpulse   101.0
+  361  Maxpulse   132.0
+  362  Maxpulse   126.0
+  363  Maxpulse   120.0
+  364  Maxpulse   118.0
+  365  Maxpulse   132.0
+  366  Maxpulse   132.0
+  367  Maxpulse   129.0
+  368  Maxpulse   115.0
+  369  Maxpulse   112.0
+  370  Maxpulse   124.0
+  371  Maxpulse   113.0
+  372  Maxpulse   136.0
+  373  Maxpulse   140.0
+  374  Maxpulse   127.0
+  375  Maxpulse   120.0
+  376  Maxpulse   120.0
+  377  Maxpulse   129.0
+  378  Maxpulse   112.0
+  379  Maxpulse   126.0
+  380  Maxpulse   122.0
+  381  Maxpulse   138.0
+  382  Maxpulse   131.0
+  383  Maxpulse   119.0
+  384  Maxpulse   153.0
+  385  Maxpulse   136.0
+  386  Maxpulse   129.0
+  387  Maxpulse   139.0
+  388  Maxpulse   136.0
+  389  Maxpulse   146.0
+  390  Maxpulse   130.0
+  391  Maxpulse   151.0
+  392  Maxpulse   175.0
+  393  Maxpulse   146.0
+  394  Maxpulse   121.0
+  395  Maxpulse   144.0
+  396  Maxpulse   172.0
+  397  Maxpulse   152.0
+  398  Maxpulse   160.0
+  399  Maxpulse   137.0
+  400  Maxpulse   135.0
+  401  Maxpulse   141.0
+  402  Maxpulse   130.0
+  403  Maxpulse   130.0
+  404  Maxpulse   135.0
+  405  Maxpulse   130.0
+  406  Maxpulse   136.0
+  407  Maxpulse   143.0
+  408  Maxpulse   129.0
+  409  Maxpulse   153.0
+  410  Maxpulse   127.0
+  411  Maxpulse   127.0
+  412  Maxpulse   146.0
+  413  Maxpulse   125.0
+  414  Maxpulse   134.0
+  415  Maxpulse   141.0
+  416  Maxpulse   130.0
+  417  Maxpulse   131.0
+  418  Maxpulse   182.0
+  419  Maxpulse   169.0
+  420  Maxpulse   139.0
+  421  Maxpulse   130.0
+  422  Maxpulse   120.0
+  423  Maxpulse   170.0
+  424  Maxpulse   136.0
+  425  Maxpulse   157.0
+  426  Maxpulse   103.0
+  427  Maxpulse   107.0
+  428  Maxpulse   127.0
+  429  Maxpulse   137.0
+  430  Maxpulse   107.0
+  431  Maxpulse   100.0
+  432  Maxpulse   171.0
+  433  Maxpulse   168.0
+  434  Maxpulse   128.0
+  435  Maxpulse   168.0
+  436  Maxpulse   131.0
+  437  Maxpulse   124.0
+  438  Maxpulse   112.0
+  439  Maxpulse   110.0
+  440  Maxpulse   100.0
+  441  Maxpulse   100.0
+  442  Maxpulse   108.0
+  443  Maxpulse   128.0
+  444  Maxpulse   120.0
+  445  Maxpulse   120.0
+  446  Maxpulse   120.0
+  447  Maxpulse   184.0
+  448  Maxpulse   124.0
+  449  Maxpulse   124.0
+  450  Maxpulse   139.0
+  451  Maxpulse   120.0
+  452  Maxpulse   131.0
+  453  Maxpulse   151.0
+  454  Maxpulse   141.0
+  455  Maxpulse   122.0
+  456  Maxpulse   125.0
+  457  Maxpulse   124.0
+  458  Maxpulse   137.0
+  459  Maxpulse   120.0
+  460  Maxpulse   169.0
+  461  Maxpulse   127.0
+  462  Maxpulse   151.0
+  463  Maxpulse   122.0
+  464  Maxpulse   124.0
+  465  Maxpulse   127.0
+  466  Maxpulse   125.0
+  467  Maxpulse   151.0
+  468  Maxpulse   134.0
+  469  Maxpulse   138.0
+  470  Maxpulse   133.0
+  471  Maxpulse   132.0
+  472  Maxpulse   136.0
+  473  Maxpulse   156.0
+  474  Maxpulse   143.0
+  475  Maxpulse   137.0
+  476  Maxpulse   138.0
+  477  Maxpulse   162.0
+  478  Maxpulse   135.0
+  479  Maxpulse   127.0
+  480  Maxpulse   120.0
+  481  Maxpulse   149.0
+  482  Maxpulse   170.0
+  483  Maxpulse   126.0
+  484  Maxpulse   136.0
+  485  Maxpulse   146.0
+  486  Maxpulse   127.0
+  487  Maxpulse   150.0
+  488  Maxpulse   134.0
+  489  Maxpulse   129.0
+  490  Maxpulse   138.0
+  491  Maxpulse   167.0
+  492  Maxpulse   128.0
+  493  Maxpulse   151.0
+  494  Maxpulse   131.0
+  495  Maxpulse   120.0
+  496  Maxpulse   150.0
+  497  Maxpulse   120.0
+  498  Maxpulse   120.0
+  499  Maxpulse   130.0
+  500  Maxpulse   130.0
+  501  Maxpulse   140.0
+  502  Maxpulse   140.0
+  503  Maxpulse   145.0
+  504  Maxpulse   145.0
+  505  Maxpulse   150.0
+  506  Maxpulse   150.0
+  507  Calories   409.1
+  508  Calories   479.0
+  509  Calories   340.0
+  510  Calories   282.4
+  511  Calories   406.0
+  512  Calories   300.5
+  513  Calories   374.0
+  514  Calories   253.3
+  515  Calories   195.1
+  516  Calories   269.0
+  517  Calories   329.3
+  518  Calories   250.7
+  519  Calories   345.3
+  520  Calories   379.3
+  521  Calories   275.0
+  522  Calories   215.2
+  523  Calories   300.0
+  524  Calories     NaN
+  525  Calories   323.0
+  526  Calories   243.0
+  527  Calories   364.2
+  528  Calories   282.0
+  529  Calories   300.0
+  530  Calories   246.0
+  531  Calories   334.5
+  532  Calories   250.0
+  533  Calories   241.0
+  534  Calories     NaN
+  535  Calories   280.0
+  536  Calories   380.3
+  537  Calories   243.0
+  538  Calories   180.1
+  539  Calories   299.0
+  540  Calories   223.0
+  541  Calories   361.0
+  542  Calories   415.0
+  543  Calories   300.5
+  544  Calories   300.1
+  545  Calories   300.0
+  546  Calories   266.0
+  547  Calories   180.1
+  548  Calories   286.0
+  549  Calories   329.4
+  550  Calories   400.0
+  551  Calories   397.0
+  552  Calories   273.0
+  553  Calories   387.6
+  554  Calories   300.0
+  555  Calories   298.0
+  556  Calories   397.6
+  557  Calories   380.2
+  558  Calories   643.1
+  559  Calories   263.0
+  560  Calories   486.0
+  561  Calories   238.0
+  562  Calories   450.7
+  563  Calories   413.0
+  564  Calories   305.0
+  565  Calories   226.4
+  566  Calories   321.0
+  567  Calories  1376.0
+  568  Calories  1034.4
+  569  Calories   853.0
+  570  Calories   341.0
+  571  Calories   131.4
+  572  Calories   800.4
+  573  Calories   873.4
+  574  Calories   816.0
+  575  Calories   110.4
+  576  Calories  1500.2
+  577  Calories  1115.0
+  578  Calories   387.6
+  579  Calories   700.0
+  580  Calories   953.2
+  581  Calories   304.0
+  582  Calories   563.2
+  583  Calories   251.0
+  584  Calories   300.0
+  585  Calories   500.4
+  586  Calories  1729.0
+  587  Calories   319.2
+  588  Calories   344.0
+  589  Calories   151.1
+  590  Calories   500.0
+  591  Calories   225.3
+  592  Calories   300.1
+  593  Calories   234.0
+  594  Calories  1000.1
+  595  Calories   242.0
+  596  Calories    50.3
+  597  Calories   600.1
+  598  Calories     NaN
+  599  Calories   105.3
+  600  Calories    50.5
+  601  Calories   127.4
+  602  Calories   229.4
+  603  Calories   128.2
+  604  Calories   244.2
+  605  Calories   188.2
+  606  Calories   604.1
+  607  Calories    77.7
+  608  Calories   500.0
+  609  Calories   500.0
+  610  Calories   500.4
+  611  Calories    92.7
+  612  Calories   124.0
+  613  Calories   800.3
+  614  Calories    86.2
+  615  Calories   500.3
+  616  Calories  1860.4
+  617  Calories   325.2
+  618  Calories   275.0
+  619  Calories   124.2
+  620  Calories   225.3
+  621  Calories   367.6
+  622  Calories   351.7
+  623  Calories   443.0
+  624  Calories   277.4
+  625  Calories     NaN
+  626  Calories   332.7
+  627  Calories   193.9
+  628  Calories   100.7
+  629  Calories   336.7
+  630  Calories   344.9
+  631  Calories   368.5
+  632  Calories   271.0
+  633  Calories   275.3
+  634  Calories   382.0
+  635  Calories   466.4
+  636  Calories   384.0
+  637  Calories   342.5
+  638  Calories   357.5
+  639  Calories   335.0
+  640  Calories   327.5
+  641  Calories   339.0
+  642  Calories   189.0
+  643  Calories   317.7
+  644  Calories   318.0
+  645  Calories   308.0
+  646  Calories   222.4
+  647  Calories   390.0
+  648  Calories     NaN
+  649  Calories   250.4
+  650  Calories   335.4
+  651  Calories   470.2
+  652  Calories   270.8
+  653  Calories   400.0
+  654  Calories   361.9
+  655  Calories   185.0
+  656  Calories   409.4
+  657  Calories   343.0
+  658  Calories   353.2
+  659  Calories   374.0
+  660  Calories   275.8
+  661  Calories   328.0
+  662  Calories   368.5
+  663  Calories   270.4
+  664  Calories   270.4
+  665  Calories   382.8
+  666  Calories   240.9
+  667  Calories   250.4
+  668  Calories   260.4
+  669  Calories   270.0
+  670  Calories   280.9
+  671  Calories   290.8
+  672  Calories   300.4
+  673  Calories   310.2
+  674  Calories   320.4
+  675  Calories   330.4
+</pre>
+
+            </div>
+          </div>
+                  
+      </div>
+    </div>
+  </div>
+  
+</div>
+<script>
+
+function submitTryit(n) {
+  
+    for (var i = 0; i < editors.length; i++) {
+      editorList[i].save();
+    }
+  
+  var text = document.getElementById("textareaCode").value;
+
+    var mtext = document.getElementById("textareaCode2").value;
+  
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  ifr.setAttribute("name", "iframeResult");  
+
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+
+  document.getElementById("iframeResult").addEventListener("load", hideSpinner);
+  displaySpinner();
+  var t=text;
+  t=t.replace(/=/gi,"w3equalsign");
+  t=t.replace(/\+/gi,"w3plussign");    
+  var pos=t.search(/script/i)
+  while (pos>0) {
+    t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
+    pos=t.search(/script/i);
+  }
+    
+    var t2=mtext;
+    t2=t2.replace(/=/gi,"w3equalsign");
+    t2=t2.replace(/\+/gi,"w3plussign");    
+    var pos=t2.search(/script/i)
+    while (pos>0) {
+      t2=t2.substring(0,pos) + "w3" + t2.substr(pos,3) + "w3" + t2.substr(pos+3,3) + "tag" + t2.substr(pos+6);
+	    pos=t2.search(/script/i);
+    }
+    document.getElementById("mcode").value=t2;    
+    
+  document.getElementById("code").value=t;
+  
+    document.getElementById("codeForm").action = "https://try.w3schools.com/try_python_multi_csv.php?x=" + Math.random();  
+  
+  document.getElementById('codeForm').method = "post";
+  document.getElementById('codeForm').acceptCharset = "utf-8";
+  document.getElementById('codeForm').target = "iframeResult";
+  document.getElementById("codeForm").submit();
+    
+}
+
+function hideSpinner() {
+  document.getElementById("runloadercontainer").style.display = "none";
+}
+function displaySpinner() {
+  var i, c, w, h, r, top;
+  i = document.getElementById("iframeResult");
+  w = w3_getStyleValue(i, "width");
+  h = w3_getStyleValue(i, "height");
+  c = document.getElementById("runloadercontainer");
+  c.style.width = w;
+  c.style.height = h;
+  c.style.display = "block";
+  w = Number(w.replace("px", "")) / 5;
+  r = document.getElementById("runloader");
+  r.style.width = w + "px";
+  r.style.height = w + "px";
+  h = w3_getStyleValue(r, "height");
+  h = Number(h.replace("px", "")) / 2;
+  top = w3_getStyleValue(c, "height");
+  top = Number(top.replace("px", "")) / 2;
+  top = top - h
+  r.style.top = top + "px";
+}
+
+var currentStack=true;
+if ((window.screen.availWidth <= 768 && window.innerHeight > window.innerWidth) || "" == " horizontal") {restack(true);}
+function restack(horizontal) {
+    var tc, ic, t, i, c, f, sv, sh, d, b, height, flt, width;
+    tc = document.getElementById("textareacontainer");
+    ic = document.getElementById("iframecontainer");
+    t = document.getElementById("textarea");
+    i = document.getElementById("iframe");
+    c = document.getElementById("container");    
+    sv = document.getElementById("stackV");
+    sh = document.getElementById("stackH");
+    b = document.getElementsByClassName("localhostoutercontainer");
+    tc.className = tc.className.replace("horizontal", "");
+    ic.className = ic.className.replace("horizontal", "");        
+    t.className = t.className.replace("horizontal", "");        
+    i.className = i.className.replace("horizontal", "");        
+    c.className = c.className.replace("horizontal", "");                        
+    if (b[0]) {b[0].className = b[0].className.replace("horizontal", "")};
+    if (sv) {sv.className = sv.className.replace("horizontal", "")};
+    if (sv) {sh.className = sh.className.replace("horizontal", "")};
+    stack = "";
+    if (horizontal) {
+        tc.className = tc.className + " horizontal";
+        ic.className = ic.className + " horizontal";        
+        t.className = t.className + " horizontal";        
+        i.className = i.className + " horizontal";                
+        c.className = c.className + " horizontal";                
+        if (sv) {sv.className = sv.className + " horizontal"};
+        if (sv) {sh.className = sh.className + " horizontal"};
+        if (b[0]) {b[0].className = b[0].className + " horizontal"};        
+        stack = " horizontal";
+        document.getElementById("textareacontainer").style.height = "50%";
+        document.getElementById("iframecontainer").style.height = "50%";
+        document.getElementById("textareacontainer").style.width = "100%";
+        document.getElementById("iframecontainer").style.width = "100%";
+        currentStack=false;
+    } else {
+        document.getElementById("textareacontainer").style.height = "100%";
+        document.getElementById("iframecontainer").style.height = "100%";
+        document.getElementById("textareacontainer").style.width = "50%";
+        document.getElementById("iframecontainer").style.width = "50%";
+        currentStack=true;        
+    }
+    fixDragBtn();
+    showFrameSize();
+      
+}
+function showFrameSize() {
+  var t;
+  var width, height;
+  width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
+  height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
+  document.getElementById("framesize").innerHTML = "Result Size: <span>" + width + " x " + height + "</span>";
+}
+var dragging = false;
+var stack;
+function fixDragBtn() {
+  var textareawidth, leftpadding, dragleft, containertop, buttonwidth
+  var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+  if (stack != " horizontal") {
+    document.getElementById("dragbar").style.width = "5px";    
+    textareasize = Number(w3_getStyleValue(document.getElementById("textareawrapper"), "width").replace("px", ""));
+    leftpadding = Number(w3_getStyleValue(document.getElementById("textarea"), "padding-left").replace("px", ""));
+    buttonwidth = Number(w3_getStyleValue(document.getElementById("dragbar"), "width").replace("px", ""));
+    textareaheight = w3_getStyleValue(document.getElementById("textareawrapper"), "height");
+    dragleft = textareasize + leftpadding + (leftpadding / 2) - (buttonwidth / 2);
+    document.getElementById("dragbar").style.top = containertop + "px";
+    document.getElementById("dragbar").style.left = dragleft + "px";
+    document.getElementById("dragbar").style.height = textareaheight;
+    document.getElementById("dragbar").style.cursor = "col-resize";
+    
+  } else {
+    document.getElementById("dragbar").style.height = "5px";
+    if (window.getComputedStyle) {
+        textareawidth = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height");
+        textareaheight = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width");
+        leftpadding = window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top");
+        buttonwidth = window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height");
+    } else {
+        dragleft = document.getElementById("textareawrapper").currentStyle["width"];
+    }
+    textareawidth = Number(textareawidth.replace("px", ""));
+    leftpadding = Number(leftpadding .replace("px", ""));
+    buttonwidth = Number(buttonwidth .replace("px", ""));
+    dragleft = containertop + textareawidth + leftpadding + (leftpadding / 2);
+    document.getElementById("dragbar").style.top = dragleft + "px";
+    document.getElementById("dragbar").style.left = "5px";
+    document.getElementById("dragbar").style.width = textareaheight;
+    document.getElementById("dragbar").style.cursor = "row-resize";        
+  }
+}
+function dragstart(e) {
+  e.preventDefault();
+  dragging = true;
+  var main = document.getElementById("iframecontainer");
+}
+function dragmove(e) {
+  if (dragging) 
+  {
+    document.getElementById("shield").style.display = "block";        
+    if (stack != " horizontal") {
+      var percentage = (e.pageX / window.innerWidth) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.width = percentage + "%";
+        document.getElementById("iframecontainer").style.width = mainPercentage + "%";
+        fixDragBtn();
+      }
+    } else {
+      var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+      var percentage = ((e.pageY - containertop + 20) / (window.innerHeight - containertop + 20)) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.height = percentage + "%";
+        document.getElementById("iframecontainer").style.height = mainPercentage + "%";
+        fixDragBtn();
+      }
+    }
+    showFrameSize();  
+  
+      
+  }
+}
+function dragend() {
+  document.getElementById("shield").style.display = "none";
+  dragging = false;
+  var vend = navigator.vendor;
+  if (window.editor && vend.indexOf("Apple") == -1) {
+      window.editor.refresh();
+  }
+}
+if (window.addEventListener) {              
+  document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
+  document.getElementById("dragbar").addEventListener("touchstart", function(e) {dragstart(e);});
+  window.addEventListener("mousemove", function(e) {dragmove(e);});
+  window.addEventListener("touchmove", function(e) {dragmove(e);});
+  window.addEventListener("mouseup", dragend);
+  window.addEventListener("touchend", dragend);
+  window.addEventListener("load", fixDragBtn);
+  window.addEventListener("load", showFrameSize);
+  window.addEventListener("load", addKeyboardShortcut);  
+  
+}
+
+function addKeyboardShortcut() {
+  window.addEventListener("keydown", addRunShortcut);
+}
+
+function addRunShortcut() {
+
+  if (event.ctrlKey && event.altKey && (event.key == "r" || event.key == "R")) {
+    document.getElementById("runbtn").click();
+  }
+
+  if (event.ctrlKey && event.altKey && (event.key == "o" || event.key == "O")) {
+    restack(currentStack);
+  }
+  if (event.ctrlKey && event.altKey && (event.key == "d" || event.key == "D")) {
+    retheme();
+  }
+  if (event.ctrlKey && event.altKey && (event.key == "a" || event.key == "A")) {
+    spaceIt.showDialog();
+  }
+  if (event.ctrlKey && event.altKey && (event.key == "p" || event.key == "P")) {
+    window.open("https://spaces.w3schools.com");
+  }
+}
+
+function retheme() {
+  var cc = document.body.className;
+  if (cc.indexOf("darktheme") > -1) {
+    document.body.className = cc.replace("darktheme", "");
+    if (opener) {opener.document.body.className = cc.replace("darktheme", "");}
+    localStorage.setItem("preferredmode", "light");
+  } else {
+    document.body.className += " darktheme";
+    if (opener) {opener.document.body.className += " darktheme";}
+    localStorage.setItem("preferredmode", "dark");
+  }
+}
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+})();
+function colorcoding() {
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+  mode: "text/x-python",
+  lineWrapping: true,
+  smartIndent: false,
+  htmlMode: true,
+  autocorrect: false,      
+  addModeClass: true,
+
+    
+    //mode: "text/html",
+    //htmlMode: true,
+    //lineWrapping: true,
+    //smartIndent: false,
+    //addModeClass: true
+  
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+
+  var editors = document.getElementsByClassName('editor');
+  var editorList = [];
+  for (var i = 0; i < editors.length; i++) {
+    var self = editors[i];
+    var editor = CodeMirror.fromTextArea(self, {
+      mode: "text/x-python",
+      lineNumbers: false,
+      autoRefresh: true,
+      scrollbarStyle: "null",
+      
+      lineWrapping: true,
+      smartIndent: false,
+      htmlMode: true,
+      autocorrect: false,      
+      addModeClass: true,      
+      
+      
+    });
+    editorList[i] = editor;
+    editor.save();
+  }
+
+/*  
+  var tabs = document.querySelectorAll('.tab');
+  for (var i = 0; i < tabs.length; i++) {
+    var self = tabs[i];
+    self.addEventListener('click', function() {
+      var data = this.getAttribute('data-tab');
+      document.querySelectorAll('.tab-pane.active')[0].classList.remove('active');
+      document.querySelectorAll('.tab-pane[data-pane="'+data+'"]')[0].classList.add('active');
+      document.querySelectorAll('.tab.active')[0].classList.remove('active');
+      this.classList.add('active');
+      for (x in editorList) {
+        editorList[x].refresh();
+      }
+      
+    });
+  }
+*/
+  
+  clickTab("Python");
+
+
+
+function clickTab(x) {
+    
+      document.getElementById("Python").style.display = "none";
+      document.getElementById("Pythontab").className = document.getElementById("Pythontab").className.replace(" tabselected", "");
+      
+      document.getElementById("data_q_csv").style.display = "none";
+      document.getElementById("data_q_csvtab").className = document.getElementById("data_q_csvtab").className.replace(" tabselected", "");
+    
+    document.getElementById(x).style.display = "block";  
+    document.getElementById(x + "tab").className += " tabselected";
+  
+}
+function w3_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+function openMenu() {
+    var x = document.getElementById("navbarDropMenu");
+    var y = document.getElementById("menuOverlay");
+    var z = document.getElementById("menuButton");
+    if (z.className.indexOf("w3-text-gray") == -1) {
+        z.className += " w3-text-gray";
+    } else { 
+        z.className = z.className.replace(" w3-text-gray", "");
+    }
+    if (z.className.indexOf("w3-gray") == -1) {
+        z.className += " w3-gray";
+    } else { 
+        z.className = z.className.replace(" w3-gray", "");
+    }
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    if (y.className.indexOf("w3-show") == -1) {
+        y.className += " w3-show";
+    } else { 
+        y.className = y.className.replace(" w3-show", "");
+    }
+
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("menuOverlay")) {
+        openMenu();
+    }
+}
+function setCodewindowHeight() {
+  var i;
+  var txw = document.getElementById("textareawrapper");
+  var txwh = w3_getStyleValue(txw,"height");
+
+  txwh = txwh.replace("px","");
+  txwh = Number(txwh);
+  txwh = txwh - 33;
+  txwh = txwh + "px";
+  
+  var qwsa = document.getElementsByClassName("codewindow");
+  for (i = 0; i < qwsa.length; i++) {
+    qwsa[i].style.height = txwh;
+    qwsa[i].style.setProperty("overflow", "auto", "important");
+  }
+}
+function docReady(fn) {
+  document.addEventListener("DOMContentLoaded", fn);
+  if (document.readyState === "interactive" || document.readyState === "complete" ) {
+    fn();
+  }
+}
+uic_prov_al();
+</script>
+
+</body>
+</html>

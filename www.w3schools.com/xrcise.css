@@ -1,0 +1,105 @@
+﻿.exercise_tiles {
+  background:#2D3748;
+  border-radius:15px;
+  padding:20px 0 80px 0;
+  background-image: url(https://www.w3schools.com/images/lynx_in_space.webp);
+  background-repeat:no-repeat;
+  background-position: 80% 4.5%, center center /*left top*/;  
+  background-size: 100px;  
+}
+.exercise_tile {
+  display:block;
+  position:relative;
+  width:70px;
+  height:65px;
+  border-radius:60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color:#fff;
+  text-align:center;
+  margin:auto;
+  margin-top:40px;
+  overflow:visible;
+  cursor:pointer;
+}
+.exercise_tile.completed {
+  background-color:rgba(4, 170, 109, 0.7);
+}
+.exercise_tile:hover {
+  background-color:#059862 !important
+}
+.exercise_tile h2 {
+  position:absolute;
+  width:300px;
+  xoverflow:hidden;
+  left:-75px;
+  left:-115px;
+  top:12px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:20px;
+  line-height:1em;
+}
+.exercise_tile h2 span{
+  background-color: rgba(255, 255, 255, 0.2);  
+  padding:0 20px 2px 20px;
+  border-radius:10px;
+}
+.exercise_tile.completed h2 span{
+  background-color:rgba(4, 170, 109, 0.7);
+}
+.exercise_tiles h2.heading {
+  color:#ffffff;
+  text-align:center;
+  font-size:40px!important;
+  font-weight: 400;
+}
+.exercise_tiles p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight:bold;
+  font-size:18px;
+  color:#ffffff;
+  text-align:center;
+}
+.exercise_tiles hr {
+  width:70%;
+  opacity:0.2;
+  margin:auto;
+}
+.exercise_tiles #exercise_w3_logo {
+  color:#ffffff;
+  float:left;
+  margin-left:20px;
+}
+.exercise_tiles #exercise_w3_logo i{font-size:30px!important;}
+.exercise_tiles #exercise_w3_logo i:hover{color:#FFF4A3!important;}
+.exercise_tile.swing_1 {left:40px;}
+.exercise_tile.swing_2 {left:80px;}
+.exercise_tile.swing_3 {left:120px;}
+.exercise_tile.swing_4 {left:160px;}
+.exercise_tile.swing_5 {left:200px;}
+.exercise_tile.swing_-1 {left:-40px;}
+.exercise_tile.swing_-2 {left:-80px;}
+.exercise_tile.swing_-3 {left:-120px;}
+.exercise_tile.swing_-4 {left:-160px;}
+.exercise_tile.swing_-5 {left:-200px;}
+@media screen and (max-width:700px) {
+  .exercise_tile.swing_1 {left:20px;}
+  .exercise_tile.swing_2 {left:40px;}
+  .exercise_tile.swing_3 {left:40px;}
+  .exercise_tile.swing_4 {left:40px;}
+  .exercise_tile.swing_5 {left:40px;}
+  .exercise_tile.swing_-1 {left:-20px;}
+  .exercise_tile.swing_-2 {left:-40px;}
+  .exercise_tile.swing_-3 {left:-40px;}
+  .exercise_tile.swing_-4 {left:-40px;}
+  .exercise_tile.swing_-5 {left:-40px;}
+  .exercise_tiles {
+    background-image:none;
+  }
+  .exercise_tile h2 {
+    font-size:15px;
+    top:14px;    
+  }
+  .exercise_tile h2 span{
+    xpadding-bottom:1px;
+  }
+}

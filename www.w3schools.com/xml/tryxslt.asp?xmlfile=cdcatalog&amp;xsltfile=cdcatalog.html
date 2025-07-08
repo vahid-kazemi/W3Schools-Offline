@@ -1,0 +1,73 @@
+
+<html>
+<head>
+<title>XSLT Tryit Editor v1.2</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../w3css/4/w3.css">
+<!--
+<link rel="stylesheet" type="text/css" href="../trystyle.css" />-->
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+</script>
+<!-- End Google Tag Manager -->
+<script async="async" type="text/javascript" src="http://static.h-bid.com/w3schools.com/20190110/snhb-w3schools.min.js"></script>
+<script>
+var snhb = snhb || {}; snhb.queue = snhb.queue || [];
+snhb.options = { autoStartAuction: false };
+snhb.queue.push(function(){ snhb.startAuction(["try_it_leaderboard"]); });
+</script>
+<script>
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        snhb.queue.push(function(){  snhb.startAuction(["try_it_leaderboard"]); });
+    }
+}
+</script>
+<script type="text/javascript">
+function submitReady()
+{
+var t=document.getElementById("pre_xslt_input").value;
+t = t.replace("&", "&amp;");
+document.getElementById("xslt_input").value=t;
+document.forms["codeform"]["submitOK"].value="OK"
+}
+</script>
+<style>
+#tryitLeaderboard {
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:90px;
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<h3>
+<img src="../images/stop.gif" align="absmiddle" width="32" height="32">
+The file you asked for does not exist
+</h3>
+
+</body>
+</html>

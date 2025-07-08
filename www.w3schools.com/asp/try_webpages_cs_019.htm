@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="https://www.w3schools.com/oldtryitfiles/showrazor.css" />
+</head>
+
+<body>
+<p><span class="marked">@{<br>var dataFile = Server.MapPath(&quot;~/App_Data/Persons.txt&quot;);<br>
+Array userData = File.ReadAllLines(dataFile);<br>}<br><br></span>&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>&lt;body&gt;<br><br>&lt;h1&gt;Reading Data from a File&lt;/h1&gt;<br>
+<span class="marked">@foreach (string dataLine in userData) <br>{<br>foreach 
+(string dataItem in dataLine.Split(',')) <br>{<br>@dataItem &lt;text&gt;&amp;nbsp;&lt;/text&gt;}</span><br>
+&lt;br&gt;<br><span class="marked">}</span><br><br>&lt;/body&gt;<br>&lt;/html&gt;</p>
+
+</body>
+</html> 

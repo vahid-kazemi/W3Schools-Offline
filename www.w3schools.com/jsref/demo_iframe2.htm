@@ -1,0 +1,23 @@
+<html>
+<body>
+
+<button onclick="myFunction()">Change Parent Background!</button>
+
+<p>A script inside this iframe can change the background-color of the parent document:</p>
+
+<script>
+function myFunction() {
+  parent.document.body.style.backgroundColor = "lightblue";
+}
+</script>
+
+<pre>
+&lt;script&gt;
+function myFunction() {
+  parent.document.body.style.backgroundColor = "lightblue";
+}
+&lt;/script&gt;
+</pre>
+
+</body>
+</html>

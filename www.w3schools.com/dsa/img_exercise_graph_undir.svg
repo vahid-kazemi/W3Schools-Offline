@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" viewBox="0 0 340 210">
+<style>
+.svgDataText{
+    font-family: "Roboto Mono", monospace;
+    fill: black;
+    font-size: 20px;
+}
+.node {
+  stroke: black;
+  stroke-width: 1;
+  fill: gainsboro;
+}
+.directed, .undirected, line, rect {
+  stroke: black;
+  stroke-width: 1;
+  fill: none;
+}
+.svgBalFac {
+    font-family: "Roboto Mono", monospace;
+    fill: black;
+    /*font-size: 12px;*/
+    font-size: 16px;
+    opacity: 1;
+}
+#sourceVertex {
+    stroke-width: 3;
+}
+</style>
+  <!-- 'F' node -->
+  <g class="root parent" transform="translate(140 0)">
+    <circle cx="170" cy="30" r="20" class="node"></circle>
+    <text x="164" y="37" class="svgDataText">F</text>
+  </g>
+
+  <line x1="295" y1="43" x2="267" y2="68" class="directed FB"></line>
+  <text x="269" y="55" class="svgBalFac">2</text>
+
+  <path d="M 180 53 Q 212 -14 292 22" fill="none" stroke="black" stroke-width="1" class="CF"></path>
+  <text x="227" y="26" class="svgBalFac">5</text>
+
+  <line x1="90" y1="70" x2="151" y2="70" class="directed connected AC"></line>
+  <text x="120" y="67" class="svgBalFac connected">3</text>
+
+  <line x1="121" y1="169" x2="163" y2="88" class="directed connected EC"></line>
+  <text x="125" y="140" class="svgBalFac connected">4</text>
+
+  <line x1="131" y1="187" x2="265" y2="187" class="directed connected EG"></line>
+  <text x="180" y="183" class="svgBalFac connected">5</text>
+
+  <line x1="50" y1="187" x2="92" y2="187" class="directed connected DE"></line>
+  <text x="65" y="183" class="svgBalFac connected">2</text>
+  <!-- 'B' node -->
+  <g class="child leaf" transform="translate(80 -40)">
+    <circle cx="170" cy="120" r="20" class="node"></circle>
+    <text x="164" y="126" class="svgDataText">B</text>
+  </g>
+  <!-- 'C' node -->
+  <g class="parent child" transform="translate(-100 -50)">
+    <circle cx="271" cy="120" r="20" class="node" id="sourceVertex"></circle>
+    <text x="265" y="126" class="svgDataText">C</text>
+  </g>
+  <line x1="266" y1="174" x2="184" y2="85" class="directed GC"></line>
+  <text x="212" y="140" class="svgBalFac">5</text>
+
+  <line x1="284" y1="167" x2="306" y2="50" class="directed cyclic GF"></line>
+  <!--<line x1="308" y1="50" x2="285" y2="167" class="undirected cyclic FG" />-->
+  <text x="294" y="140" class="svgBalFac cyclicWeight">5</text>
+
+  <line x1="191" y1="72" x2="230" y2="78" class="directed CB"></line>
+  <text x="208" y="72" class="svgBalFac">2</text>
+
+
+  <!-- Nodes A, D, and E -->
+  <g class="parent child" transform="translate(-10 -20)">
+    <circle cx="80" cy="90" r="20" class="node"></circle>
+    <text x="73" y="96" class="svgDataText">A</text>
+    <line x1="48" y1="187" x2="74" y2="109" class="directed DA"></line>
+    <text x="45" y="160" class="svgBalFac">4</text>
+
+    <line x1="86" y1="110" x2="113" y2="188" class="directed AE"></line>
+    <text x="89" y="160" class="svgBalFac">4</text>
+
+    <circle cx="121" cy="207" r="20" class="node"></circle>
+    <text x="115" y="213" class="svgDataText">E</text>
+    <circle cx="41" cy="207" r="20" class="node"></circle>
+    <text x="35" y="213" class="svgDataText">D</text>
+  </g>
+
+  <!-- 'G' node -->
+  <g class="child leaf" transform="translate(-110 -20)">
+    <circle cx="391" cy="207" r="20" class="node"></circle>
+    <text x="385" y="213" class="svgDataText">G</text>
+  </g>
+</svg>

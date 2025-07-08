@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>The first four characters in the text file are skipped:</p>
+
+o!
+How are you today?
+
+</body>
+</html>

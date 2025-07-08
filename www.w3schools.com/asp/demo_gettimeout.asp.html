@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Default Timeout is: 20 minutes.</p><p>Timeout is now: 30 minutes.</p>
+
+</body>
+</html>

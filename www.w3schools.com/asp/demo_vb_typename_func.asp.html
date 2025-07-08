@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+String<br>Integer<br>Double<br>Null<br>Empty<br>Boolean
+
+</body>
+</html>

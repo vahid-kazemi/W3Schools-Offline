@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Sun<br>Mon<br>Tues<br>WEDNESDAYThurs<br>Fri<br>Satur<br><br>
+
+</body>
+</html>

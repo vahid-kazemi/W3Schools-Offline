@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>
+<script>
+today = new Date()
+past = new Date(2004,10,18)
+var diff = new Date(today.getTime() - past.getTime());
+var years = diff.getUTCFullYear() - 1970;
+var months = diff.getUTCMonth();
+var message = years + " years, " + months + " months"
+document.write(message);
+</script>
+</h1>
+
+<p>In views.py you can see what the mybirthdate variable looks like.</p>
+
+</body>
+</html>    

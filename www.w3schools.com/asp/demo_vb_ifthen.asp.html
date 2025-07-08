@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Have a nice day!
+
+</body>
+</html>

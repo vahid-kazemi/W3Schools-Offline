@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My favorite fruit is <span id="fruit"></span></h1>
+
+<script>
+var arr = ['Apple', 'Banana', 'Cherry', 'Orange']
+var item = arr[Math.floor(Math.random() * arr.length)];
+document.getElementById("fruit").innerHTML = item;
+</script>
+
+<p>In views.py you can see what the fruits variable looks like.</p>
+
+<p>Try refreshing the example to see the fruit changes.</p>
+
+</body>
+</html>     

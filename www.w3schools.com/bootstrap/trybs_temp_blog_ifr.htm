@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.row {
+  margin-bottom:6px;
+}
+.col-xs-12, .col-xs-3, .col-xs-9 {
+  background-color:#f1f1f1
+}
+
+.col-xs-3, .col-xs-9 {
+  text-align:center;
+  padding-top:25px;
+}
+
+.col-xs-12.footer {
+  text-align:center;
+  padding-top:5px;
+}
+
+.container-fluid:hover .col-xs-12 span.footer:after {
+  content:'Footer';
+}
+
+.container-fluid:hover .col-xs-9 span:after {
+  content:'9 col';
+}
+
+.container-fluid:hover .col-xs-3 span:after {
+  content:'3 col';
+}
+</style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3" style="height:200px;border-right:6px solid white;"><span></span></div>
+    <div class="col-xs-9" style="height:200px;"><span></span></div>
+  </div>
+
+  <div class="row" style="margin-bottom:-8px !important;">
+    <div class="col-xs-12 footer" style="height:31px;"><span class="footer"></span></div>
+  </div>
+</div>
+
+</body>
+</html>

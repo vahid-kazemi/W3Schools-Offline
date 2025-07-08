@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>This is a header from a separate file</p>
+
+<h1>Hello Web Pages</h1> 
+<p>This is a paragraph</p>
+<p>This is a footer from a separate file</p>
+
+</body>
+</html>

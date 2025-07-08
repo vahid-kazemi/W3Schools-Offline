@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/oldtryitfiles/showrazor.css" />
+</head>
+
+<body>
+
+&lt;!-- Single statement block &nbsp;--&gt;&nbsp;<br>
+<span class="marked">@Code dim myMessage = &quot;Hello World&quot; End Code</span><br>
+&nbsp;<br>
+&lt;!-- Inline expression or variable --&gt;&nbsp;<br>
+&lt;p&gt;The value of myMessage is: <span class="marked">@myMessage</span>&lt;/p&gt;&nbsp;<br>
+&nbsp;<br>
+&lt;!-- Multi-statement block --&gt;&nbsp;<br>
+<span class="marked">@Code<br>
+dim greeting = &quot;Welcome to our site!&quot;&nbsp;<br>
+dim weekDay = DateTime.Now.DayOfWeek&nbsp;<br>
+dim greetingMessage = greeting &amp; &quot; Here in Huston it is: &quot; &amp; weekDay<br>
+End Code</span>
+<br><br>
+&lt;p&gt;The greeting is: <span class="marked">@greetingMessage</span>&lt;/p&gt;
+</body>
+
+</html>

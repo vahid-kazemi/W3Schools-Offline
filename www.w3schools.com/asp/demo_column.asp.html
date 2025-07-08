@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+He<p>The cursor is now standing in position 3 in the text file.</p>
+
+</body>
+</html>

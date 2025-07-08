@@ -1,0 +1,241 @@
+.card-wrapper {
+    border-radius: 16px;
+    background-color: white;
+    color: #282a35;
+    width: 248px;
+    height: 300px;
+    font-family:'Source Sans Pro', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    transform: translate3d(0, 0px, 0);
+    -webkit-transform: translate3d(0, 0px, 0);
+    transition: 150ms cubic-bezier(0, 0, 0, 1);
+
+    opacity: 1;
+    /* animation: fadeInKeyframe 0.7s; */
+
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6)
+}
+
+.card-wrapper:hover {
+    color: #282a35;
+}
+
+.card-wrapper > .top-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 129px;
+    width: 100%;
+
+    border-bottom: 0px solid grey;
+}
+
+.card-wrapper > .top-wrapper img{
+    width: 130px;
+}
+
+.card-wrapper > .text-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 4px;    
+    padding: 10px;
+}
+
+.card-wrapper > .read-more-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    
+    padding: 10px;    
+    padding-top: 5px;
+}
+
+.card-wrapper > .read-more-wrapper > .percentage {
+    font-size: 30px;
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+.card-wrapper .progress-wrapper {
+    width: 100%;
+    border-radius: 26px;
+    border: 1px solid grey;
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+}
+
+.card-wrapper .progress-wrapper > div {
+    background-color: green;
+    height: 100%;
+}
+
+.card-wrapper > .text-wrapper .tutorial-header {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: .5px;
+    line-height: 14px;
+}
+
+.card-wrapper > .text-wrapper .tutorial-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-wrapper > .text-wrapper .tutorial-title.display-all {
+    white-space: normal;
+    height: auto;
+    max-height: 100%;
+    flex: 1;
+}
+
+.diff-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.diff-wrapper > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.diff-wrapper svg:not(:first-child) {
+    margin-left: -5px;
+}
+
+.free {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 24px;
+    background: #04AA6D;
+    color: white;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.paid {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 20px;
+    border-radius: 24px;
+    background: #9763F6;
+    color: white;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.card-wrapper > .text-wrapper > .description {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    white-space: normal;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: auto;
+    max-height: 100%;
+    flex: 1;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+
+    opacity: 1;
+    animation: fadeInKeyframe 0.3s;
+}
+
+.card-wrapper:hover {
+    z-index: 1;
+    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.3);
+    transform: translate3d(0, -4px, 0);
+    transition: 150ms cubic-bezier(0.2, 0.6, 0.6, 1);
+    cursor: pointer;
+}
+
+.card-wrapper:hover .tutorial-title {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    max-height: 60px;
+    display: -webkit-box;
+    
+}
+
+.card-wrapper:hover .description {
+    opacity: 0;
+    animation: fadeOutKeyframe 0.2s;
+}
+
+.card-wrapper.learning-path {
+    border: 6px solid #F8951D;
+}
+
+.card-wrapper.learning-path .tutorial-title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+.card-wrapper.learning-path .top-wrapper {
+    margin-top: 15px;
+}
+
+.card-wrapper.learning-path .progress-wrapper {
+    background-color: #d8d5d5;
+}
+
+.card-wrapper.learning-path .progress-wrapper > div {
+    background-color: black;
+}
+
+@keyframes fadeInKeyframe {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutKeyframe {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* @media only screen and (max-width: 599px) {
+    .card-wrapper {
+        width: 100%;
+    }
+} */

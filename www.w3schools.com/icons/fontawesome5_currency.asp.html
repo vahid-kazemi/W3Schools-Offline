@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="title" property="og:title" content="W3Schools.com">
+<meta name="Keywords" content="HTML, Python, CSS, SQL, JavaScript, How to, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, W3.CSS, XML, MySQL, Icons, NodeJS, React, Graphics, Angular, R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz, Exercises, Courses, Lessons, References, Examples, Learn to code, Source code, Demos, Tips, Website">
+<meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
+<meta property="og:image" content="../images/w3schools_logo_436_2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<meta property="og:description" content="W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="manifest" href="../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="../lib/fonts/fontawesome.woff2%3F14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/roboto-mono-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-sans-pro-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-sans-pro-v14-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../lib/fonts/SourceSansPro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../lib/fonts/freckle-face-v9-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../lib/topnav/main.css%3Fv=1.0.54.css">
+<link rel="stylesheet" href="../lib/my-learning/main.css%3Fv=1.0.42.css">
+<link rel="stylesheet" href="../lib/pathfinder/main.css%3Fv=1.0.7.css">
+<link rel="stylesheet" href="../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="stylesheet" href="../plus/plans/main.css">
+
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic.js%3Fv=1.0.9"></script>
+<script src="../lib/uic_prov.js%3Fv=1.2.7"></script>
+
+<script data-cfasync="false" type="text/javascript">
+
+uic_prov_pre("default","",subjectFolder);
+var stickyadstatus = "";
+function fix_stickyad() {
+  document.getElementById("stickypos").style.position = "sticky";
+  var elem = document.getElementById("stickyadcontainer");
+  if (!elem) {return false;}
+  if (document.getElementById("skyscraper")) {
+    var skyWidth = Number(w3_getStyleValue(document.getElementById("skyscraper"), "width").replace("px", ""));  
+    }
+  else {
+    var skyWidth = Number(w3_getStyleValue(document.getElementById("right"), "width").replace("px", ""));  
+  }
+  elem.style.width = skyWidth + "px";
+  if (window.innerWidth <= 992) {
+    elem.style.position = "";
+    elem.style.top = stickypos + "px";
+    return false;
+  }
+  var stickypos = document.getElementById("stickypos").offsetTop;
+  var docTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  var adHeight = Number(w3_getStyleValue(elem, "height").replace("px", ""));
+  if (stickyadstatus == "") {
+    if ((stickypos - docTop) < 100) {
+      elem.style.position = "fixed";
+      elem.style.top = "100px";
+      stickyadstatus = "sticky";
+      document.getElementById("stickypos").style.position = "sticky";
+
+    }
+  } else {
+    if ((docTop + 100) - stickypos < 0) {  
+      elem.style.position = "";
+      elem.style.top = stickypos + "px";
+      stickyadstatus = "";
+      document.getElementById("stickypos").style.position = "static";
+    }
+  }
+  if (stickyadstatus == "sticky") {
+    if ((docTop + adHeight + 100) > document.getElementById("footer").offsetTop) {
+      elem.style.position = "absolute";
+      elem.style.top = (document.getElementById("footer").offsetTop - adHeight) + "px";
+      document.getElementById("stickypos").style.position = "static";
+    } else {
+        elem.style.position = "fixed";
+        elem.style.top = "100px";
+        stickyadstatus = "sticky";
+        document.getElementById("stickypos").style.position = "sticky";
+    }
+  }
+}
+function w3_getStyleValue(elmnt,style) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+  } else {
+    return elmnt.currentStyle[style];
+  }
+}
+</script>
+
+<script src="../lib/common-deps/main.js%3Fv=1.0.10"></script>
+<script src="../lib/user-session/main.js%3Fv=1.0.40"></script>
+<script src="../lib/my-learning/main.js%3Fv=1.0.42"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.ws-table-all .fas, .ws-table-all .far, .ws-table-all .fab, .ws-table-all .glyphicon, .ws-table-all .material-icons { 
+    font-size: 24px;
+}
+.ws-table-all td:nth-child(3){ 
+    font-family:consolas,'Courier New', Courier, monospace;
+}
+label {
+  font-weight:normal;
+}
+#icontable_0 {
+  text-align: right;
+}
+.fa-home:before {content: '\f015';}
+.fa-globe:before {content:'\f0ac';}
+.fa-search:before {content:'\f002'; }
+.fa-facebook-square:before {content:'\f082';}
+.fa-google-plus-square:before {content:'\f0d4';}
+.fa-twitter-square:before {content:'\f081';}
+.fa-caret-down:before {content:'\f0d7';}
+.fa-caret-up:before {content:'\f0d8';}
+
+.fa-facebook-square,.fa-twitter-square,.fa-google-plus-square {padding:0;}
+
+</style>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+parent.resizeIframe();
+})
+</script>
+</head>
+<body>
+<script>
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  var y = localStorage.getItem("preferredpagemode");  
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+  if (y == "dark") {
+    document.body.className += " darkpagetheme";
+  }
+})();
+</script>
+
+<table id="icontable_0" class="ws-table-all notranslate">
+
+    <tr>
+      <td><span class='fab fa-bitcoin'></span></td>
+      <td>fab fa-bitcoin</td>
+      <td>&amp;#xf379;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fab_fa-bitcoin&amp;unicon=f379.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fab fa-btc'></span></td>
+      <td>fab fa-btc</td>
+      <td>&amp;#xf15a;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fab_fa-btc&amp;unicon=f15a.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-dollar-sign'></span></td>
+      <td>fas fa-dollar-sign</td>
+      <td>&amp;#xf155;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-dollar-sign&amp;unicon=f155.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fab fa-ethereum'></span></td>
+      <td>fab fa-ethereum</td>
+      <td>&amp;#xf42e;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fab_fa-ethereum&amp;unicon=f42e.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-euro-sign'></span></td>
+      <td>fas fa-euro-sign</td>
+      <td>&amp;#xf153;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-euro-sign&amp;unicon=f153.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fab fa-gg'></span></td>
+      <td>fab fa-gg</td>
+      <td>&amp;#xf260;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fab_fa-gg&amp;unicon=f260.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fab fa-gg-circle'></span></td>
+      <td>fab fa-gg-circle</td>
+      <td>&amp;#xf261;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fab_fa-gg-circle&amp;unicon=f261.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-hryvnia'></span></td>
+      <td>fas fa-hryvnia</td>
+      <td>&amp;#xf6f2;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-hryvnia&amp;unicon=f6f2.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-lira-sign'></span></td>
+      <td>fas fa-lira-sign</td>
+      <td>&amp;#xf195;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-lira-sign&amp;unicon=f195.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-money-bill'></span></td>
+      <td>fas fa-money-bill</td>
+      <td>&amp;#xf0d6;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-money-bill&amp;unicon=f0d6.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-money-bill-alt'></span></td>
+      <td>fas fa-money-bill-alt</td>
+      <td>&amp;#xf3d1;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-money-bill-alt&amp;unicon=f3d1.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='far fa-money-bill-alt'></span></td>
+      <td>far fa-money-bill-alt</td>
+      <td>&amp;#xf3d1;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=far_fa-money-bill-alt&amp;unicon=f3d1.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-money-bill-wave'></span></td>
+      <td>fas fa-money-bill-wave</td>
+      <td>&amp;#xf53a;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-money-bill-wave&amp;unicon=f53a.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-money-bill-wave-alt'></span></td>
+      <td>fas fa-money-bill-wave-alt</td>
+      <td>&amp;#xf53b;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-money-bill-wave-alt&amp;unicon=f53b.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-money-check'></span></td>
+      <td>fas fa-money-check</td>
+      <td>&amp;#xf53c;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-money-check&amp;unicon=f53c.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-money-check-alt'></span></td>
+      <td>fas fa-money-check-alt</td>
+      <td>&amp;#xf53d;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-money-check-alt&amp;unicon=f53d.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-pound-sign'></span></td>
+      <td>fas fa-pound-sign</td>
+      <td>&amp;#xf154;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-pound-sign&amp;unicon=f154.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-ruble-sign'></span></td>
+      <td>fas fa-ruble-sign</td>
+      <td>&amp;#xf158;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-ruble-sign&amp;unicon=f158.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-rupee-sign'></span></td>
+      <td>fas fa-rupee-sign</td>
+      <td>&amp;#xf156;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-rupee-sign&amp;unicon=f156.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-shekel-sign'></span></td>
+      <td>fas fa-shekel-sign</td>
+      <td>&amp;#xf20b;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-shekel-sign&amp;unicon=f20b.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-tenge'></span></td>
+      <td>fas fa-tenge</td>
+      <td>&amp;#xf7d7;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-tenge&amp;unicon=f7d7.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-won-sign'></span></td>
+      <td>fas fa-won-sign</td>
+      <td>&amp;#xf159;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-won-sign&amp;unicon=f159.html">Try it</a></td>
+    </tr>
+  
+    <tr>
+      <td><span class='fas fa-yen-sign'></span></td>
+      <td>fas fa-yen-sign</td>
+      <td>&amp;#xf157;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit.asp%3Ficon=fas_fa-yen-sign&amp;unicon=f157.html">Try it</a></td>
+    </tr>
+  
+
+</table>
+</body>
+</html>

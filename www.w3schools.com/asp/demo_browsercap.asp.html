@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<table border="1" width="65%">
+  <tr>
+    <td width="52%">Client OS</td>
+    <td width="48%">unknown</td>
+  </tr>
+  <tr>
+    <td >Web Browser</td>
+    <td >Default</td>
+  </tr>
+  <tr>
+    <td>Browser version</td>
+    <td>0.0</td>
+  </tr>
+  <tr>
+    <td>Frame support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>Table support?</td>
+    <td>True</td>
+  </tr>
+  <tr>
+    <td>Sound support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>Cookies support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>VBScript support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>JavaScript support?</td>
+    <td>False</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

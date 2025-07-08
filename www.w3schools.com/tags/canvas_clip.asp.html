@@ -1,0 +1,1402 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>HTML canvas clip() Method</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="title" property="og:title" content="W3Schools.com">
+<meta name="Keywords" content="HTML, Python, CSS, SQL, JavaScript, How to, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, W3.CSS, XML, MySQL, Icons, NodeJS, React, Graphics, Angular, R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz, Exercises, Courses, Lessons, References, Examples, Learn to code, Source code, Demos, Tips, Website">
+<meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
+<meta property="og:image" content="../images/w3schools_logo_436_2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<meta property="og:description" content="W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="manifest" href="../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="../lib/fonts/fontawesome.woff2%3F14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/roboto-mono-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-sans-pro-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-sans-pro-v14-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../lib/fonts/SourceSansPro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../lib/fonts/freckle-face-v9-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../lib/topnav/main.css%3Fv=1.0.54.css">
+<link rel="stylesheet" href="../lib/my-learning/main.css%3Fv=1.0.42.css">
+<link rel="stylesheet" href="../lib/pathfinder/main.css%3Fv=1.0.7.css">
+<link rel="stylesheet" href="../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="stylesheet" href="../plus/plans/main.css">
+
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic.js%3Fv=1.0.9"></script>
+<script src="../lib/uic_prov.js%3Fv=1.2.7"></script>
+
+<script data-cfasync="false" type="text/javascript">
+
+uic_prov_pre("default","",subjectFolder);
+var stickyadstatus = "";
+function fix_stickyad() {
+  document.getElementById("stickypos").style.position = "sticky";
+  var elem = document.getElementById("stickyadcontainer");
+  if (!elem) {return false;}
+  if (document.getElementById("skyscraper")) {
+    var skyWidth = Number(w3_getStyleValue(document.getElementById("skyscraper"), "width").replace("px", ""));  
+    }
+  else {
+    var skyWidth = Number(w3_getStyleValue(document.getElementById("right"), "width").replace("px", ""));  
+  }
+  elem.style.width = skyWidth + "px";
+  if (window.innerWidth <= 992) {
+    elem.style.position = "";
+    elem.style.top = stickypos + "px";
+    return false;
+  }
+  var stickypos = document.getElementById("stickypos").offsetTop;
+  var docTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  var adHeight = Number(w3_getStyleValue(elem, "height").replace("px", ""));
+  if (stickyadstatus == "") {
+    if ((stickypos - docTop) < 100) {
+      elem.style.position = "fixed";
+      elem.style.top = "100px";
+      stickyadstatus = "sticky";
+      document.getElementById("stickypos").style.position = "sticky";
+
+    }
+  } else {
+    if ((docTop + 100) - stickypos < 0) {  
+      elem.style.position = "";
+      elem.style.top = stickypos + "px";
+      stickyadstatus = "";
+      document.getElementById("stickypos").style.position = "static";
+    }
+  }
+  if (stickyadstatus == "sticky") {
+    if ((docTop + adHeight + 100) > document.getElementById("footer").offsetTop) {
+      elem.style.position = "absolute";
+      elem.style.top = (document.getElementById("footer").offsetTop - adHeight) + "px";
+      document.getElementById("stickypos").style.position = "static";
+    } else {
+        elem.style.position = "fixed";
+        elem.style.top = "100px";
+        stickyadstatus = "sticky";
+        document.getElementById("stickypos").style.position = "sticky";
+    }
+  }
+}
+function w3_getStyleValue(elmnt,style) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+  } else {
+    return elmnt.currentStyle[style];
+  }
+}
+</script>
+
+<script src="../lib/common-deps/main.js%3Fv=1.0.10"></script>
+<script src="../lib/user-session/main.js%3Fv=1.0.40"></script>
+<script src="../lib/my-learning/main.js%3Fv=1.0.42"></script>
+
+<link rel="stylesheet" type="text/css" href="../browserref.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script>
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  var y = localStorage.getItem("preferredpagemode");  
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+  if (y == "dark") {
+    document.body.className += " darkpagetheme";
+  }
+})();
+</script>
+<style>
+#subtopnav {
+  position:fixed;
+  background-color: #282A35;
+  color:#f1f1f1;
+  padding:0;
+  letter-spacing:1px;
+  font-family: 'Source Sans Pro Topnav', sans-serif;
+  font-size:0;
+  top:56px;
+  z-index:2;
+  width:100%;
+  white-space:nowrap;
+  overflow:auto;
+  scrollbar-width: none;
+  max-width:1750px;
+  margin:auto;
+  left:0;
+  right:0;
+}
+#subtopnav a{
+  display:inline-block;
+  width:auto;
+  margin:0!important;
+  padding:5px 15px 5px 15px !important;
+  font-size:15px!important;
+  text-decoration: none;  
+  line-height: 1.5;
+}
+#subtopnav a:hover,#subtopnav a:focus,#subtopnav a:active{
+  background-color:#000000 !important;
+  color:#ffffff !important;
+}
+#subtopnav a.active{
+  background-color: #04AA6D!important;
+  color:#fff!important;  
+}
+#btn_container_subtopnav {
+  position:fixed;
+  right:0;
+  top:56px;
+  font-size:0;
+  xxborder-left:10px solid rgba(40, 42, 53,0.5);
+  
+}
+#btn_container_subtopnav a{
+  line-height:1.3!important;
+  padding-top:7px!important;
+  padding-bottom:6px!important; 
+  font-size:15px;
+  background-color:#282A35;  
+}
+#scroll_left_btn {
+  cursor:pointer;
+  display:none;
+  position:fixed;
+  left:0;
+  top:56px;
+  font-size: 15px;
+  xborder-right: 10px solid rgba(40, 42, 53,0.5);
+  xbackground: red;
+  }
+#scroll_left_btn span {
+  xbackground-color:#282A35;
+  background: linear-gradient(to right, #282A35 70%, transparent 100%);
+  display:block;
+  padding-top:5px;
+  padding-bottom:5px;  
+}
+#scroll_left_btn span:hover {
+  background: linear-gradient(to right, #000 95%, transparent 100%);
+}
+#scroll_right_btn {
+  cursor:pointer;
+  float:left;
+  font-size:15px;
+  xxbackground-color:#282A35;
+  background: linear-gradient(to left, #282A35 70%, transparent 100%);
+  
+  padding-top:5px;
+  padding-bottom:5px;  
+}
+#scroll_right_btn:hover {
+  background: linear-gradient(to left, #000 95%, transparent 100%);
+}
+#menubtn_container {
+  position:fixed;
+  left:0;
+  top:56px;
+  xborder-right:10px solid rgba(40, 42, 53,0.5);
+  height:33px;
+  color:white;
+  font-size:15px;
+}
+#menubtn_container span {
+  background-color:#282A35;  
+}
+#darkmodemenu {
+  position:fixed!important;
+  right:0;!important;  
+}
+#subtopnav::-webkit-scrollbar {
+  display:none!important;
+}
+
+@media screen and (max-width: 992px){
+  #subtopnav a.subtopnav_firstitem {
+    margin-left:50px!important;
+  }
+}
+
+#google_translate_element a{
+  font-size:13px!important;
+
+  line-height: normal;
+}
+#google_translate_element a:hover{
+  background-color:#fff!important;  
+  color:#000!important;    
+}
+</style>
+<script>
+activate_subtopnav_scroll = 0;
+from_scrollpos = -1;
+current_scrollpos = -1;
+goto_tut = 1;
+function startscrolling_subtopnav(event) {
+  event.preventDefault();
+  from_scrollpos = event.clientX;
+  activate_subtopnav_scroll = 1;
+}
+function scrolling_subtopnav(event) {
+  current_scrollpos = event.clientX;
+  if (current_scrollpos == from_scrollpos) return false;
+  event.preventDefault();
+  if (event.buttons == 0) return false;
+  var scrollspeed;
+  if (activate_subtopnav_scroll == 1) {
+    goto_tut = 0;
+    scrollspeed = current_scrollpos - from_scrollpos;
+    scrollspeed = Math.abs(scrollspeed);
+    if (current_scrollpos < from_scrollpos) {
+     document.getElementById("scroll_left_btn").style.display = "block";     
+     document.getElementById("subtopnav").scrollLeft += scrollspeed;        
+    } else {
+      document.getElementById("subtopnav").scrollLeft -= scrollspeed;        
+    }
+    scrollbtn_visible();
+    from_scrollpos = current_scrollpos;
+  }
+}
+function endscrolling_subtopnav(event) {
+  event.preventDefault();
+  activate_subtopnav_scroll = 0;
+  from_scrollpos = -1;
+  current_scrollpos = -1;
+}
+function pellessii(event) {
+  if (goto_tut == 0) {
+    event.preventDefault();  
+    goto_tut = 1;
+    return false;
+  }
+}
+var scrollspeed = 1;
+var scrollinterval
+function scrollmenow(n) {
+  scrollinterval = window.setInterval(function() {
+    scrollspeed = scrollspeed * 1.1;
+    if (scrollspeed > 10) {scrollspeed = 10;}
+    if (n == 1) {
+      document.getElementById("subtopnav").scrollLeft += scrollspeed;  
+    } else {
+      document.getElementById("subtopnav").scrollLeft -= scrollspeed;  
+      
+    }
+    scrollbtn_visible();
+  }, 10);
+}
+
+var p_s_l = 0;
+var x_s_l = 0;
+function scrollbtn_visible() {
+  var c_s_l = document.getElementById("subtopnav").scrollLeft;
+  if (c_s_l < 1) {
+    document.getElementById("scroll_left_btn").style.display = "none";    
+  } else {
+    document.getElementById("scroll_left_btn").style.display = "block";    
+  }
+  if (c_s_l > 1 && c_s_l == p_s_l) {
+    x_s_l++;
+  } else {
+    x_s_l = 0;  
+  }
+  if (x_s_l > 3) {
+    document.getElementById("scroll_right_btn").style.display = "none";    
+  } else {
+    document.getElementById("scroll_right_btn").style.display = "block";  
+  }
+  p_s_l = document.getElementById("subtopnav").scrollLeft;
+}
+
+function stopscrollmenow() {
+  scrollspeed = 1;
+  window.clearInterval(scrollinterval);
+}
+
+window.addEventListener("load", scrollbtn_visible);
+
+function subtopnav_intoview() {
+  var a, b, c, d, i = 0;
+  a = document.getElementById("subtopnav");
+  if (!a || !a.getElementsByClassName) {return false;}
+  var x = a.getElementsByTagName("A");
+  b = document.location.pathname;
+  if (b.indexOf("../python/numpy") > -1 || b.indexOf("../python/pandas") > -1 || b.indexOf("../python/scipy") > -1) {
+    for (i = 0; i < x.length; i++) {
+      c = x[i].pathname;
+      if ((b.indexOf("../python/numpy") > -1 && c == "/python/numpy/default.asp") || (b.indexOf("../python/pandas") > -1 && c == "/python/pandas/default.asp") || (b.indexOf("../python/scipy") > -1 && c == "/python/scipy/index.php")) {
+        x[i].className += " active";
+        break;
+      }
+    }
+  } else {
+    for (i = 0; i < x.length; i++) {
+      c = x[i].pathname;
+      if (c.indexOf("void(0)") == -1 && b.substr(0, b.indexOf("/",1)) ==  c.substr(0, c.indexOf("/",1))) {
+        x[i].className += " active";
+        break;
+      }
+    }
+  }
+  d = a.getElementsByClassName("active");
+  if (d.length < 1) {return false;}  
+  while (!amIIntoView(a, d[0])) {
+    i++
+    if (i > 1000) {break;}
+    a.scrollLeft += 10;
+    //console.log(i);
+  }
+  //scrollbtn_visible();
+}
+
+function amIIntoView(x, y) {
+  var a = x.scrollLeft;
+  var width = Math.min(window.innerWidth, 1750);
+  var b = a + width - 20;
+  var ytop = y.offsetLeft;
+  var c = y.offsetWidth;
+  var d = 0;
+  if (document.getElementById("btn_container_subtopnav")) d = document.getElementById("btn_container_subtopnav").offsetWidth;
+  var ybottom = ytop + c + d + 20;
+  return ((ybottom <= b) && (ytop >= a));
+}
+
+</script>
+<style>
+.topnavcontainer {
+  background-color: #282A35;
+  width:100%;
+  max-width:1750px;
+  left:0;
+  right:0;
+  margin:auto;
+  height:33px;
+  top:56px;
+  position:fixed;
+  z-index:3;
+}
+#scroll_left_btn {
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    left: auto;
+    top: auto;
+    font-size: 15px;
+}
+#scroll_right_btn {
+    cursor: pointer;
+    position: fixed;
+    font-size: 15px;
+    display:none;
+}
+.topnavbackground {
+  background-color:#282A35;
+  position:fixed;
+  width:100%;
+  height:33px;
+  top:56px;
+}
+body.darkpagetheme .topnavbackground, body.darkpagetheme .topnavcontainer, body.darkpagetheme #subtopnav  {
+  background-color:rgb(13,23,33)!important
+}
+
+body.darkpagetheme #scroll_right_btn {
+  background: linear-gradient(to left, rgb(13,23,33) 70%, transparent 100%)
+}
+body.darkpagetheme #scroll_left_btn span {
+  background: linear-gradient(to right, rgb(13,23,33) 70%, transparent 100%)
+}
+</style>
+<div class="topnavbackground"></div>
+<div class="topnavcontainer">
+<div id="subtopnav" onmousedown="startscrolling_subtopnav(event)" onmousemove="scrolling_subtopnav(event)" onmouseup="endscrolling_subtopnav(event)" onclick="return pellessii(event)">
+
+  <div id="scroll_left_btn" class="w3-hide-medium w3-hide-small">
+    <span onmousedown="scrollmenow(-1)" onmouseup="stopscrollmenow()" onmouseout="stopscrollmenow()">&nbsp;&nbsp;&nbsp;&#10094;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+  <div id="scroll_right_btn" style="display:none" class="w3-hide-medium w3-hide-small">
+    <span onmousedown="scrollmenow(1)" onmouseup="stopscrollmenow()" onmouseout="stopscrollmenow()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10095;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+
+  <div id="menubtn_container">
+    <span>
+        
+        <a href='javascript:void(0);' class='topnav-icons fa fa-menu w3-hide-large w3-left w3-bar-item w3-button ga-nav' style="line-height:1.1;padding-top:8px!important;padding-bottom:8px!important;" onclick='open_menu()' title='Menu'></a>
+        
+    </span>      
+  </div>
+  <a href="../html/default.asp.html" class="ga-nav subtopnav_firstitem" title="HTML Tutorial">HTML</a>
+  <a href="../css/default.asp.html" class="ga-nav" title="CSS Tutorial">CSS</a>
+  <a href="../js/default.asp.html" class="ga-nav" title="JavaScript Tutorial">JAVASCRIPT</a>
+  <a href="../sql/default.asp.html" class="ga-nav" title="SQL Tutorial">SQL</a>
+  <a href="../python/default.asp.html" class="ga-nav" title="Python Tutorial">PYTHON</a>
+  <a href="../java/default.asp.html" class="ga-nav" title="Java Tutorial">JAVA</a>
+  <a href="../php/default.asp.html" class="ga-nav" title="PHP Tutorial">PHP</a>
+  <a href="../howto/default.asp.html" class="ga-nav" title="How to">HOW TO</a>
+  <a href="../w3css/default.asp.html" class="ga-nav" title="W3.CSS Tutorial">W3.CSS</a>
+  <a href="../c/index.php.html" class="ga-nav" title="C Tutorial">C</a>
+  <a href="../cpp/default.asp.html" class="ga-nav" title="C++ Tutorial">C++</a>
+  <a href="../cs/index.php.html" class="ga-nav" title="C# Tutorial">C#</a>
+  <a href="../bootstrap/bootstrap_ver.asp.html" class="ga-nav" title="Bootstrap Tutorial">BOOTSTRAP</a>
+  <a href="../react/default.asp.html" class="ga-nav" title="React Tutorial">REACT</a>
+  <a href="../mysql/default.asp.html" class="ga-nav" title="MySQL Tutorial">MYSQL</a>
+  <a href="../jquery/default.asp.html" class="ga-nav" title="JQuery Tutorial">JQUERY</a>
+  <a href="../excel/index.php.html" class="ga-nav" title="Excel Tutorial">EXCEL</a>
+  <a href="../xml/default.asp.html" class="ga-nav" title="XML Tutorial">XML</a>
+  <a href="../django/index.php.html" class="ga-nav" title="Django Tutorial">DJANGO</a>
+  <a href="../python/numpy/default.asp.html" class="ga-nav" title="NumPy Tutorial">NUMPY</a>
+  <a href="../python/pandas/default.asp.html" class="ga-nav" title="Pandas Tutorial">PANDAS</a>
+  <a href="../nodejs/default.asp.html" class="ga-nav" title="Node.js Tutorial">NODEJS</a>
+  <a href="../dsa/index.php.html" class="ga-nav" title="DSA Tutorial">DSA</a>
+  <a href="../typescript/index.php.html" class="ga-nav" title="TypeScript Tutorial">TYPESCRIPT</a>
+  <a href="../angular/default.asp.html" class="ga-nav" title="Angular.js Tutorial">ANGULAR</a>
+  <a href="../git/default.asp.html" class="ga-nav" title="Git Tutorial">GIT</a>
+  <a href="../postgresql/index.php.html" class="ga-nav" title="PostgreSQL Tutorial">POSTGRESQL</a>
+  <a href="../mongodb/index.php.html" class="ga-nav" title="MongoDB Tutorial">MONGODB</a>
+  <a href="../asp/default.asp.html" class="ga-nav" title="ASP Tutorial">ASP</a>
+  <a href="../ai/default.asp.html" class="ga-nav" title="A.I. Tutorial">AI</a>
+  <a href="../r/default.asp.html" class="ga-nav" title="R Tutorial">R</a>
+  <a href="../go/index.php.html" class="ga-nav" title="Go Tutorial">GO</a>
+  <a href="../kotlin/index.php.html" class="ga-nav" title="Kotlin Tutorial">KOTLIN</a>
+  <a href="../sass/default.php.html" class="ga-nav" title="Sass Tutorial">SASS</a>
+  <a href="../vue/index.php.html" class="ga-nav" title="Vue.js Tutorial">VUE</a>
+  <a href="../gen_ai/index.php.html" class="ga-nav" title="Gen A.I. Tutorial">GEN AI</a>
+  <a href="../python/scipy/index.php.html" class="ga-nav" title="SciPy Tutorial">SCIPY</a>
+<!--  <a href="/aws/index.php" class="ga-nav" title="AWS Tutorial">AWS</a>-->
+  <a href="../cybersecurity/index.php.html" class="ga-nav" title="Cyber security Tutorial">CYBERSECURITY</a>
+  <a href="../datascience/default.asp.html" class="ga-nav" title="Data science Tutorial">DATA SCIENCE</a>
+  <a href="../programming/index.php.html" class="ga-nav" title="Introduction to Programming">INTRO TO PROGRAMMING</a>
+  <a href="../bash/index.php.html" class="ga-nav" title="Bash Tutorial">BASH</a>
+  <a href="../rust/index.php.html" class="ga-nav" title="Rust Tutorial">RUST</a>
+  <a href="javascript:void(0)" style="width:50px;visibility:hidden;"></a>  
+
+</div>
+</div>
+<!--
+<div class="topnav notranslate" id='topnav' style="position:fixed!important;top:56px">
+  <div style="overflow:auto;">
+    <div class="w3-bar w3-left topnavbar" style="width:100%;overflow:hidden;height:32px">
+
+      <a href='javascript:void(0);' class='topnav-icons fa fa-menu w3-hide-large w3-left w3-bar-item w3-button ga-nav' style="line-height:1.1;padding-top:8px!important;padding-bottom:7px!important;" onclick='open_menu()' title='Menu'></a>
+
+      <a href='/default.asp' style="display:none" class='topnav-icons fa fa-home w3-left w3-bar-item w3-button ga-nav' title='Home'></a>
+      <a class="w3-bar-item w3-button ga-nav" href='/html/default.asp' title='HTML Tutorial' style="padding-left:18px!important;padding-right:18px!important;">HTML</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/css/default.asp' title='CSS Tutorial'>CSS</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/js/default.asp' title='JavaScript Tutorial'>JAVASCRIPT</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/sql/default.asp' title='SQL Tutorial'>SQL</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/python/default.asp' title='Python Tutorial'>PYTHON</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/java/default.asp' title='Java Tutorial'>JAVA</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/php/default.asp' title='PHP Tutorial'>PHP</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/bootstrap/bootstrap_ver.asp' title='Bootstrap Tutorial'>BOOTSTRAP</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/howto/default.asp' title='How To'>HOW TO</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/w3css/default.asp' title='W3.CSS Tutorial'>W3.CSS</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/c/index.php' title='C Tutorial'>C</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/cpp/default.asp' title='C++ Tutorial'>C++</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/cs/index.php' title='C# Tutorial'>C#</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/react/default.asp' title='React Tutorial'>REACT</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/r/default.asp' title='R Tutorial'>R</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/jquery/default.asp' title='jQuery Tutorial'>JQUERY</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/django/index.php' title='Django Tutorial'>DJANGO</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/typescript/index.php' title='Typescript Tutorial'>TYPESCRIPT</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/nodejs/default.asp' title='NodeJS Tutorial'>NODEJS</a>
+      <a class="w3-bar-item w3-button ga-nav" href='/mysql/default.asp' title='MySQL Tutorial'>MYSQL</a>
+    </div>
+  </div>
+</div>
+-->
+<script>
+subtopnav_intoview();
+</script>
+<style>
+.belowtopnavcontainer {
+  max-width:1750px;
+  margin:auto;
+}
+.contentcontainer {
+   background-color: #f5f6f7;
+}
+body.darkpagetheme .contentcontainer {
+   background-color: #29353e;
+}
+</style>
+<div class='contentcontainer'>
+<div class='belowtopnavcontainer'>
+
+<div class='w3-sidebar w3-collapse' id='sidenav'>
+  <div id='leftmenuinner'>
+    <div id='leftmenuinnerinner'>
+<!--  <a href='javascript:void(0)' onclick='close_menu()' class='w3-button w3-hide-large w3-large w3-display-topright' style='right:16px;padding:3px 12px;font-weight:bold;'>&times;</a>-->
+<h2 class="left"><span class="left_h2">HTML</span> References</h2>
+<a target="_top" class="no-checkmark" href="default.asp.html">HTML by Alphabet</a>
+<a target="_top" class="no-checkmark" href="ref_byfunc.asp.html">HTML by Category</a>
+<a target="_top" class="no-checkmark" href="ref_html_browsersupport.asp.html">HTML Browser Support</a>
+<a target="_top" class="no-checkmark" href="ref_attributes.asp.html">HTML Attributes</a>
+<a target="_top" class="no-checkmark" href="ref_standardattributes.asp.html">HTML Global Attributes</a>
+<a target="_top" class="no-checkmark" href="ref_eventattributes.asp.html">HTML Events</a>
+<a target="_top" class="no-checkmark" href="ref_colornames.asp.html">HTML Colors</a>
+<a target="_top" class="no-checkmark" href="ref_canvas.asp.html">HTML Canvas</a>
+<a target="_top" class="no-checkmark" href="ref_av_dom.asp.html">HTML Audio/Video</a>
+<a target="_top" class="no-checkmark" href="ref_charactersets.asp.html">HTML Character Sets</a>
+<a target="_top" class="no-checkmark" href="ref_html_dtd.asp.html">HTML Doctypes</a>
+<a target="_top" class="no-checkmark" href="ref_urlencode.asp.html">HTML URL Encode</a>
+<a target="_top" class="no-checkmark" href="ref_language_codes.asp.html">HTML Language Codes</a>
+<a target="_top" class="no-checkmark" href="ref_country_codes.asp.html">HTML Country Codes</a>
+<a target="_top" class="no-checkmark" href="ref_httpmessages.asp.html">HTTP Messages</a>
+<a target="_top" class="no-checkmark" href="ref_httpmethods.asp.html">HTTP Methods</a>
+<a target="_top" class="no-checkmark" href="ref_pxtoemconversion.asp.html">PX to EM Converter</a>
+<a target="_top" class="no-checkmark" href="ref_keyboardshortcuts.asp.html">Keyboard Shortcuts</a>
+<br>
+<div class="notranslate">
+<h2 class="left"><span class="left_h2">HTML</span> Tags</h2>
+<a target="_top" class="no-checkmark" href="tag_comment.asp.html">&lt;!--&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_doctype.asp.html">&lt;!DOCTYPE&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_a.asp.html">&lt;a&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_abbr.asp.html">&lt;abbr&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_acronym.asp.html">&lt;acronym&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_address.asp.html">&lt;address&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_applet.asp.html">&lt;applet&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_area.asp.html">&lt;area&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_article.asp.html">&lt;article&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_aside.asp.html">&lt;aside&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_audio.asp.html">&lt;audio&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_b.asp.html">&lt;b&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_base.asp.html">&lt;base&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_basefont.asp.html">&lt;basefont&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_bdi.asp.html">&lt;bdi&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_bdo.asp.html">&lt;bdo&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_big.asp.html">&lt;big&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_blockquote.asp.html">&lt;blockquote&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_body.asp.html">&lt;body&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_br.asp.html">&lt;br&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_button.asp.html">&lt;button&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_canvas.asp.html">&lt;canvas&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_caption.asp.html">&lt;caption&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_center.asp.html">&lt;center&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_cite.asp.html">&lt;cite&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_code.asp.html">&lt;code&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_col.asp.html">&lt;col&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_colgroup.asp.html">&lt;colgroup&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_data.asp.html">&lt;data&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_datalist.asp.html">&lt;datalist&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_dd.asp.html">&lt;dd&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_del.asp.html">&lt;del&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_details.asp.html">&lt;details&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_dfn.asp.html">&lt;dfn&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_dialog.asp.html">&lt;dialog&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_dir.asp.html">&lt;dir&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_div.asp.html">&lt;div&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_dl.asp.html">&lt;dl&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_dt.asp.html">&lt;dt&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_em.asp.html">&lt;em&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_embed.asp.html">&lt;embed&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_fieldset.asp.html">&lt;fieldset&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_figcaption.asp.html">&lt;figcaption&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_figure.asp.html">&lt;figure&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_font.asp.html">&lt;font&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_footer.asp.html">&lt;footer&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_form.asp.html">&lt;form&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_frame.asp.html">&lt;frame&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_frameset.asp.html">&lt;frameset&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_hn.asp.html">&lt;h1&gt; - &lt;h6&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_head.asp.html">&lt;head&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_header.asp.html">&lt;header&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_hgroup.asp.html">&lt;hgroup&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_hr.asp.html">&lt;hr&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_html.asp.html">&lt;html&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_i.asp.html">&lt;i&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_iframe.asp.html">&lt;iframe&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_img.asp.html">&lt;img&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_input.asp.html">&lt;input&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_ins.asp.html">&lt;ins&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_kbd.asp.html">&lt;kbd&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_label.asp.html">&lt;label&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_legend.asp.html">&lt;legend&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_li.asp.html">&lt;li&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_link.asp.html">&lt;link&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_main.asp.html">&lt;main&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_map.asp.html">&lt;map&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_mark.asp.html">&lt;mark&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_menu.asp.html">&lt;menu&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_meta.asp.html">&lt;meta&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_meter.asp.html">&lt;meter&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_nav.asp.html">&lt;nav&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_noframes.asp.html">&lt;noframes&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_noscript.asp.html">&lt;noscript&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_object.asp.html">&lt;object&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_ol.asp.html">&lt;ol&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_optgroup.asp.html">&lt;optgroup&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_option.asp.html">&lt;option&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_output.asp.html">&lt;output&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_p.asp.html">&lt;p&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_param.asp.html">&lt;param&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_picture.asp.html">&lt;picture&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_pre.asp.html">&lt;pre&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_progress.asp.html">&lt;progress&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_q.asp.html">&lt;q&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_rp.asp.html">&lt;rp&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_rt.asp.html">&lt;rt&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_ruby.asp.html">&lt;ruby&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_s.asp.html">&lt;s&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_samp.asp.html">&lt;samp&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_script.asp.html">&lt;script&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_search.asp.html">&lt;search&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_section.asp.html">&lt;section&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_select.asp.html">&lt;select&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_small.asp.html">&lt;small&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_source.asp.html">&lt;source&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_span.asp.html">&lt;span&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_strike.asp.html">&lt;strike&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_strong.asp.html">&lt;strong&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_style.asp.html">&lt;style&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_sub.asp.html">&lt;sub&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_summary.asp.html">&lt;summary&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_sup.asp.html">&lt;sup&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_svg.asp.html">&lt;svg&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_table.asp.html">&lt;table&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_tbody.asp.html">&lt;tbody&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_td.asp.html">&lt;td&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_template.asp.html">&lt;template&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_textarea.asp.html">&lt;textarea&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_tfoot.asp.html">&lt;tfoot&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_th.asp.html">&lt;th&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_thead.asp.html">&lt;thead&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_time.asp.html">&lt;time&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_title.asp.html">&lt;title&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_tr.asp.html">&lt;tr&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_track.asp.html">&lt;track&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_tt.asp.html">&lt;tt&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_u.asp.html">&lt;u&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_ul.asp.html">&lt;ul&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_var.asp.html">&lt;var&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_video.asp.html">&lt;video&gt;</a>
+<a target="_top" class="no-checkmark" href="tag_wbr.asp.html">&lt;wbr&gt;</a>
+</div>
+      <br><br>
+    </div>
+  </div>
+</div>
+<div class='w3-main w3-light-grey' id='belowtopnav' style='margin-left:250px;'>
+
+  <div class='w3-row w3-white'>
+
+    <div class='w3-col l10 m12' id='main'>
+      <div id='mainLeaderboard' style='overflow:hidden;'>
+        <!-- MainLeaderboard-->
+      </div>
+
+
+<h1>Canvas <span class="color_h1">clip()</span> Method</h1>
+<p><a href="ref_canvas.asp.html" class="w3-btn w3-white w3-border" title="Canvas Reference">&#10094; Canvas Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Clip a 200*120 pixels region from the context. Then, draw a 
+red rectangle. Only the part of the red rectangle that is inside the clipped 
+area is visible:</p>
+
+<p>Without clip():</p>
+<canvas id="myCanvas1" width="300" height="150" style="border:1px solid grey"></canvas>
+
+<p>With clip():</p>
+<canvas id="myCanvas2" width="300" height="150" style="border:1px solid grey"></canvas>
+
+<script>
+const c1 = document.getElementById("myCanvas1");
+const ctx1 = c1.getContext("2d");
+// Draw a rectangle
+ctx1.rect(50, 20, 200, 120);
+ctx1.stroke();
+// Draw red rectangle
+ctx1.fillStyle = "red";
+ctx1.fillRect(0, 0, 150, 100);
+
+const c2 = document.getElementById("myCanvas2");
+const ctx2 = c2.getContext("2d");
+// Clip a rectangular area
+ctx2.rect(50, 20, 200, 120);
+ctx2.stroke();
+ctx2.clip();
+// Draw red rectangle after clip()
+ctx2.fillStyle = "red";
+ctx2.fillRect(0, 0, 150, 100);
+</script> 
+
+<p>JavaScript:</p>
+<div class="w3-code notranslate jsHigh">
+const canvas = document.getElementById(&quot;myCanvas&quot;);<br>
+const ctx = canvas.getContext(&quot;2d&quot;);<br>
+<br>
+// Clip a rectangular area<br>
+ctx.rect(50, 20, 200, 120);<br>
+ctx.stroke();<br>
+ctx.clip();<br>
+<br>
+// Draw red rectangle after clip()<br>
+ctx.fillStyle = &quot;red&quot;;<br>
+ctx.fillRect(0, 0, 150, 100);<br>
+&lt;/script&gt;</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp%3Ffilename=tryhtml5_canvas_clip.html" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Description</h2>
+<p>The <code class="w3-codespan">clip()</code> method clips a region of any size from the original context.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>When a region is clipped, future drawing is limited to 
+the clipped region.</p>
+<p>However, you can save the context settings with the save() method before using 
+the clip() method, and use restore() to restore it later.</p>
+</div>
+
+<hr>
+<h2>Syntax</h2>
+<table class="ws-table-all">
+  <tr>
+    <td><i>context</i>.clip();</td>
+  </tr>
+</table>
+<hr>
+<h2>Parameters</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <td>NONE</td>
+  </tr>
+</table>
+<hr>
+<h2>Return Value</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <td>NONE</td>
+  </tr>
+</table>
+
+<hr>
+<h2>Browser Support</h2>
+<p>The <code class="w3-codespan">&lt;canvas&gt;</code> element is an HTML5 standard (2014).</p>
+<p><code class="w3-codespan">clip()</code> is supported in all modern browsers:</p>
+<table class="browserref notranslate" style="font-size:14px">
+  <tr style="height:60px">
+    <th style="width:16.6%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16.6%;" class="bsEdge" title="Edge"></th>
+    <th style="width:16.6%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16.6%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16.6%;" class="bsOpera" title="Opera"></th>                
+    <th style="width:16.6%;" class="bsIE" title="Internet Explorer"></th>
+  </tr>
+  <tr>
+    <td style="padding-left:2px;padding-right:2px">Chrome</td>
+    <td style="padding-left:2px;padding-right:2px">Edge</td>
+    <td style="padding-left:2px;padding-right:2px">Firefox</td>
+    <td style="padding-left:2px;padding-right:2px">Safari</td>
+    <td style="padding-left:2px;padding-right:2px">Opera</td>
+    <td style="padding-left:2px;padding-right:2px">IE</td>
+  </tr>
+  <tr>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">9-11</td>
+  </tr>
+</table>
+
+<hr>
+<a href="ref_canvas.asp.html" class="w3-btn w3-white w3-border" title="Canvas Reference">&#10094; Canvas Reference</a>
+<div
+  id="user-profile-bottom-wrapper"
+  class="user-profile-bottom-wrapper"
+>
+  <div class="user-authenticated w3-hide">
+    <a
+      href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com"
+      class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile"
+      title="Your W3Schools Profile"
+      aria-label="Your W3Schools Profile"
+      target="_top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 2048 2048"
+        class="user-profile-icon"
+        aria-label="Your W3Schools Profile Icon"
+      >
+        <path
+          d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155"
+          stroke="none"
+          fill="#2a93fb"
+          fill-rule="evenodd"
+        />
+        <path
+          d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584"
+          stroke="none"
+          fill="#0aaa8a"
+          fill-rule="evenodd"
+        />
+      </svg>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="user-progress"
+        aria-label="Your W3Schools Profile Progress"
+      >
+        <path
+          class="user-progress-circle1"
+          fill="none"
+          d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"
+        ></path>
+        <path
+          class="user-progress-circle2"
+          fill="none"
+          d="M 26 15 A 20 20 0 0 0 26 15"
+        ></path>
+      </svg>
+
+      <span class="user-progress-star">&#x2605;</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="-background-image -variant-t2">&nbsp;</div>
+
+  <div class="-inner-wrapper">
+    <div class="-main-section">
+      <div class="-inner-wrapper">
+        <div class="-headline">Track your progress - it's free!</div>
+        <div class="-body">
+          <div class="-progress-bar">
+            <div class="-slider" style="width: 20%;">&nbsp;</div>    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="-right-side-section">
+      <div class="-user-session-btns">
+        <a
+          href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com"
+          class="-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-bottom ga-bottom-login"
+          title="Login to your account"
+          aria-label="Login to your account"
+          target="_top"
+        >
+          Log in
+        </a>
+
+        <a
+          href="https://profile.w3schools.com/sign-up?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com"
+          class="-signup-btn w3-button w3-right ws-green ws-hover-green ga-bottom ga-bottom-signup"
+          title="Sign Up to Improve Your Learning Experience"
+          aria-label="Sign Up to Improve Your Learning Experience"
+          target="_top"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div class="w3-col l2 m12" id="right">
+
+<div class="sidesection">
+  <div id="skyscraper">
+  </div>
+</div>
+  
+<style>
+.ribbon-vid {
+  font-size:12px;
+  font-weight:bold;
+  padding: 6px 20px;
+  left:-20px;
+  top:-10px;
+  text-align: center;
+  color:black;
+  border-radius:25px;
+}
+</style>
+<div class="sidesection" style="margin-top:20px;margin-bottom:20px;">
+<a id="upperfeatureshowcaselink" class="ga-right ga-top-fa-25" href="https://campus.w3schools.com/products/w3schools-full-access-course" target="_blank">
+<picture id="upperfeatureshowcase">
+  <source id="upperfeatureshowcase3001" srcset="../images/img_fa_up_300.webp" media="(max-width: 990px)" style="border-radius: 5px;">
+  <source id="upperfeatureshowcase120" srcset="../images/img_fa_up_120.webp" media="(max-width: 1260px)" style="border-radius: 5px;">
+  <source id="upperfeatureshowcase160" srcset="../images/img_fa_up_160.webp" media="(max-width: 1700px)" style="border-radius: 5px;">
+  <img id="upperfeatureshowcase300" src="../images/img_fa_up_300.png" alt="Get Certified" style="width:auto;border-radius: 5px;" loading="lazy">
+</picture>
+</a>
+</div>
+
+<div class="sidesection">
+<h4><a href="../colors/colors_picker.asp.html">COLOR PICKER</a></h4>
+<a href="../colors/colors_picker.asp.html" class="ga-right">
+<picture>
+  <source srcset="../images/colorpicker2000.webp" type="image/webp">
+  <img src="../images/colorpicker2000.png" alt="colorpicker" loading="lazy">
+</picture>
+</a>
+</div>
+
+<div class="sidesection">
+  <div class="sharethis">
+    <a href="https://www.youtube.com/@w3schools" target="_blank" title="W3Schools on YouTube"><span class="fa fa-youtube ga-right w3-hover-text-red" style="font-size:25px;"></span></a>
+    <a href="https://www.linkedin.com/company/w3schools.com/" target="_blank" title="W3Schools on LinkedIn"><span class="fa fa-linkedin-square ga-right" style="font-size:25px;"></span></a>
+    <a href="https://discord.com/invite/w3schools" target="_blank" title='Join the W3schools community on Discord'><span class="fa fa-discord ga-right" style="font-size:25px;"></span></a> 
+    <a href="https://www.facebook.com/w3schoolscom/" target="_blank" title="W3Schools on Facebook"><span class="fa fa-facebook-square ga-right" style="font-size:25px;"></span></a>
+    <a href="https://www.instagram.com/w3schools.com_official/" target="_blank" title="W3Schools on Instagram"><span class="fa fa-instagram ga-right" style="font-size:25px;"></span></a>
+    <a href="https://www.tiktok.com/@w3schools.com" target="_blank" title="New: W3Schools on TikTok"><span class="fa fa-tiktok ga-right w3-hover-text-grey" style="font-size:20px;"></span></a>
+  </div>
+</div>
+
+
+<div id="vidpos" class="sidesection" style="text-align:center;margin-bottom:0;height:0;">
+</div>
+
+
+<div id="stickypos" class="sidesection" style="text-align:center;position:sticky;top:50px;">
+  <div id="stickyadcontainer">
+    <div style="position:relative;margin:auto;">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div id="footer" class="footer w3-container w3-white">
+<hr>
+<div id="bottomads" style="overflow:auto">
+</div>
+<!--<hr>-->
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="wrappercontainer">
+<style>
+#wrappercontainer {
+  width:100%;
+  height:100px;
+  background-color:red;
+  position:relative;
+  z-index:2;
+}
+#footerwrapper {
+  background-color: #282A35;
+/*  background-image:url('/images/background_in_space.webp');
+  background-repeat: repeat;
+  background-position: right bottom;*/
+}
+#spacemyfooter {
+  padding:40px 80px 20px 80px;
+  max-width:1500px;
+  margin:auto;
+}
+.footerlinks_1 {
+  width:auto;
+  float:left;
+  padding:40px 60px;
+  color:#FFF4A3;
+  font-family: Source Sans Pro, sans-serif;
+}
+.footerlinks_1 .fa-logo {
+  font-size:46px!important;
+  color:#ddd;
+}
+.footerlinks_1:nth-child(1) {
+  padding:30px 10px 30px 40px;
+}
+.footerlinks_1 a{
+  text-decoration:none;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3!;
+}
+.footerlinks_1 a:hover i{
+  color:#FFF4A3!important;
+}
+.footerlinks_2 {
+  width:auto;
+  float:left;
+  padding-left:90px;
+  padding-right:135px;
+  color:#ddd;
+  font-family: Source Sans Pro, sans-serif;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footerlinks_2:nth-child(4) {
+  padding-right:0;
+}
+.footerlinks_2 h5 {
+  margin-bottom:20px;
+}
+.footerlinks_2 a:visited,.footerlinks_2 a:link{
+  text-decoration:none;
+}
+.footerlinks_2 a:hover,.footerlinks_2 a:active{
+  color:#FFF4A3;
+}
+.footersome {
+  padding:60px 40px 10px 40px;
+  color:#ddd;
+  font-size:20px;
+  text-align:center;
+}
+.footersome a {
+  margin-right:10px;
+}
+.footersome a:hover,.footersome a:active{
+  color:#FFF4A3;
+}
+.footersome .textlink {
+  font-size:15px;
+  text-decoration:none;
+}
+.footersome .textlink:active,.footersome .textlink:hover {
+  text-decoration:underline;
+}
+.footertext {
+  color:#ddd;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footertext a:hover,.footertext a:active{
+  color:#FFF4A3;
+}
+@media screen and (max-width: 992px) {
+  #wrappercontainer {
+    z-index:0;
+  }
+  .footerlinks_1 {
+    width:100%;
+    margin:auto;
+    float:none;
+    text-align:center;
+    padding:10px 20px!important;
+    font-size:20px;
+  }
+  .footerlinks_1:nth-child(1) {
+    padding:40px 20px;
+  }
+  .footerlinks_2 {
+    width:100%;
+    float:none;
+    margin:auto;
+    font-size:16px;
+    line-height:20px;
+    padding:0;
+  }
+  .footerlinks_2 h5 {
+    font-size:26px;
+    margin-top:40px;
+  }
+  .footertext {
+    padding:0;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+/*
+@media screen and (max-width: 992px) {
+  #footerwrapper {
+    background-image:url('/images/background_in_space.webp');
+    background-color: #282A35;
+    background-repeat: repeat;
+    background-position: left top;
+  }
+}*/
+</style>
+<div id="footerwrapper">
+
+<style>
+@media screen and (max-width: 1450px) {
+  #spacemyfooter {
+    max-width:1100px;
+  }
+  .footerlinks_1 {
+    padding-left:30px;
+    padding-right:30px;
+  }
+  .footerlinks_2 {
+    padding-right:30px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:50px;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #spacemyfooter {
+    max-width:1000px;
+  }
+  .footerlinks_1 {
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .footerlinks_2 {
+    padding-right:20px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:20px;
+  }
+}
+</style>
+<div id="spacemyfooter">
+
+
+
+
+<div style="overflow:hidden;">
+<div class="footerlinks_1">
+  <a href="../index.html" class="ga-bottom" aria-label="W3Schools.com" alt="W3Schools.com">
+    <i class="fa fa-logo"></i>
+  </a>
+</div>
+<div class="footerlinks_1"><a href="../plus/index.php.html" title="Become a PLUS user and unlock powerful features" class="ga-bottom ga-bottom-plus">PLUS</a></div>
+<div class="footerlinks_1"><a href="../spaces/index.php.html" title="Get your own website with W3Schools Spaces" class="ga-bottom ga-bottom-spaces">SPACES</a></div>
+<div class="footerlinks_1"><a href="https://campus.w3schools.com/collections/certifications" title="Document your knowledge by getting certified" target="_blank" class="ga-bottom ga-bottom-cert">GET CERTIFIED</a></div>
+<div class="footerlinks_1"><a href="../academy/index.php.html" title="Contact us about W3Schools Academy for educational institutions" target="_blank" class="ga-bottom ga-bottom-teachers">FOR TEACHERS</a></div>
+<div class="footerlinks_1"><a href="../academy/index.php.html" target="_blank">FOR BUSINESS</a></div>
+<div class="footerlinks_1"><a href="javascript:void(0);" title="Contact us about sales or errors" onclick="reportError();return false">CONTACT US</a></div>
+</div>
+<style>
+/*Remove this style after 20. April 2024*/
+#err_message {
+  padding:8px 16px 16px 40px;
+  border-radius:5px;
+  display:none;
+  position:relative;
+  background-color:#2D3748;
+  color:#FFF4A3;
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message h2 {
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message p {
+  color:#f1f1f1;
+}
+#err_message #close_err_message {
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:20px;
+  cursor:pointer;
+  width:30px;
+  height:30px;
+  text-align:center;
+}
+#err_message #close_err_message:hover {
+  background-color:#FFF4A3;
+  color:#2D3748;
+  border-radius:50%
+}
+</style>
+
+<div id="err_message">
+  <span id="close_err_message" onclick="this.parentElement.style.display='none'">&times;</span>
+  <h2>Contact Sales</h2>
+  <p>If you want to use W3Schools services as an educational institution, team or enterprise, send us an e-mail:<br>sales@w3schools.com</p>
+  <h2>Report Error</h2>
+  <p>If you want to report an error, or if you want to make a suggestion, send us an e-mail:<br>help@w3schools.com</p>
+</div>
+
+
+<div style="overflow:hidden;">
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top Tutorials</h5>
+  <a href="../html/default.asp.html" class="ga-bottom">HTML Tutorial</a><br>
+  <a href="../css/default.asp.html" class="ga-bottom">CSS Tutorial</a><br>
+  <a href="../js/default.asp.html" class="ga-bottom">JavaScript Tutorial</a><br>
+  <a href="../howto/default.asp.html" class="ga-bottom">How To Tutorial</a><br>
+  <a href="../sql/default.asp.html" class="ga-bottom">SQL Tutorial</a><br>
+  <a href="../python/default.asp.html" class="ga-bottom">Python Tutorial</a><br>
+  <a href="../w3css/default.asp.html" class="ga-bottom">W3.CSS Tutorial</a><br>
+  <a href="../bootstrap/bootstrap_ver.asp.html" class="ga-bottom">Bootstrap Tutorial</a><br>
+  <a href="../php/default.asp.html" class="ga-bottom">PHP Tutorial</a><br>
+  <a href="../java/default.asp.html" class="ga-bottom">Java Tutorial</a><br>
+  <a href="../cpp/default.asp.html" class="ga-bottom">C++ Tutorial</a><br>
+  <a href="../jquery/default.asp.html" class="ga-bottom">jQuery Tutorial</a><br>
+</div>
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top References</h5>
+  <a href="default.asp.html" class="ga-bottom">HTML Reference</a><br>
+  <a href="../cssref/index.php.html" class="ga-bottom">CSS Reference</a><br>
+  <a href="../jsref/default.asp.html" class="ga-bottom">JavaScript Reference</a><br>
+  <a href="../sql/sql_ref_keywords.asp.html" class="ga-bottom">SQL Reference</a><br>
+  <a href="../python/python_reference.asp.html" class="ga-bottom">Python Reference</a><br>
+  <a href="../w3css/w3css_references.asp.html" class="ga-bottom">W3.CSS Reference</a><br>
+  <a href="../bootstrap/bootstrap_ref_all_classes.asp.html" class="ga-bottom">Bootstrap Reference</a><br>
+  <a href="../php/php_ref_overview.asp.html" class="ga-bottom">PHP Reference</a><br>
+  <a href="../colors/colors_names.asp.html" class="ga-bottom">HTML Colors</a><br>
+  <a href="../java/java_ref_keywords.asp.html" class="ga-bottom">Java Reference</a><br>
+  <a href="../angular/angular_ref_directives.asp.html" class="ga-bottom">Angular Reference</a><br>
+  <a href="../jquery/jquery_ref_overview.asp.html" class="ga-bottom">jQuery Reference</a><br>
+</div>
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top Examples</h5>
+  <a href="../html/html_examples.asp.html" class="ga-bottom">HTML Examples</a><br>
+  <a href="../css/css_examples.asp.html" class="ga-bottom">CSS Examples</a><br>
+  <a href="../js/js_examples.asp.html" class="ga-bottom">JavaScript Examples</a><br>
+  <a href="../howto/default.asp.html" class="ga-bottom">How To Examples</a><br>
+  <a href="../sql/sql_examples.asp.html" class="ga-bottom">SQL Examples</a><br>
+  <a href="../python/python_examples.asp.html" class="ga-bottom">Python Examples</a><br>
+  <a href="../w3css/w3css_examples.asp.html" class="ga-bottom">W3.CSS Examples</a><br>
+  <a href="../bootstrap/bootstrap_examples.asp.html" class="ga-bottom">Bootstrap Examples</a><br>
+  <a href="../php/php_examples.asp.html" class="ga-bottom">PHP Examples</a><br>
+  <a href="../java/java_examples.asp.html" class="ga-bottom">Java Examples</a><br>
+  <a href="../xml/xml_examples.asp.html" class="ga-bottom">XML Examples</a><br>
+  <a href="../jquery/jquery_examples.asp.html" class="ga-bottom">jQuery Examples</a><br>
+</div>
+<div class="footerlinks_2">
+  <a href="https://campus.w3schools.com/collections/course-catalog" target="_blank" class="ga-bottom"><h5 style="font-family: 'Source Sans Pro', sans-serif;">Get Certified</h5></a>
+  <a href="https://campus.w3schools.com/collections/certifications/products/html-certificate" target="_blank" class="ga-bottom">HTML Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/css-certificate" target="_blank" class="ga-bottom">CSS Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/javascript-certificate" target="_blank" class="ga-bottom">JavaScript Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/front-end-certificate" target="_blank" class="ga-bottom">Front End Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/sql-certificate" target="_blank" class="ga-bottom">SQL Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/python-certificate" target="_blank" class="ga-bottom">Python Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/php-certificate" target="_blank" class="ga-bottom">PHP Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/jquery-certificate" target="_blank" class="ga-bottom">jQuery Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/java-certificate" target="_blank" class="ga-bottom">Java Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/c-certificate" target="_blank" class="ga-bottom">C++ Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/c-certificate-1" target="_blank" class="ga-bottom">C# Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/xml-certificate" target="_blank" class="ga-bottom">XML Certificate</a><br>
+</div>
+</div>
+
+
+<div class="footersome">
+  <a target="_blank" href="https://www.youtube.com/@w3schools" title="W3Schools on YouTube"><i class="fa fa-youtube"></i></a>
+  <a target="_blank" href="https://www.linkedin.com/company/w3schools.com/" title="W3Schools on LinkedIn"><i class="fa">&#62220;</i></a>
+  <a target="_blank" href="https://discord.com/invite/w3schools" title="Join the W3schools community on Discord"><i class="fa">&#59399;</i></a>
+  <a target="_blank" href="https://www.facebook.com/w3schoolscom/" title="W3Schools on Facebook"><i class="fa">&#59398;</i></a>
+  <a target="_blank" href="https://www.instagram.com/w3schools.com_official/" title="W3Schools on Instagram"><i class="fa">&#61805;</i></a>
+  <div class="w3-hide-large" style="margin-top:16px"></div>
+  <a target="_blank" href="https://www.w3schools.com/forum/default.asp" title="Forum" class="textlink">FORUM</a>
+  <a target="_blank" href="../about/default.asp.html" title="About W3Schools" class="textlink">ABOUT</a>
+  <a target="_blank" href="../academy/index.php.html"
+     title="Contact us about W3Schools Academy for educational institutions and organizations" class="textlink ga-bottom-textlink-academy">ACADEMY</a>
+</div>
+
+<div class="footertext">
+W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning.<br class="footer-hide-special">
+Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness<br class="footer-hide-special">
+of all content. While using W3Schools, you agree to have read and accepted our <a href="../about/about_copyright.asp.html" class="ga-bottom">terms of use</a>, 
+<a href="../about/about_privacy.asp.html" class="ga-bottom">cookie and privacy policy</a>.<br><br>
+<a href="../about/about_copyright.asp.html" class="ga-bottom">Copyright 1999-2025</a> by Refsnes Data. All Rights Reserved.
+<a href="../w3css/default.asp.html" class="ga-bottom">W3Schools is Powered by W3.CSS</a>.<br><br>
+</div>
+</div>
+</div>
+
+
+</div>
+<script src="../lib/topnav/amazon-cognito-identity.min.js"></script>
+<script src="../lib/topnav/main.js%3Fv=1.0.54"></script>
+<script src="../lib/w3schools_footer.js%3Fupdate=20250211"></script>
+<script src="../lib/w3schools_features.js%3Fupdate=20241220"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
+
+<script>
+  MyLearning.loadUser('footer', function () {
+    // if (!UserSession.loggedIn) {
+    //  addMyLearnButt();
+    // }
+  });
+  function docReady(fn) {
+    document.addEventListener("DOMContentLoaded", fn);
+    if (document.readyState === "interactive" || document.readyState === "complete" ) {
+      fn();
+    }
+  }
+  uic_prov_al();
+
+const upperfeatureshowcaselink = document.getElementById("upperfeatureshowcaselink");
+if (upperfeatureshowcaselink) {
+ displayInternalFeatures();
+}
+/*
+function addMyLearnButt() {
+  let nav = document.getElementsByClassName("nextprev");
+  if (document.body.contains(nav[1])) {
+    if ((nav[1].firstElementChild.innerHTML.indexOf("Previous") || nav[1].firstElementChild.innerHTML.indexOf("Home") !== -1) && (nav[1].firstElementChild.nextElementSibling.innerHTML.indexOf("Next") !== -1)) {
+      let myLearnButt = document.createElement("a");
+      myLearnButt.innerHTML="Log in to track progress";
+      myLearnButt.classList.add("w3-btn", "w3-hide-small", "myl-nav-butt");
+      myLearnButt.href="../signup?utm_source=classic&utm_medium=" + subjectFolder + "_tutorial&utm_campaign=button_lower_navigation";
+      myLearnButt.setAttribute("title", "Sign Up and improve Your Learning Experience");
+      myLearnButt.setAttribute("target", "_blank");
+      nav[1].classList.add("w3-center");
+      nav[1].firstElementChild.insertAdjacentElement("afterend", myLearnButt);
+    }
+  }
+}
+*/
+</script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

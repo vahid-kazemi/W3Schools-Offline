@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+This is a beaut 
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<svg width="500" height="140" viewBox="30 -20 500 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="30" y="-20" width="100%" height="100%" fill="white"></rect>
+<defs>
+        <style>
+            .svgText {
+                font-family: Veranda, sans-serif;
+                fill: black;
+            }
+            .svgDataText{
+                font-family: "Roboto Mono", monospace;
+                fill: black;
+                font-size: 20px;
+            }
+            .svgAddressText{
+                font-family: "Roboto Mono", monospace;
+                fill: black;
+                font-size: 14px;
+            }
+            .svgAddressTextRed{
+                font-family: "Roboto Mono", monospace;
+                fill: #dc143c;
+                font-size: 14px;
+            }
+
+            .svgText2 {
+                font-family: Veranda, sans-serif;
+                fill: black;
+                font-size: smaller;
+            }
+
+            .svgTextRed {
+                font-family: Veranda, sans-serif;
+                fill: red;
+            }
+
+            #arrowhead polyline {
+                stroke: black;
+                stroke-width: 2;
+                fill: black;
+            }
+
+            #arrowheadRed polyline {
+                stroke: red;
+                stroke-width: 2;
+                fill: red;
+            }
+        </style>
+        <marker id="arrowhead" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowheadRed" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="#dc143c" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="#dc143c" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="#dc143c" stroke-width="1.5"/>
+        </marker>
+    </defs>
+    <!-- First node -->
+    <text x="76" y="10" class="svgText">Head</text>
+    <text x="76" y="25" class="svgText">node</text>
+    <text x="76" y="40" class="svgText2">0x7F23</text>
+    <path d="M 70 45
+              L 140 45
+              L 140 73 
+              L 70 73 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0">
+    </path>
+    <line x1="70" y1="60" x2="140" y2="60" stroke="black" stroke-width="1"></line>
+    <line x1="75" y1="60" x2="135" y2="60" stroke="#E0E0E0" stroke-width="3"></line>
+    <text x="100" y="65" class="svgDataText">3</text>
+    <path d="M 70 73 
+              L 140 73 
+              L 140 101 
+              L 70 101 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="70" y1="88" x2="140" y2="88" stroke="black" stroke-width="1"></line>
+    <line x1="75" y1="88" x2="135" y2="88" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="80" y="92" class="svgAddressText">0x7F37</text>
+    <path id="arw1" d="M140,88 C170,88 140,53 170,53" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead)"></path>
+    <!-- Node 2 -->
+    <text x="185" y="25" class="svgText">node</text>
+    <text x="185" y="40" class="svgText2">0x7F37</text>
+    <path d="M 180 45
+              L 250 45
+              L 250 73 
+              L 180 73 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0">
+    </path>
+    <line x1="180" y1="60" x2="250" y2="60" stroke="black" stroke-width="1"></line>
+    <line x1="185" y1="60" x2="245" y2="60" stroke="#E0E0E0" stroke-width="3"></line>
+    <text x="210" y="65" class="svgDataText">5</text>
+    <path d="M 180 73 
+              L 250 73 
+              L 250 102 
+              L 180 102 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="180" y1="88" x2="250" y2="88" stroke="black" stroke-width="1"></line>
+    <line x1="185" y1="88" x2="245" y2="88" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="190" y="92" class="svgAddressText">0x7F32</text>
+    <path id="arw2" d="M250,88 C280,88 250,53 280,53" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead)"></path>
+    <!-- Node 3 -->
+    <text x="296" y="25" class="svgText">node</text>
+    <text x="296" y="40" class="svgText2">0x7F32</text>
+    <path d="M 290 45 
+              L 360 45 
+              L 360 73 
+              L 290 73 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0">
+    </path>
+    <line x1="290" y1="60" x2="360" y2="60" stroke="black" stroke-width="1"></line>
+    <line x1="295" y1="60" x2="355" y2="60" stroke="#E0E0E0" stroke-width="3"></line>
+    <text x="315" y="65" class="svgDataText">13</text>
+    <path d="M 290 73 
+              L 360 73 
+              L 360 101 
+              L 290 101 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="290" y1="88" x2="360" y2="88" stroke="black" stroke-width="1"></line>
+    <line x1="295" y1="88" x2="355" y2="88" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="300" y="92" class="svgAddressText">0x7F2A</text>
+    <path id="arw2" d="M360,88 C390,88 360,53 390,53" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead)"></path>
+  <!-- Node 4 -->
+<text x="406" y="10" class="svgText">Tail</text>
+<text x="406" y="25" class="svgText">node</text>
+<text x="406" y="40" class="svgText2">0x7F2A</text>
+<path d="M 400 45
+          L 470 45
+          L 470 73 
+          L 400 73 Z"
+    stroke="black" stroke-width="1" fill="#E0E0E0"></path>
+<line x1="400" y1="60" x2="470" y2="60" stroke="black" stroke-width="1"></line>
+<line x1="405" y1="60" x2="465" y2="60" stroke="#E0E0E0" stroke-width="3"></line>
+<text x="430" y="65" class="svgDataText">2</text>
+<path d="M 400 73 
+          L 470 73 
+          L 470 101 
+          L 400 101 Z"
+    stroke="black" stroke-width="1" fill="#FCFC62"></path>
+<line x1="400" y1="88" x2="470" y2="88" stroke="black" stroke-width="1"></line>
+<line x1="405" y1="88" x2="465" y2="88" stroke="#FCFC62" stroke-width="3"></line>
+<text x="420" y="92" class="svgAddressTextRed">null</text>
+<line x1="472" y1="88" x2="495" y2="88" stroke="#dc143c" stroke-width="1" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowheadRed)"></line>
+
+</svg>

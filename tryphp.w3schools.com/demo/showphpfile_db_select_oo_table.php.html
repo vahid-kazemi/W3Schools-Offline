@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table><tr><th>ID</th><th>Name</th></tr>
+<tr><td>1</td><td>John Doe</td></tr>
+<tr><td>2</td><td>Mary Moe</td></tr>
+<tr><td>3</td><td>Julie Dooley</td></tr>
+</table> 
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>This is the text in the text file:</p>
+Hello!
+How are you today?
+</body>
+</html>

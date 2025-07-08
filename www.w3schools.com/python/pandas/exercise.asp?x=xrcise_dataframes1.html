@@ -1,0 +1,1722 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>W3Schools Exercise</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:url"           content="https://www.w3schools.com/pandas/pandas_exercises.asp" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="W3Schools PANDAS Exercise" />
+<meta property="og:description"   content="I completed one of the PANDAS exercises on w3schools.com" />
+<meta property="og:image" content="https://www.w3schools.com/pandas/exercises/getstarted.jpg">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="436">
+<meta property="og:image:height" content="228">
+<link rel="icon" href="../../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="manifest" href="../../site.webmanifest" crossorigin="use-credentials">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#04aa6d">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="theme-color" content="#ffffff">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@w3schools" />
+<meta name="twitter:title" content="W3Schools PANDAS Exercise" />
+<meta name="twitter:description" content="I completed a PANDAS exercise on w3schools.com" />
+<meta name="twitter:image" content="https://www.w3schools.com/pandas/exercises/getstarted.jpg" />
+<link rel="preload" href="../../lib/fonts/fontawesome.woff2%3F80702bb7" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../../lib/topnav/main.css%3Fv=1.0.54.css">
+<link rel="stylesheet" href="../../lib/my-learning/main.css%3Fv=1.0.42.css">
+<link rel="stylesheet" href="../../lib/w3schools.css%3Fv=1.0.0.css">
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("/", "");
+if (subjectFolder.startsWith("python/") == true ) {
+  if (subjectFolder.includes("/numpy/") == true ) {
+    subjectFolder = "numpy/"
+  } else if (subjectFolder.includes("/pandas/") == true ) {
+      subjectFolder = "pandas/"
+  } else if (subjectFolder.includes("/scipy/") == true ) {
+      subjectFolder = "scipy/"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../../lib/common-deps/main.js%3Fv=1.0.10"></script>
+<script src="../../lib/user-session/main.js%3Fv=1.0.40"></script>
+<script src="../../lib/my-learning/main.js%3Fv=1.0.42"></script>
+<script src="../../lib/uic.js%3Fv=1.0.5"></script>
+<script src="../../lib/uic_prov.js%3Fv=1.2.7"></script>
+
+<script data-cfasync="false" type="text/javascript">
+
+uic_prov_pre("xrcise","",subjectFolder);
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        uic_prov_run();
+    }
+}
+</script>
+
+<script src="http://www.w3schools.com/python/pandas/xrcise_dataframes.js?m=6122025120950"></script>
+<script>
+var completed_exercises = [];
+exsection = "PANDAS";
+topic = "xrcise_dataframes".replace("xrcise_", "");
+title = "PANDAS DataFrame";
+qnumber = 1 - 1;
+totalqnumbers = qobjects.length;
+qobj = qobjects[qnumber];
+qanswer = "";
+qobj.path = 'xrcise_dataframes';
+var answerObj = {};
+var userLoggedOn = false;
+var userscore = 0;
+var numberofexercises = 0;
+var storageBlip = exsection.toLowerCase() + "_";
+
+function w3sOnLoad() {
+  UserSession.processUserSession({
+    context: 'Exercise QA',
+    handleRedirection: true,
+    callback: function () {
+      userLoggedOn = UserSession.loggedIn === true;
+      
+      check_if_completed();
+      
+    }
+  });
+  cc = topic;
+  dd = exsection.toLowerCase(); 
+  if (dd == "php" && cc == "files") cc = "file";
+  if (dd == "python" && cc == "dates") cc = "datetime";  
+  if (dd == "html" && cc == "semantic_elements") dd = "html5";  
+  if (dd == "css" && cc.substr(0, 5) == "css3_") {
+    dd = "css3";
+    cc = cc.substr(5);
+  }
+  if (document.getElementById("explaining_message")) {
+    document.getElementById("explaining_message").innerHTML = "Test what you learned in the chapter: <a href='http://www.w3schools.com/python/pandas/&quot;&#32;+&#32;dd&#32;+&#32;&quot;_&quot;&#32;+&#32;cc&#32;+&#32;&quot;.asp'>" + title + "</a> by completing " + totalqnumbers+ " relevant exercises.";
+  }
+  cc = title;
+  cc = cc.replace("_", " ");
+  document.getElementById("exercise_header").innerHTML = "<span class='hide-from-small'>Exercise: </span>" + cc; 
+}
+function check_if_completed() {
+  if (userLoggedOn == false) return false;
+  document.getElementById("signin_container").style.display = "none";
+  var reqDataStr = "t=" + storageBlip;
+  MyLearning.makePostRequest(
+    MyLearning.getUrl('api.exercise.get'),
+    reqDataStr,
+    function(reqRes) {
+      if (
+        reqRes.error.code === '0'
+        && reqRes.status === 200
+        && reqRes.dataStr !== 'NOTLOGGEDIN'
+      ) {
+        var i, aa, l, dd, retval, x, ykey, yval;
+        userLoggedOn = true;
+        retval = JSON.parse(reqRes.dataStr);
+        console.log(retval);
+        for (x in retval) {
+          ykey = x;
+          yval = retval[x];
+          if (x.indexOf("w3exerciseanswers_" + storageBlip) > -1) {
+            if (yval.indexOf("0") == -1) {
+              completed_exercises.push(x.replace("w3exerciseanswers_" + storageBlip, ""));
+            }
+          }
+        }
+        check_completed_exercises();
+        
+        completed = true;
+        if (retval["w3exerciseanswers_" + storageBlip + topic]) {
+          if (retval["w3exerciseanswers_" + storageBlip + topic].indexOf("0") > -1) {
+            completed = false;
+          }
+        } else {
+          completed = false;
+        }
+        if (completed == true) {
+          set_progress(100);
+          document.getElementsByClassName("retakeanswer")[0].style.display = "block";
+        }
+        
+
+      }
+    }
+  );
+}
+function set_progress(n) {
+  var r = document.querySelector(':root');
+  var percent_finished = n;
+  if (qnumber > 0) {
+    percent_finished = (qnumber / totalqnumbers) * 100;
+  }
+  r.style.setProperty('--percent_finished', percent_finished + '%');
+}
+set_progress(5);
+function showtooltip(n) {
+  if ('ontouchstart' in window || 'onmsgesturechange' in window) {
+  } else {
+    document.getElementsByClassName("tooltip")[n].style.display = "block";
+  }
+}
+function hidetooltip(n) {
+    document.getElementsByClassName("tooltip")[n].style.display = "none";
+}
+</script>
+<style>
+html {
+  background-color:#2D3748!important;
+  color:#fff;
+  text-align:center;
+  padding-left:16px;
+  padding-right:16px;  
+}
+.exercise_tile h2 {font-size:15px;}
+.exercise_tiles {background-image:none;}
+.exercisewindow p {
+  font-size:18px!important;
+  max-width:600px!important;
+  margin:auto;
+}
+.exercisewindow {
+  position:relative;
+  font-family:'Source Sans Pro', sans-serif;
+  text-align:center;
+  max-width:800px!important;  
+  margin:auto;
+}
+.quizoption {
+  background-color:rgba(255,255,255,0.2);
+  font-family:'Source Sans Pro Topnav', sans-serif;
+  color:#fff;
+  border-radius:5px;
+  width:100%;
+  max-width:600px!important;  
+  padding:8px 16px;
+  margin:auto;
+  margin-bottom:4px;
+  font-size:17px;
+  text-align:left;
+  cursor:pointer;
+  position:relative;
+}
+.quizoption:hover {
+  background-color:rgba(255,255,255,0.1);
+}
+.quizoption:has(input:checked) {
+  outline:2px solid rgba(255,255,255,0.3);
+}
+.quizoption [type=radio]{
+  position:absolute;
+  top:33%;
+}
+.quizoption label {
+  display:inline-block;
+  margin-left:16px;
+  margin-left:29px;  
+  cursor:pointer;
+}
+.quizprogress {
+  background-color:#38444d;
+  width:50%;
+  max-width:400px;
+  height:8px;  
+  margin:auto;
+  margin-bottom:10px;
+  border-radius:15px;
+  position:relative;
+}
+.quizprogressline{
+  width:var(--percent_finished);
+  background-color:#04AA6D;
+  border-radius:15px;
+  height:100%;  
+  transition:width 0.2s;
+}
+.correctanswer, .wronganswer, .retakeanswer, .completed_all {
+  display:none;
+  position:absolute;
+  text-align:center;
+  margin:auto;
+  background-color:#04AA6D;
+  color:#fff!important;
+  width:100%;
+  border-radius:15px;
+  z-index:5;
+}
+.wronganswer {
+  background-color:#dc3545;
+}
+.correctanswer button, .wronganswer button, .retakeanswer button, .completed_all button{
+  background-color:#2D3748!important;
+}
+.correctanswer button:hover, .wronganswer button:hover, .retakeanswer button:hover, .completed_all button:hover{
+  background-color:#282A35!important;
+}
+#backtotutbtn, #backtoallbtn{
+  background-color:#282A35!important;
+  border:1px solid #000;
+  border-radius:50px;
+}
+#backtotutbtn:hover, #backtoallbtn:hover {
+  background-color:#111!important;
+}
+.nextquestionbtn_container{
+  display:none;
+  position:absolute;
+}
+.nextquestionbtn_container button{
+  display:none;
+  position:absolute;
+  top:-38px;
+}
+.exercisewindow .questionmark {
+  font-family:'Source Sans Pro Topnav', sans-serif;
+  display:inline-block;
+  position:absolute;
+  cursor:pointer;
+  font-size:18px;
+  padding:0 10px;
+  background-color:#424b5a;
+  border-radius:15px;
+  max-width:240px;
+  z-index:100;
+}
+.exercisewindow code, .exercisewindow .w3-codespan {
+  color:#fff;
+  padding-left:4px;
+  padding-right:4px;  
+  padding-bottom:2px;    
+  border-radius:2px;
+}
+.exercisewindow .w3-codespan {
+  background-color:rgb(21,32,43)!important;
+}
+.exercisewindow code.codeblock {
+  display:inline-block;
+  width:auto;
+  padding:8px 16px;
+  text-align:left;
+  background-color:rgb(21,32,43)!important;
+  color:#fff;
+  border-radius:5px;
+}
+.exercisewindow #qobj_drag_and_drop_options {
+  max-width:400px;
+  margin:auto;
+}
+.exercisewindow #qobj_options code.codeblock,.exercisewindow #qobj_drag_and_drop_options code.codeblock {
+  background-color:#2D3748!important;  
+}
+.exercisewindow #qobj_options .w3-codespan,.exercisewindow #qobj_drag_and_drop_options .w3-codespan {
+  background-color:#2D3748!important;
+}
+.somebutton {
+  display:inline-block;
+  width:45px;
+  height:45px;  
+  background-color:rgba(0,0,0,0.1);
+  padding:10px;
+  margin:10px;
+  border-radius:150px;
+}
+.somebutton:hover {
+  background-color:rgba(255,255,255,0.1); 
+}
+#exercise_footer {
+  visibility:hidden;
+  margin:auto;
+  max-width:800px;
+  margin-top:140px;
+  background-color:rgba(255,255,255,0.2);
+  border-radius:15px;
+  padding:1px 20px;
+}
+#exercise_footer h2 {
+  font-size:16px;
+  font-family: 'Source Sans Pro', 'Segoe UI', Arial, sans-serif;
+}
+#exercise_footer p {
+  font-size:14px;
+  font-family: 'Source Sans Pro', 'Segoe UI', Arial, sans-serif;  
+}
+#exercise_footer a:hover,#exercise_footer a:active {
+  color:#FFF4A3;
+}
+#exercise_w3_logo,#exercise_w3_logo2  {
+  position:absolute;
+  top:10px;
+  left:10px;
+}
+#exercise_close_btn,#exercise_close_btn2 {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-family:'Source Sans Pro Topnav', sans-serif!important;
+  font-size: 48px;
+  line-height:48px;
+  cursor:pointer;
+  border-radius:5px;
+  padding:0 14px 5px 14px;
+}
+#exercise_main_leaderboard {
+  height:110px;
+}
+#exercise_main_leaderboard #tryitLeaderboard {
+  height:90px;
+  width:100%;
+  text-align:center;
+}
+#exercise_w3_logo .fa-logo,#exercise_w3_logo2 .fa-logo {
+  color:#ffffff;
+  padding:10px;
+  border-radius:5px;
+}
+.tooltip {
+  background-color:rgba(255,255,255,1);
+  color:#2D3748;
+  font-family:'Source Sans Pro Topnav', sans-serif!important;
+  font-weight:bold;
+  border-radius:5px;
+  white-space: nowrap;
+  position:absolute;
+  width:auto;
+  padding:5px 10px;
+  word-spacing:normal;
+  font-size:14px;
+  display:none;
+  z-index:60;
+}
+.tooltip:nth-of-type(1) {
+  top:70px;
+}
+.tooltip:nth-of-type(2) {
+  top:60px;
+  right:10px;
+}
+.tooltip:nth-of-type(3) {
+  top:70px;
+  left:80px;
+}
+.tooltip:nth-of-type(4) {
+  top:70px;
+  left:80px;
+}
+.tooltip:nth-of-type(5) {
+  top:70px;
+}
+.tooltip:nth-of-type(6) {
+  top:60px;
+  right:80px;
+}
+.tooltip:nth-of-type(7) {
+}
+
+.dragoption {
+  background-color:#575F6D;
+  display:inline-block;
+  padding:5px 10px;
+  line-height: 0.9em;
+  font-size:17px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.dragoption:hover {
+  background-color:#4e5662;
+}
+#qobj_drag_and_drop {
+  background-color:rgba(255,255,255,0.2);
+  padding:10px 20px;
+  margin:3px;
+  margin-bottom:20px;
+  border-radius:5px;
+  font-size:17px;
+  text-align:left;
+}
+.ddcontainer {
+  background-color:#2D3748 !important;
+  display:inline-block;
+  border-radius:5px;
+  padding-top:2px!important;
+  padding-bottom:2px!important;
+  margin-top:1px;
+  margin-bottom:1px;
+  white-space:nowrap;
+  text-align:center;
+}
+.ddcontainer .ddanswer {
+  background-color:rgba(255,255,255,0.2);
+  display:inline-block;
+  visibility:hidden;
+  border-radius:5px;
+  padding:5px 10px;
+  line-height:0.9em;
+  font-size:17px;
+  cursor:pointer;
+}
+.dragoptioncontainer {
+  border-radius:5px;
+  background-color:#222936;
+  width:auto;
+  display:inline-block;
+  margin:3px;
+  position:relative;
+}
+.dragoption {
+  position:relative;
+  cursor:pointer;
+}
+#ttt {
+  position:absolute;
+  border 1px solid #fff;
+  padding:20px;
+  left:50px;
+  top:50px;
+}
+#assignmentcontainer, #showcorrectanswercontainer {
+  background-color:rgba(255,255,255,0.2);
+  text-align:left;
+  padding:0 30px 90px 30px;
+  font-family:Consolas,Menlo,"Courier New", Courier, monospace;
+  font-size:120%;
+  line-height:1.7em;
+  border-radius:5px;
+}
+#assignmentcontainer[contenteditable], #assignmentcontainer[contenteditable]~#showcorrectanswercontainer {
+  background-color:#fff;
+  outline:10px solid #f1f1f1;
+}
+#showcorrectanswercontainer {
+  display:none;
+}
+.editablesection {
+  background-color:#2D3748;
+  color:#fff;
+  display:inline-block;
+  border:none;
+  height:1.3em;
+  padding:1px 2px;
+  border-radius:5px;
+}
+.meassureInputWidth {
+  display:inline-block;
+  position:absolute;
+}
+.w3-codespan {
+  color:#000000;
+}
+[id^="correctcode"] {
+  display:none;
+}
+#showcorrectanswercontainer input {
+  color:#aaa;
+}
+.phonebr {
+  display:none;
+}
+.showanswerbutton, .hideanswerbutton {
+  background-color:#282A35;
+  color:#fff;
+  position:absolute;
+  right:20px;
+  bottom:94px;
+}
+.showanswerbutton:hover,.showanswerbutton:active, .hideanswerbutton:hover,.hideanswerbutton:active {
+  background-color:#000!important;
+}
+
+
+@media screen and (max-width: 600px) {
+  #assignmentcontainer, #showcorrectanswercontainer {
+    min-height:150px;
+    margin-left:-16px;
+    margin-right:-16px;
+    border-radius:0;
+    padding:0 16px 70px 16px;
+  }
+  #assignmentNotCorrect, #assignmentCorrect {
+    padding:20px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .phonebr {
+    display:initial;
+  }
+}
+@media (max-width:899px){.hide-from-small{display:none!important}}
+@media (min-width:900px) {.hide-from-large{display:none!important}}
+@media only screen and (max-device-width: 480px) {
+  #assignmentcontainer, #showcorrectanswercontainer {
+    font-family:'Source Code Pro',Menlo,Consolas,"Courier New", Courier, monospace;
+  }
+}
+#assignmentcontainer input, #showcorrectanswercontainer input {padding:0 0 0 1px;height:1.5em}
+
+.more_exercises_button {
+  position:absolute;
+  height:80px;
+  width:40px;
+  top:-5px;
+  left:80px;
+  padding-top:26px;
+  border-radius:5px;
+  xbackground-color:rgb(21, 32, 43);
+  cursor:pointer;
+  font-size:23px;
+}
+.more_exercises_menu {
+  display:none;
+  padding:60px 10px 2px 15px;
+  position:fixed;
+  width:300px;
+  left:0;
+  top:0;
+  border-radius:5px;
+  background-color:rgb(21, 32, 43);
+  height:100%;
+  z-index:30;
+}
+.more_exercises_menu h3 {
+  color:rgba(255, 255, 255, 1);
+}
+#menu_close_btn {
+  position:absolute;
+  left:85px;
+  top:10px;
+  font-size:35px;
+  font-weight:bold;
+  color:rgba(255, 255, 255, 1);
+  cursor:pointer;
+}
+.more_exercises_menu_inner {
+  height:100%;
+  overflow:hidden;
+  overflow-y:auto;
+  z-index:30;
+  background:rgba(255, 255, 255, 0.05);
+  background-color:#2D3748!important;
+}
+.more_exercises_menu_inner::-webkit-scrollbar {
+    width: 12px;
+}
+.more_exercises_menu_inner::-webkit-scrollbar-track {
+    background:rgba(255, 255, 255, 0.1);
+}
+.more_exercises_menu_inner::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+.exercise_tile.active h2 span {
+  padding-left:50px;
+  padding-right:50px;
+  background-color:#04AA6D;
+}
+a.xrmenulink {
+  text-decoration:none;
+  text-align:left;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+a.xrmenulink div {
+  padding:5px 10px;
+  border-bottom:1px solid #000000;
+}
+a.xrmenulink div:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color:#ffffff;
+}
+a.xrmenulink .fa-check{
+  color:#04AA6D;
+  font-size:20px;
+}
+a.xrmenulink.active div{
+  background-color:#04AA6D;
+}
+a.xrmenulink.active .fa-check{
+  color:#ffffff;
+}
+#exercise_header {
+  margin-top:20px;
+  margin-bottom:0;
+}
+#signin_container {
+  position:absolute;
+  border-radius:20px;
+  padding:5px 20px;
+  right:70px;
+  background-color:#04AA6D;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: 'Source Sans Pro Topnav', sans-serif;
+  font-size:17px;
+  cursor:pointer;
+}
+#signin_container:hover {
+  background-color:#059862;
+}
+#signin_container a {
+  text-decoration:none;
+}
+#signin_container a:hover {
+  color:#ffffff;
+}
+
+@media screen and (max-width: 800px) {
+  #exercise_header {
+    font-size:20px;
+  }
+  .quizprogress {
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+
+}
+@media screen and (max-width: 700px) {
+  #exercise_main_leaderboard {
+    height:80px;
+  }
+  #exercise_main_leaderboard #tryitLeaderboard {
+    height:60px;
+  }
+  #exercise_footer {
+    margin-top:60px;
+    height:50px;
+    overflow:hidden;
+    background-color:transparent;
+  }
+  #exercise_footer h2 {
+    text-decoration:underline;
+    cursor:pointer;
+  }  
+}
+@media screen and (max-width: 620px) {
+  #exercise_header {
+    text-align:left;
+    margin-left:160px;
+    margin-right:40px;
+  }
+  .quizprogress {
+    text-align:left;
+    margin-left:160px;
+    margin-right:40px;
+  }
+}
+@media screen and (max-width: 620px) {
+  #exercise_header {
+    margin:auto;
+    margin-top:80px;
+    text-align:center;
+  }
+  .quizprogress {
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+    text-align:center;
+  }
+  .more_exercises_menu {
+    width:100%;
+  }
+  #signin_container {
+    top:20px;
+  }
+}
+@media screen and (max-width: 300px) {
+  #signin_container {
+    display:none;
+  }
+}
+</style>
+<body>
+<div class="tooltip">Go to w3schools.com</div>
+<div class="tooltip">Close the exercise</div>
+<div class="tooltip">More PANDAS Exercises</div>
+<div class="tooltip">Close menu</div>
+<div class="tooltip">Go to w3schools.com</div>
+<div class="tooltip">Sign in to track your progress</div>
+
+<div id="exercise_w3_logo">
+  <a href="../..">
+    <i class="fa fa-logo" style="position: relative; z-index: 1; font-size: 36px !important" aria-hidden="true" onmouseover="showtooltip(0)" onmouseout="hidetooltip(0)"></i>
+  </a>
+</div>
+<div id="exercise_close_btn" onclick="click_close()" onmouseover="showtooltip(1)" onmouseout="hidetooltip(1)">&times;</div>
+
+<div class="more_exercises_button" onclick="open_exercises_menu()" onmouseover="showtooltip(2)" onmouseout="hidetooltip(2)" ontouchstart="open_exercises_menu();return false;" xstyle="outline:1px solid white">
+  <span class="fa fa-menu"></span>
+</div>
+
+
+<div id="signin_container" onmouseover="showtooltip(5)" onmouseout="hidetooltip(5)">
+<a href="https://profile.w3schools.com/login?redirect_url=https%3A%2F%2Fwww.w3schools.com%2Fpandas%2Fexercise.asp%3Fx%3Dxrcise_dataframes1">Sign in</a>
+</div>
+
+<div class="more_exercises_menu">
+  
+  <div id="exercise_w3_logo2">
+    <a href="../..">
+      <i class="fa fa-logo" style="position: relative; z-index: 1; font-size: 36px !important" aria-hidden="true" onmouseover="showtooltip(4)" onmouseout="hidetooltip(4)"></i>
+    </a>
+  </div>
+  <div id="menu_close_btn" onclick="click_close_menu(event)" onmouseover="showtooltip(3)" onmouseout="hidetooltip(3)">&times;</div>
+  <h3 class="more_exercises_header">PANDAS Exercises</h3>
+  <div class="more_exercises_menu_inner">
+    <a class='xrmenulink' href="exercise.asp%3Fx=xrcise_intro1.html"><div><span>Introduction</span><span class='exercise_checked' id='menuitem_intro' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_getting_started1.html"><div><span>Getting Started</span><span class='exercise_checked' id='menuitem_getting_started' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_series1.html"><div><span>Series</span><span class='exercise_checked' id='menuitem_series' style='float:right;'>4<small> q</small></span></div></a><a class='xrmenulink active' href='exercise.asp%3Fx=xrcise_dataframes1.html'><div><span>DataFrame</span><span class='exercise_checked' id='menuitem_dataframes' style='float:right;'>9<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_csv1.html"><div><span>Read CSV</span><span class='exercise_checked' id='menuitem_csv' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_json1.html"><div><span>Read JSON</span><span class='exercise_checked' id='menuitem_json' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_analyzing1.html"><div><span>Analyzing DataFrames</span><span class='exercise_checked' id='menuitem_analyzing' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_cleaning_empty_cells1.html"><div><span>Cleaning Empty Cells</span><span class='exercise_checked' id='menuitem_cleaning_empty_cells' style='float:right;'>4<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_cleaning_wrong_format1.html"><div><span>Cleaning Wrong Format</span><span class='exercise_checked' id='menuitem_cleaning_wrong_format' style='float:right;'>2<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_cleaning_wrong_data1.html"><div><span>Cleaning Wrong Data</span><span class='exercise_checked' id='menuitem_cleaning_wrong_data' style='float:right;'>2<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_cleaning_duplicates1.html"><div><span>Cleaning Duplicates</span><span class='exercise_checked' id='menuitem_cleaning_duplicates' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_correlations1.html"><div><span>Correlations</span><span class='exercise_checked' id='menuitem_correlations' style='float:right;'>3<small> q</small></span></div></a><a class='xrmenulink' href="exercise.asp%3Fx=xrcise_plotting1.html"><div><span>Plotting</span><span class='exercise_checked' id='menuitem_plotting' style='float:right;'>5<small> q</small></span></div></a><script>nextExercise = 'csv';</script>
+    <br><br><small>by <a href="../..">w3schools.com</a></small><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+</div>
+<h2 id="exercise_header" xstyle="outline:1px solid white">&nbsp;</h2>
+<div class="quizprogress" xstyle="outline:1px solid white">
+   <div class="quizprogressline"></div>
+</div>
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="exercise_main_leaderboard">
+  <div style="padding-top:10px;">
+    <div id='tryitLeaderboard'>
+      <!-- TryitLeaderboard -->
+    </div>
+  </div>
+</div>
+
+
+
+<div id="xrcise-container">
+  <div class="exercisewindow">
+    <div class="correctanswer" style="display:none">
+      <br>
+      <br>
+      <br>
+      <br>    
+      <h2>Correct Answer!</h2>
+      <br>
+      <br>
+      <br>
+      <button type="button" class="ws-btn" onclick="goto_next_question()">Next Question &raquo;</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="wronganswer">
+      <br>
+      <br>
+      <br>    
+      <br>
+      <h2>Wrong Answer!</h2>
+      <br>
+      <br>
+      <br>
+      <button type="button" class="ws-btn" onclick="retake_question()">Try Again</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="retakeanswer">
+      <br>
+      <br>
+      <br>
+      <h2>Completed</h2>
+      <p>You have already completed these exercises!</p>
+      <p>Do you want to take them again?</p>  
+      <br>
+      <br>
+      <button type="button" class="ws-btn" onclick="retake_exercise()">Yes</button> <button type="button" class="ws-btn" onclick="back_to_tut()">No</button>  
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="completed_all">
+      <br>
+      <div id="exercise_close_btn2" onclick="click_close()" onmouseover="showtooltip(6)" onmouseout="hidetooltip(6)">&times;</div>
+      <div class="tooltip">Close the exercise</div>
+      <h2>Congratulations!</h2>
+      <br>
+      <p>You completed the PANDAS&nbsp;DataFrame Exercises from W3Schools.com</p>
+      <br>
+      <br>
+      
+      <p>Share on:</p>
+      <a class="ga-exercise somebutton" href="https://www.linkedin.com/feed/?shareActive&text=%E2%9C%85%20I%20completed%20the%20PANDAS%20DataFrame%20Exercise%20from%20W3Schools%20%F0%9F%92%AA%0A%0Ahttps%3A%2F%2Fwww.w3schools.com/pandas/exercises/dataframes.htm%0A%0A%23W3Schools%0A%23PANDAS%0A%23Exercises" target="_blank" title="Share your achievement on LinkedIn"><svg stroke="currentColor" fill="white" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="22" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a>
+      <a class="ga-exercise somebutton" href="https://x.com/intent/post?url=https://www.w3schools.com/pandas/exercises/dataframes.htm&text=%E2%9C%85I%20have%20completed%20the%20PANDAS%20DataFrame%20Exercise%20from%20W3Schools%20%F0%9F%92%AA%0A%0A%23W3Schools%0A%23PANDAS%0A%23Exercises" target="_blank" title="Share your achievement on X"><svg stroke="currentColor" fill="white" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="22" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></a>
+      <a class="ga-exercise somebutton" href="https://www.facebook.com/share_channel/?type=reshare&link=https%3A%2F%2Fwww.w3schools.com%2Fpandas%2Fexercises%2Fdataframes.htm&source_surface=external_reshare&display&hashtag=I%20have%20completed%20the%20PANDAS%20DataFrame%20Exercise%20from%20W3Schools.com%0A%0A%23W3Schools%0A%23PANDAS%0A%23Exercises" target="_blank" title="Share your achievement on Facebook">        <svg stroke="currentColor" fill="white" stroke-width="0" viewBox="0 0 320 512" aria-hidden="true" focusable="false" height="22" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg></a>
+      <br>
+      <br>
+      <button id="next_exercise_btn" type="button" class="ws-btn" onclick="click_next_exercise_topic()">Next Exercise &raquo;</button>
+      
+      
+      <br>
+      <br>
+      <br>
+    </div>
+    <form name="quizform1" style="min-height:250px">
+      <div class="quizcontainer" id="quizcontainer1">
+        <p id="qobj_question" style="margin-bottom:20px;"></p>
+        <div id="qobj_drag_and_drop" style="display:none;"></div>
+        <div id="qobj_drag_and_drop_options" style="display:none;"></div>
+        <div id="qobj_options" style="margin-bottom:20px;"></div>
+        <div id="assignmenttext" style='display:none'></div>
+        <pre id="assignmentcontainer" style="display:none;overflow:auto;"></pre>
+        <pre id="showcorrectanswercontainer" style="overflow:auto"></pre>
+        <button class="ws-btn showanswerbutton ga-exercise" style="display:none;" type="button" onclick="showanswer();uic_prov_run();">Show Answer</button>
+        <button class="ws-btn hideanswerbutton ga-exercise" style="display:none;" type="button" onclick="hideanswer();uic_prov_run();">Hide Answer</button>
+      </div>
+      <br>
+      <button type="button" class="ws-btn" id="answerbutton" onclick="submit_answer()">Submit Answer &raquo;</button>
+      <input type="hidden" name="retake" id="retake" value="">
+    </form>
+    </div>
+    
+
+    <div id="exercise_footer">
+    <h2 onclick="open_explanation()">What is an Exercise?</h2>
+    <p>
+    <span id="explaining_message"></span>
+    <br>
+    To try more PANDAS Exercises please visit our <a href="pandas_exercises.asp.html">PANDAS Exercises</a> page.</p>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+
+    <div id='ttt'></div>
+  </div>
+</div>
+<script>
+function check_completed_exercises() {
+  var i, b, a = document.getElementsByClassName("exercise_checked");
+  for (i = 0; i < a.length; i++) {
+    b = a[i].id.replace("menuitem_", "");
+    if (completed_exercises.includes(b)) {
+      a[i].innerHTML = "";
+      a[i].classList.add("fa");
+      a[i].classList.add("fa-check");
+    }
+  }
+}
+function open_exercises_menu() {
+  document.getElementsByClassName("more_exercises_menu")[0].style.display = "block";
+  document.getElementsByClassName("xrmenulink")[4].contentEditable = true;
+  document.getElementsByClassName("xrmenulink")[4].focus();
+  document.getElementsByClassName("xrmenulink")[4].blur();        
+  document.getElementsByClassName("xrmenulink")[4].contentEditable = false;    
+
+}
+function click_close_menu(event) {
+  var a = event.srcElement.className;
+  if (a.indexOf("fa-menu") > -1 || a.indexOf("more_exercises_button") > -1 || a.indexOf("more_exercises_menu") > -1 || a.indexOf("more_exercises_header") > -1) {
+
+  } else {
+    document.getElementsByClassName("more_exercises_menu")[0].style.display = "none";
+  }
+}
+function click_next_exercise_topic() {
+  var a = nextExercise;
+  if (a == "") {
+    click_close();
+  }
+  document.location = "exercise.asp?x=xrcise_" + a + "1";
+}
+
+var current_mode = "question";
+var ttt_option_bottom = "none";
+var ttt_option_top = "none";
+var ttt_container_bottom = "none";
+var ttt_container_top = "none";
+var ttt_container_from_top = "none";
+var ttt_test = "none";
+var active_ddcontainer = 0;
+var active_dragback_option = -1;
+var ddanswers = [];
+function set_no_dd() {
+  ttt_option_bottom = "none";
+  ttt_option_top = "none";
+  ttt_container_bottom = "none";
+  ttt_container_top = "none";
+  ttt_container_from_top = "none";
+  ttt_test = "none";  
+}
+document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+window.addEventListener("click", click_close_menu);
+function touch_ttt_move(e) {
+  var x, y, z, n;
+  x = e.touches[0].pageX;
+  y = e.touches[0].pageY;  
+  z = document.elementFromPoint(x, y);
+  if (z.id && z.id.indexOf("ddcontainer") > -1) {
+    n = z.id.substr(11);
+    active_ddcontainer = n;
+    ttt_container_top = n;
+  }
+}
+function touch_ttt_move_back(elmnt, e) {
+  var x, y, z, n = -1, m = -1;
+  x = e.touches[0].pageX;
+  y = e.touches[0].pageY;  
+  z = document.elementFromPoint(x, y);
+  if (z.id && z.id.indexOf("dragoptioncontainer") > -1) {
+    n = z.id.substr(19);
+    ttt_container_bottom = n;
+  } else if (z.id && z.id.indexOf("ddcontainer") > -1) {
+    n = z.id.substr(11);
+    m = elmnt.id.substr(8);
+    active_ddcontainer = n;
+    ttt_container_top = m;
+    ttt_container_from_top = m;
+    ttt_option_top = ddanswers[m];
+
+
+//  active_dragback_option = n ;
+    
+  }
+}
+function show_active () {
+  document.getElementById("ttt").innerHTML = "<p>Option Bottom = " + ttt_option_bottom + "</p>";
+  document.getElementById("ttt").innerHTML += "<p>Option Top = " + ttt_option_top + "</p>";
+  document.getElementById("ttt").innerHTML += "<p>Container Bottom = " + ttt_container_bottom + "</p>";
+  document.getElementById("ttt").innerHTML += "<p>Container Top = " + ttt_container_top + "</p>";
+  document.getElementById("ttt").innerHTML += "<p>Container From Top = " + ttt_container_from_top + "</p>";
+  document.getElementById("ttt").innerHTML += "<p>Answers = " + ddanswers + "</p>";
+}
+function click_option(event) {
+  var a, x = event.srcElement;
+  if (x.tagName != "DIV") return false;
+  a = x.getElementsByTagName("INPUT")[0];
+  a.checked = true;  
+}
+function remove_drag_option(i) {
+  var a, x = document.getElementById("ddanswer" + i);
+  x.style.visibility = "hidden";
+  a = document.getElementsByClassName("dragoption")[ddanswers[i]];
+  ddanswers[i] = -1;
+  a.style.visibility = "visible";
+  set_active_ddcontainer();
+}
+function click_drag_option(i) {
+  if (active_ddcontainer == -1) return false;
+  var a, x = document.getElementById("dragoption" + i);
+  ddanswers[active_ddcontainer] = i;
+  a = document.getElementsByClassName("ddanswer")[active_ddcontainer];
+  a.style.visibility = "visible";
+  a.innerHTML = x.innerHTML;
+  x.style.visibility = "hidden";
+  set_active_ddcontainer();
+}
+function set_active_ddcontainer() {
+  var i;
+    console.log(ddanswers);
+
+  for (i = 0; i < ddanswers.length; i++) {
+    if (ddanswers[i] == -1) {
+      active_ddcontainer = i;
+      return false;
+    }
+  }
+  active_ddcontainer = -1;
+}
+document.addEventListener("dragover", (event) => {
+    event.preventDefault();
+});
+function handleDragStart(x, i) {
+  ttt_option_bottom = i;
+  ttt_container_bottom = i;
+  x.style.opacity = '0.4';
+  event.dataTransfer.dropEffect = "move";
+}
+function handleDragBackStart(x, i) {
+  ttt_container_from_top = i;
+  ttt_option_top = ddanswers[i];
+  active_dragback_option = i;
+  x.style.opacity = '0.4';
+  event.dataTransfer.dropEffect = "move";
+}
+function handleDragEnd(x, i) {
+  x.style.opacity = '1';
+  if (ttt_container_top == "none") {
+  } else {
+    if (ddanswers[ttt_container_top] == -1) click_drag_option(i);
+  }
+  set_active_ddcontainer();
+  set_no_dd();
+}
+function handleDragBackEnd(x, i) {
+  x.style.opacity = '1';
+  if (ttt_container_bottom == "none" && ttt_container_top == "none") {
+  } else if (ttt_container_bottom != "none") {
+    remove_drag_option(i);  
+    document.getElementById("dragoption" + ttt_container_bottom).style.opacity = '1'; 
+  } else if (ttt_container_top != "none") {
+    if (ddanswers[ttt_container_top] == -1) {
+      click_drag_option(ttt_option_top);
+      document.getElementById("ddanswer" + ttt_container_from_top).style.visibility = "hidden";
+      ddanswers[ttt_container_from_top] = -1;
+    }
+  }
+  set_active_ddcontainer();
+  set_no_dd();
+}
+function handleDragEnter(x, i) {
+  ttt_container_top = i;
+  active_ddcontainer = i;
+  if ((ttt_container_from_top != ttt_container_top) && ddanswers[ttt_container_top] == -1) {
+    x.style.outline = '1px solid #aaaaaa';
+  }
+}
+function handleDragBackEnter(x, i) {
+  if (ttt_option_top == "none") return false;
+  ttt_container_bottom = i;
+  var dropcontainertext = document.getElementById("dragoption" + i).innerHTML;
+  var dropoptiontext = document.getElementById("ddanswer" + active_dragback_option).innerHTML;  
+  if (dropcontainertext == dropoptiontext) {
+    x.style.outline = '1px solid #aaaaaa';
+  }
+}
+function handleDragLeave(x) {
+  ttt_container_top = "none";
+  x.style.outline = 'none';
+}
+function handleDragBackLeave(x) {
+  ttt_container_bottom = "none";
+  x.style.outline = 'none';
+}
+function handleDragDrop(x) {
+  x.style.outline = 'none';
+}
+function handleDragBackDrop(x) {
+  x.style.outline = 'none';
+}
+function load_quiz() {
+  if (document.getElementById("exercise_footer")) {
+    document.getElementById("exercise_footer").style.visibility = "visible";
+  }
+  if (qobj.fillintheblanks) {
+    load_fillintheblanks();
+  } else if (qobj.draganddroptext) {
+    var x, l, i = 0, a = "", cl = 2, ddquestion = qobj.draganddropquestion, ddtext = qobj.draganddroptext, resttxt;
+    for (i = 0; i < qobj.options.length; i++) {
+      a += "<div";
+       a += " class='dragoptioncontainer'";
+       a += " id='dragoptioncontainer" + i + "'";       
+       a += " ondragenter='handleDragBackEnter(this, " + i + ")'";
+       a += " ontouchmove='handleDragBackEnter(this, " + i + ")'";       
+       a += " ondragleave='handleDragBackLeave(this)'";
+       a += " ondrop='handleDragBackDrop(this)'";
+       a += " ontouchleave='handleDragBackLeave(this)'";
+       a += " ontouchend='handleDragBackDrop(this)'";
+       a += ">";
+        a += "<div";
+         a += " class='dragoption'";
+         a += " id='dragoption" + i + "'";
+         a += " draggable='true'";
+         a += " ondragstart='handleDragStart(this, " + i + ")'";
+         a += " ondragend='handleDragEnd(this, " + i + ")'";
+         a += " onclick='click_drag_option(" + i + ")'";
+         a += " ontouchstart='handleDragStart(this, " + i + ")'";
+         a += " ontouchmove='touch_ttt_move(event)'";
+         a += " ontouchend='handleDragEnd(this, " + i + ")'";
+         a += " style='touch-action: none;'>";
+      a += qobj.options[i];
+      a += "</div></div>";
+    }
+    document.getElementById("qobj_drag_and_drop_options").innerHTML = a;    
+    document.getElementById("qobj_drag_and_drop_options").style.display = "block";
+    x = document.getElementsByClassName("dragoption");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+      if (x[i].innerText.length > cl) cl = x[i].innerText.length;
+    }
+    cl = cl + 4;
+    resttxt = ddtext;
+    i = -1;
+    while (resttxt.indexOf("___") > -1) {
+      ddanswers.push(-1);
+      i++;
+      a = "<span";
+       a += " class='ddcontainer'";
+       a += " id='ddcontainer" + i + "'";
+       a += " style='width:" + cl + "ch;'";
+       a += " ondragenter='handleDragEnter(this, " + i + ")'";
+       a += " ondragleave='handleDragLeave(this)'";
+       a += " ondrop='handleDragDrop(this)'";
+       a += " ontouchleave='handleDragLeave(this)'";
+       a += " ontouchend='handleDragDrop(this)'"
+       a += ">";
+        a += " <span";
+         a += " class='ddanswer'";
+         a += " id='ddanswer" + i + "'";
+         a += " onclick='remove_drag_option(" + i + ")'";
+         a += " draggable='true'";
+         a += " ondragstart='handleDragBackStart(this, " + i + ")'";
+         a += " ondragend='handleDragBackEnd(this, " + i + ")'";
+         a += " ondtouchstart='handleDragBackStart(this, " + i + ")'";
+         a += " ontouchmove='touch_ttt_move_back(this, event)'";         
+         a += " ontouchend='handleDragBackEnd(this, " + i + ")'";
+         a += " style='touch-action: none;'>";         
+      a += "</span></span>";
+      ddtext = ddtext.replace("___", a);
+      resttxt = resttxt.substr(resttxt.indexOf("___") + 3);
+    }
+    document.getElementById("qobj_question").innerHTML = ddquestion;
+    document.getElementById("qobj_drag_and_drop").innerHTML = ddtext;
+    document.getElementById("qobj_drag_and_drop").style.display = "block";
+    
+
+  } else {
+    var x, l, i = 0, a = "";
+    document.getElementById("qobj_question").innerHTML = qobj.question;
+    for (i = 0; i < qobj.options.length; i++) {
+      a += "<div class='quizoption'>";
+      a += "<input type='radio' name='quizoption' id='quizoption" + i + "' value='" + i + "'>";
+      a += "<label for='quizoption" + i + "'>" + qobj.options[i] + "</label>";
+      a += "</div>";
+    }
+    document.getElementById("qobj_options").innerHTML = a;
+    x = document.getElementsByClassName("quizoption");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+      x[i].addEventListener("click", click_option);
+    }
+    if (qanswer != "") {
+      document.forms["quizform1"]["quizoption"].value = qanswer;
+      submit_answer();
+    }
+  }
+  window.addEventListener("keypress", checkKey);  
+  if (document.getElementById('next_exercise_btn')){
+    if (nextExercise == '') {document.getElementById('next_exercise_btn').innerHTML = 'Close'};
+  }
+  
+}
+function load_fillintheblanks() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("assignmenttext").innerHTML = this.responseText;
+    initAssignment();
+  }
+  xhttp.open("GET", qobj.fillintheblanks);
+  xhttp.send();  
+}
+var formanswers = [];
+var editable = false;
+var trimcheck = true;
+var invalue = false;
+var originalassignmentcode;
+function initAssignment() {
+  var x, y, txt, i, newtxt, c, cc, n, numberofchar, j, inputs, templates, l, inputcount = -1, endpos, endpos2, inputvalue;
+  document.getElementById("assignmenttext").style.display = "block";
+  document.getElementById("assignmentcontainer").style.display = "block";  
+  document.getElementsByClassName("showanswerbutton")[0].style.display = "block";    
+  x = document.getElementById("assignmentcode");
+  x.style.display = "none";
+  txt = x.innerHTML;
+  originalassignmentcode = txt;
+  if (x.getAttribute("trimcheck") == "false") {trimcheck = false;}
+  if (x.getAttribute("contenteditable") == "true") {
+    editable = true;
+    document.getElementById("assignmentcontainer").innerHTML = txt;
+    document.getElementById("assignmentcontainer").setAttribute("contenteditable", "true");
+    document.getElementById("assignmentcontainer").addEventListener("keydown", function(e) {
+      if(e.keyCode == 9){
+        e.preventDefault();
+        var doc = document.getElementById("assignmentcontainer").ownerDocument.defaultView;
+        var sel = doc.getSelection();
+        var range = sel.getRangeAt(0);
+        var blankspaces = document.createTextNode("    ");
+        range.insertNode(blankspaces);
+        range.setStartAfter(blankspaces);
+        range.setEndAfter(blankspaces); 
+        sel.removeAllRanges();
+        sel.addRange(range);        
+      }    
+    });    
+  } else {
+    newtxt = "";
+    for (i = 0; i < txt.length; i++) {
+      c = txt[i]
+      numberofchar = 0;
+      if (c == "@") {
+        inputcount++
+        inputvalue = "";
+        if (txt[i + 1] == "(") {
+          startpos = i + 2;
+          endpos = txt.indexOf(")", startpos);
+          n = txt.substring(startpos, endpos)
+          if (!isNaN(n)) {numberofchar = n;}
+        }
+        if (numberofchar > 0) {
+          i = endpos;
+          c = "<pre class='meassureInputWidth'>"
+          for (j = 0; j < numberofchar; j++) {
+            c += " ";
+          }
+          c += "</pre>"
+          c += "<input spellcheck='false' autocapitalize='none' class='editablesection' oninput='writinginput(this, " + inputcount + ")' maxlength='" + numberofchar + "'>"
+        }
+      }
+      newtxt += c;
+    }
+    document.getElementById("assignmentcontainer").innerHTML = newtxt;
+    inputs = document.getElementsByClassName("editablesection");
+    templates = document.getElementsByClassName("meassureInputWidth");
+    for (i = 0; i < inputs.length; i++) {
+      inputs[i].style.width = ((templates[i].offsetWidth) + 4) + "px";      
+      templates[i].style.display = 'none';
+      templates[i].innerHTML = "w3exercise_input_no_" + i;
+    }
+  }
+  document.getElementsByClassName("editablesection")[0].focus();
+}
+function checkKey(event) {
+  if (event.keyCode == 13) {
+    event.preventDefault();
+    if (current_mode == "question") {
+      submit_answer();
+    } else if (current_mode == "correct_answer") {
+      goto_next_question();
+    } else if (current_mode == "wrong_answer") {
+      retake_question();        
+    }
+    uic_prov_run();
+  }
+}
+var currentquizno = 1;
+function submit_answer() {
+  try {
+    var answers = [];
+
+    var form = document.forms['quizform1'];
+  
+    if (qobj.fillintheblanks) {
+      answers = MyLearning.extractFillInTheBlanksAnswers(document.getElementById('assignmentcontainer'));
+    } else if (qobj.draganddroptext) {
+      answers = MyLearning.extractDragAndDropAnswers(form);
+    } else { // options
+      answers = MyLearning.extractOptionsAnswers(form);
+    }
+  
+    MyLearning.submitExerciseAnswer({
+      context: {
+        topic: exsection.toLowerCase(),
+        path: window.location.pathname,
+        key: "xrcise_dataframes1",
+        version: "2"
+      },
+      answers: answers
+    });
+  } catch (exc) {
+    console.error(exc);
+  }
+
+  var x, i, perfect = false;
+  document.forms["quizform1"].style.visibility = "hidden";
+  //document.getElementById("exercise_footer").style.visibility = "hidden";
+  document.getElementById("answerbutton").style.visibility = "hidden";  
+  if (qobj.fillintheblanks) {
+    document.getElementsByClassName("showanswerbutton")[0].style.display = "none";
+    if (checkassignmentcode() == 1) {
+      answer_is_correct(qnumber);
+      current_mode = "correct_answer";
+    } else {
+      answer_is_wrong();
+      current_mode = "wrong_answer";    
+    }
+  } else if (qobj.draganddroptext) {
+    cc = true;  
+    for (i = 0; i < ddanswers.length; i++) {
+      if (Array.isArray(qobj.correct[i])) {
+        if (!qobj.correct[i].includes(ddanswers[i])) {
+          cc = false;
+          break;
+        }
+      } else {
+        if (qobj.correct[i] != ddanswers[i]) {
+          cc = false;
+          break;
+        }
+      }
+    }
+    if (cc == true) {
+      answer_is_correct(qnumber);
+    } else {
+      answer_is_wrong();
+    }
+    //if (ddanswers.toString() == qobj.correct.toString()) {
+    //  answer_is_correct(qnumber);
+    //} else {
+    //  answer_is_wrong();
+    //}
+  } else {
+    x = document.forms["quizform1"]["quizoption"].value;
+    if (x != "" && x == qobj.correct) {
+      answer_is_correct(qnumber);
+      current_mode = "correct_answer";      
+    } else {
+      answer_is_wrong();
+      current_mode = "wrong_answer";          
+    }
+  }
+}
+function checkassignmentcode() {
+  var check, correct, correct2, inputs, i, moreCorrect = true, cc, result = "", score_arr = [];
+  check = document.getElementById("assignmentcontainer").textContent;
+  inputs = document.getElementsByClassName("editablesection");
+  for (i = 0; i < inputs.length; i++) {
+    check = check.replace("w3exercise_input_no_" + i, inputs[i].value);
+  }
+  i = 1;
+  while (moreCorrect) {
+    cc = (i == 1) ? "" : i;
+    if (document.getElementById("correctcode" + cc)) {
+      correct = document.getElementById("correctcode" + cc).textContent;
+      if (exsection == "BS3") {
+        correct = document.getElementById("correctcode" + cc).innerHTML;
+        correct = correct.replace(/&lt;/g, "<");
+        correct = correct.replace(/&gt;/g, ">");
+      }
+      if (exsection == "BS4") {
+        correct = document.getElementById("correctcode" + cc).innerHTML;
+        correct = correct.replace(/&lt;/g, "<");
+        correct = correct.replace(/&gt;/g, ">");
+      }
+      if (exsection == "SQL") {
+        check = check.toLowerCase();
+        correct = correct.toLowerCase();
+      }
+      if (exsection == "MySQL") {
+        check = check.toLowerCase();
+        correct = correct.toLowerCase();
+      }
+      if (exsection == "HTML_2") {
+        check = check.toLowerCase();
+        correct = correct.toLowerCase();
+      }
+      if (exsection == "CSS_2") {
+        check = check.toLowerCase();
+        correct = correct.toLowerCase();
+      }
+      if (exsection == "CSS") {
+        check = check.toLowerCase();
+        correct = correct.toLowerCase();
+      }
+      if (trimcheck == false || editable == true) {
+        if (check == correct) {
+          result = "correct";
+          break;
+        } else if ("xrcise_dataframes" == "exercise_ifelse9" && check.trim() == correct.trim()) {
+          result = "correct";
+          break;
+        }
+      } else {
+          if (check.trim() == correct.trim()) {
+            result = "correct";
+            break;
+          }
+      }
+    }
+    i++;
+    moreCorrect = (document.getElementById("correctcode" + cc));
+  }
+  if (result == "correct") {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+function setAnswerObj(nam, val, all) {
+  if (userLoggedOn) {
+    var reqDataStr = "n=" + nam + "&v=" + val + "&a=" + all;
+    MyLearning.makePostRequest(
+      MyLearning.getUrl('api.exercise.set'),
+      reqDataStr,
+      function(reqRes) {
+        if (
+          reqRes.error.code === '0'
+          && reqRes.status === 200
+          && reqRes.dataStr !== 'NOTLOGGEDIN'
+        ) {
+          //checkCompletedExercises(0);
+        }
+      }
+    );
+  }
+}
+function answer_is_correct() {
+  var a, b, c, d, e, f, i;
+  var r = document.querySelector(':root');
+  percent_finished = ((qnumber +1) / totalqnumbers) * 100;
+  r.style.setProperty('--percent_finished', percent_finished + '%');
+  //document.getElementById("exercise_footer").style.visibility = "hidden";
+  if ((qnumber +1) == totalqnumbers) {
+    document.getElementsByClassName("completed_all")[0].style.display = "block";
+      
+  }
+  answers = "";
+  for (i = 0; i < (qnumber+1); i++) {
+    if (i > 0) answers += ",";
+    answers += "1";
+  }
+  setAnswerObj("w3exerciseanswers_" + storageBlip + topic, answers, false);
+  d = document.getElementsByClassName("correctanswer")[0];
+  d.style.display = "block";
+  
+  
+}
+function answer_is_wrong(n) {
+  var d;
+  //document.getElementById("exercise_footer").style.visibility = "hidden";
+  d = document.getElementsByClassName("wronganswer")[0];
+  d.style.display = "block";
+}
+function retake_question() {
+  
+    document.forms["quizform1"].action = "exercise.asp?x=" + qobj.path + (qnumber +1);
+      
+  document.forms["quizform1"].method='post';
+  if (document.getElementById("qobj_options")) {
+    document.getElementById("qobj_options").innerHTML = "";
+  }
+  document.forms["quizform1"].submit();
+}
+function goto_next_question() {
+  if ((qnumber +1) == totalqnumbers) {
+    back_to_tut();
+  } else {
+    if (!qobj.fillintheblanks && !qobj.draganddropquestion) {
+      for (i = 0; i < qobj.options.length; i++) {
+        document.forms["quizform1"]["quizoption"][i].checked = false;
+      }  
+    }
+    
+      document.forms["quizform1"].action = "exercise.asp?x=" + qobj.path + (qnumber +2);
+        
+    document.forms["quizform1"].method='post';
+    document.forms["quizform1"].submit();
+  }
+}
+function click_close() {
+  if (window.opener && window.opener.addr && window.opener.addr.indexOf(topic) > -1) {
+    back_to_tut();
+  } else if (window.opener && window.opener.addr && window.opener.addr.indexOf("_exercises")) {
+    back_to_all();
+  } else {
+    window.close();
+  }
+}
+function back_to_tut() {
+  var a, b;
+  if (window.opener && window.opener.addr.indexOf(topic)) {
+    window.close();
+  } else {
+    b = ".php";
+    if (window.location.href.indexOf(".asp")) b = ".asp";
+    a = "/" + exsection.toLowerCase() + "/" + exsection.toLowerCase() + "_" + topic + b;
+    window.location = a;
+  }
+}
+function back_to_all() {
+  var a, b;
+  if (window.opener && window.opener.addr.indexOf("_exercises")) {
+    window.close();
+  } else {
+    b = ".php";
+    if (window.location.href.indexOf(".asp")) b = ".asp";
+    a = "/" + exsection.toLowerCase() + "/" + exsection.toLowerCase() + "_exercises" + b;
+    window.location = a;
+  }
+}
+function retake_exercise() {
+  document.forms["quizform1"]["retake"].value = "1";
+  
+    document.forms["quizform1"].action="exercise.asp?x=xrcise_" + topic + "1";
+      
+  document.forms["quizform1"].method='post';
+  if (document.getElementById("qobj_options")) {
+    document.getElementById("qobj_options").innerHTML = "";
+  }
+  document.forms["quizform1"].submit();
+}
+function showanswer() {
+  var txt, correcttxt, cc, from, to, endpos, i, numberofchar, correctpositions = [], correctanswers = [], x, y, z, inputs, inputvalue;
+  correcttxt = document.getElementById("correctcode").innerHTML;
+  txt = originalassignmentcode;
+  if (editable == true) {
+    document.getElementById("showcorrectanswercontainer").innerHTML = correcttxt;
+  } else {
+    if (exsection == "HTML"  || exsection == "R" || exsection == "REACT" || exsection == "CSS_2" || exsection == "CSS") {
+      correcttxt = correcttxt.replace(/&lt;/g, "<");
+      correcttxt = correcttxt.replace(/&gt;/g, ">");
+      correcttxt = correcttxt.replace(/&amp;/g, "&");      
+      txt = txt.replace(/&lt;/g, "<");
+      txt = txt.replace(/&gt;/g, ">");
+      txt = txt.replace(/&amp;/g, "&");      
+    }
+    if (exsection == "JAVA") {
+      correcttxt = correcttxt.replace(/&lt;/g, "<");
+      correcttxt = correcttxt.replace(/&gt;/g, ">");
+      txt = txt.replace(/&lt;/g, "<");
+      txt = txt.replace(/&gt;/g, ">");
+      
+    }
+    from = 0;
+    to = 0;
+    cc = 0;
+    for (i = 0; i < txt.length; i++) {
+      c = txt[i]
+      numberofchar = 0;
+      if (c == "@") {
+        if (txt[i + 1] == "(") {
+          startpos = i + 2;
+          endpos = txt.indexOf(")", startpos);
+          n = txt.substring(startpos, endpos)
+          if (!isNaN(n)) {numberofchar = n;}
+          if (numberofchar > 0) {
+             from = i + cc;
+             to = Number(numberofchar);
+             cc += Number(numberofchar) - 3 - (numberofchar.toString().length);
+             correctpositions.push([from,to]);
+          }
+        }
+      }
+    }
+    cc = 0;
+    for (i = 0; i < correctpositions.length; i++) {
+      x = correctpositions[i][0];
+      y = correctpositions[i][1];
+      z = correcttxt.substr(x + cc, y);
+      if (z == "&") {
+        if (correcttxt.substr(x + cc, 4) == "&lt;") { z = "<"; cc = cc + 3; }
+        if (correcttxt.substr(x + cc, 4) == "&gt;") { z = ">"; cc = cc + 3; }
+      }
+      if (z == "&l") {
+        if (correcttxt.substr(x + cc, 8) == "&lt;&gt;") { z = "<>"; cc = cc + 6; }
+      }
+      if (z == "&lt;?") {
+        if (correcttxt.substr(x + cc, 8) == "&lt;?php") { z = "<?php"; cc = cc + 3; }
+      }
+      if (z == "?&") {
+        if (correcttxt.substr(x + cc, 5) == "?&gt;") { z = "?>"; cc = cc + 3; }
+      }
+      if (z == "=&") {
+        if (correcttxt.substr(x + cc, 5) == "=&gt;") { z = "=>"; cc = cc + 3; }
+      }
+      correctanswers.push(z);
+    }
+    document.getElementById("showcorrectanswercontainer").innerHTML = document.getElementById("assignmentcontainer").cloneNode(true).innerHTML;
+    inputs = document.getElementById("showcorrectanswercontainer").getElementsByClassName("editablesection");
+    for (i = 0; i < inputs.length; i++) {
+      inputs[i].value = correctanswers[i];
+      inputs[i].readOnly = true;
+    }
+  }
+  document.getElementById("assignmentcontainer").style.display = "none";
+  document.getElementById("showcorrectanswercontainer").style.display = "block";
+  x = document.getElementsByClassName("showanswerbutton");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x = document.getElementsByClassName("hideanswerbutton");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "inline";
+  }
+  document.getElementById("answerbutton").style.visibility = "hidden";
+}
+function hideanswer() {
+  var x, i;
+  document.getElementById("assignmentcontainer").style.display = "block";
+  document.getElementById("showcorrectanswercontainer").style.display = "none";
+  x = document.getElementsByClassName("showanswerbutton");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "inline";
+  }
+  x = document.getElementsByClassName("hideanswerbutton");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById("answerbutton").style.visibility = "visible";
+}
+function writinginput(obj, n) {
+}
+
+var explanation_cc = 0;
+function open_explanation() {
+  var a = document.getElementById("exercise_footer")
+  if (w3_getStyleValue(a, "background-color") != "rgba(0, 0, 0, 0)") return false;
+  if (explanation_cc == 0) {
+    a.style.height = "auto";
+    a.getElementsByTagName("h2")[0].style.textDecoration = "none";
+    explanation_cc = 1;
+  } else {
+    a.style.height = "50px";
+    a.getElementsByTagName("h2")[0].style.textDecoration = "underline";
+    explanation_cc = 0;
+  }  
+}
+function w3_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+
+/*
+window.addEventListener("load", load_quiz);
+
+if (window.addEventListener) {
+  window.addEventListener("load", w3sOnLoad);
+} else if (window.attachEvent) {
+  window.attachEvent("onload", w3sOnLoad);
+}
+*/
+
+
+w3sOnLoad();
+load_quiz();
+function docReady(fn) {
+  document.addEventListener("DOMContentLoaded", fn);
+  if (document.readyState === "interactive" || document.readyState === "complete" ) {
+    fn();
+  }
+}
+uic_prov_al();
+</script>
+</body>
+</html>
+

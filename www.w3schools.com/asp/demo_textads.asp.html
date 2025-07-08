@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<xmp>
+%% #3 
+<h2>This is a great day!!</h2>
+
+%% #3 
+<img src="smiley.gif">
+
+%% #4
+<a href="../index.html">Visit W3Schools.com</a>
+ 
+
+
+</xmp>
+</body>
+</html>
+
+
+
+
+
+
+

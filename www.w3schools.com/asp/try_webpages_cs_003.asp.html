@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+<body> 
+<h1>Small Bakery Products</h1> 
+<table border="1" width="100%"> 
+<tr>
+<th>Id</th> 
+<th>Product</th> 
+<th>Description</th> 
+<th>Price</th> 
+</tr>
+<tr> 
+<td>1</td> 
+<td>Bread</td> 
+<td>Baked fresh every day</td> 
+<td style="text-align:right">2.99</td> 
+</tr> 
+<tr>
+<td>2</td> 
+<td>Strawberry Cake </td> 
+<td>Made with organic strawberries</td> 
+<td style="text-align:right">9.99</td> 
+</tr>
+<tr>
+<td>3</td> 
+<td>Apple Pie</td> 
+<td>Second only to your mom's pie</td> 
+<td style="text-align:right">12.99</td> 
+</tr>
+<tr>
+<td>4</td> 
+<td>Pecan Pie</td> 
+<td>If you like pecans, this is for you</td> 
+<td style="text-align:right">10.99</td> 
+</tr>
+<tr> 
+<td>5</td> 
+<td>Lemon Pie</td> 
+<td>Made with the best lemons in the world</td> 
+<td style="text-align:right">11.99</td> 
+</tr> 
+<tr> 
+<td>6</td> 
+<td>Cupcakes</td> 
+<td>Your kids will love these</td> 
+<td style="text-align:right">9.99</td> 
+</tr> 
+</table> 
+</body> 
+</html>
+

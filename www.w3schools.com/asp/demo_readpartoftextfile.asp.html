@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>This is the first five characters from the text file:</p>
+
+Hello
+
+</body>
+</html>

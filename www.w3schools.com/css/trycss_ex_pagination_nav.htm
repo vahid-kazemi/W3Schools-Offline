@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color:white;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+</head>
+<body>
+
+<p>Next/Previous buttons:</p>
+<div class="pagination">
+  <a href="trycss_ex_pagination_nav.htm#">&#10094;</a>
+  <a href="trycss_ex_pagination_nav.htm#">&#10095;</a>
+</div>
+
+<p>Navigation pagination:</p>
+<div class="pagination">
+  <a href="trycss_ex_pagination_nav.htm#" class="active">Home</a>
+  <a href="trycss_ex_pagination_nav.htm#">Link 1</a>
+  <a href="trycss_ex_pagination_nav.htm#">Link 2</a>
+  <a href="trycss_ex_pagination_nav.htm#">Link 3</a>
+</div>
+
+</body>
+</html>
+
+<!--#crumbs=
+<div id='breadcrumb'>
+<ul>
+<li><a href='/default.asp'>Home</a></li>
+<li><a href='/css/default.asp'>CSS</a></li>
+<li><a href='/css/css3_pagination.asp'>CSS Pagination</a></li>
+<li>Tryit: Navigation pagination</li>
+</ul>
+</div>
+-->

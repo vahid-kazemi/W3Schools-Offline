@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>The values of the items are:</p>Norway<br>Italy<br>
+
+</body>
+</html>

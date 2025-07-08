@@ -1,0 +1,10 @@
+<svg width="52" height="61" viewbox="0 0 52 61" xmlns="http://www.w3.org/2000/svg">
+    <!-- Wooden Pole -->
+    <rect x="29" y="1" width="5" height="90" fill="#aaa" stroke="black" />
+
+    <!-- Yellow Sign pointing left with text "IN" -->
+    <polygon points="2,17 18,5 50,5 50,29 18,29" fill="#ddd" />
+    <polygon points="5,17 19,7 48,7 48,27 19,27" fill="#ddd" stroke="black" />
+    <text x="27" y="21" font-family="Arial" font-size="12" font-weight="bold">IN</text>
+</svg>
+

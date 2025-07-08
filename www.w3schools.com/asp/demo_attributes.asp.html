@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+The attributes of the file testread.txt are: 32
+
+</body>
+</html>

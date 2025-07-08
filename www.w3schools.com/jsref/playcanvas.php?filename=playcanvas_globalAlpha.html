@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="../lib/w3schools.css%3Fv=1.0.0.css">
+<title>W3Schools Canvas demonstration</title>
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+  var subjectFolder = location.pathname;
+  subjectFolder = subjectFolder.replace("/", "");
+  subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic.js%3Fv=1.0.5"></script>
+<script src="../lib/uic_prov.js%3Fv=1.2.4"></script>
+<script data-cfasync="false" type="text/javascript">
+uic_prov_pre("tryit","",subjectFolder);
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        uic_prov_run(); 
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+}
+var fileID = "";
+</script>
+<body class="darktheme">
+<div id='tryitLeaderboard'>
+<!-- TryitLeaderboard -->
+</div>
+
+<style>
+body {
+  padding:20px;
+}
+.animated_demo {
+  background-color:#E7E9EB;
+  border-radius:5px;
+  min-height:560px;
+  width:100%;
+  position:relative;
+  padding:30px 30px 30px 30px;
+}
+
+.animated_property div {
+  width:320px;
+  margin-left:20px;
+  padding:5px;
+  margin-bottom:10px;
+  font-family: Consolas,Menlo,"courier new",monospace;
+  font-size: 16px;
+  background:#fff;
+  opacity:0.7;
+  position:relative;
+  cursor:pointer;
+}
+.animated_property div:hover {
+  opacity:1;
+}
+.animated_property div input {
+  position:absolute;
+  left:-30px;
+  cursor:pointer;
+}
+.animated_property div span {
+  color:red;
+}
+.animated_property div span:last-child {
+  color:blue;
+}
+.animated_property div.active_prop {
+  opacity:1;
+}
+body.darktheme .animated_property div {
+  background:rgb(40,44,52);
+  color:#fff;
+}
+body.darktheme .animated_property div span {
+  color:#c5a5c5;
+}
+body.darktheme .animated_property div span:last-child {
+  color:#88c999;
+}
+.animated_container {
+position:absolute;top:30px;bottom:30px;left:400px;right:30px;width:300px;width:auto;height:250px;background-color:#fff;vertical-align:top;
+}
+.canvas_code {
+position:absolute;top:300px;bottom:30px;left:400px;right:30px;margin:auto;background-color:#fff;padding:10px;font-family: Consolas,Menlo,"courier new",monospace;
+    font-size: 16px;
+}
+.animated_container_inner {
+  position:absolute;
+  width:100%;height:100%;
+  transition: opacity 0.5s;
+}
+
+#select_properties {
+  border-radius:5px;
+  padding:10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+}
+#tryitLeaderboard {
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:90px;
+}
+
+@media (max-width:1000px) {
+  .animated_container {
+    position:relative;
+    height:250px;
+  }
+  .canvas_code {
+    position:relative;
+    height:350px;
+  }
+}
+@media (max-width:1000px) {
+  #select_properties {
+    font-size:15px;
+    max-width:170px;
+  }
+  .animated_property div {
+    width:auto!important;
+    word-break: break-word;
+  }
+  .animated_container {
+    top:10px;
+    left:0!important;
+    margint:auto;
+    margin-bottom:10px;
+  }
+  .canvas_code {
+    top:10px;
+    left:0!important;
+    margin-right:0;
+    margin-bottom:10px;
+  }
+}
+
+</style>
+<div id="tempcontainer" style="display:none;">
+<div class="css-selector">#myCanvas</div>
+<div class="css-property">globalAlpha</div>
+<div class="legal-values">0.1|0.2|0.3|0.4|0.5|0.6|0.7|0.8|0.9|1.0|0.0</div>
+<div class="canvas_met_prop">=</div>
+<div class="canvasscript">
+ctx.fillStyle='red';
+ctx.fillRect(20,20,75,50);
+ctx.globalAlpha=#val;
+ctx.fillStyle='blue';  
+ctx.fillRect(50,50,75,50);  
+</div>
+<div class="demo_content">
+
+<form class="myform">
+
+
+<canvas class="myCanvas" width="430" height="250">
+    your browser does not support the canvas tag </canvas>
+    
+    
+
+</form>
+  
+</div></div>
+<script>
+var temp = document.createElement("div");
+temp.innerHTML = document.getElementById("tempcontainer").innerHTML;
+document.getElementById("tempcontainer").innerHTML = "";
+var cssselector = temp.getElementsByClassName("css-selector")[0].innerText;
+var cssproperty = temp.getElementsByClassName("css-property")[0].innerText;
+var propertywidth = 0, resultleft;
+if (temp.getElementsByClassName("property-width")[0]) {
+  if (window.matchMedia("(max-width: 800px)").matches) {
+  } else {
+    propertywidth = temp.getElementsByClassName("property-width")[0].innerText;
+    if (isNaN(propertywidth)) {
+      propertywidth = 0;
+    } else {
+      propertywidth = Number(propertywidth);
+      resultleft = propertywidth + 80;
+    }
+  }
+}
+var legalvalues = temp.getElementsByClassName("legal-values")[0].innerText;
+var cssvalues = legalvalues.split("|");
+var x;
+for (x in cssvalues) {
+  cssvalues[x] = cssvalues[x].trim();
+}
+var htmlcontent = temp.getElementsByClassName("demo_content")[0].innerHTML.trim();
+var canvasscript = temp.getElementsByClassName("canvasscript")[0].innerHTML.trim();
+var canvas_met_prop = "()";
+if (temp.getElementsByClassName("canvas_met_prop")[0]) {
+  canvas_met_prop = temp.getElementsByClassName("canvas_met_prop")[0].innerHTML;
+}
+
+var json = {
+  "cssselector" : cssselector,
+  "cssproperty" : cssproperty,
+  "propertywidth" : propertywidth,
+  "cssvalues" : cssvalues,
+  "html" : htmlcontent,
+  "canvasscript" : canvasscript,  
+  "canvas_met_prop" : canvas_met_prop
+}
+var apArr = json.cssvalues;
+var aproperty;
+var showNextInterval;
+function pelle() {
+  var dots = "", props = "", cc, dd, x, preval = "", prevalIndex = -1;
+  var cssselector = json.cssselector;
+  fill_select_properties();
+  aproperty = json.cssproperty;
+  
+  var propDiv = document.createElement("div");
+  propDiv.setAttribute("class", "animated_property");
+  document.getElementsByClassName("animated_demo")[0].appendChild(propDiv);
+  
+  cc = document.createElement("div");
+  cc.setAttribute("class", "animated_container");
+  document.getElementsByClassName("animated_demo")[0].appendChild(cc);
+
+  cc = document.createElement("div");
+  cc.setAttribute("class", "animated_container_inner");
+  cc.innerHTML = json.html;
+
+  myhtml = cc;
+
+  for (i = 0; i < apArr.length;i++) {
+    z = myhtml.cloneNode(true);
+    zz = z.querySelectorAll(cssselector);
+
+    for (j = 0; j < zz.length; j++) {
+      zz[j].style[aproperty] = apArr[i];
+    }
+    z.style.opacity = "0";    
+    
+    document.getElementsByClassName("animated_container")[0].appendChild(z);
+    var c = document.getElementsByClassName("animated_container_inner")[i].getElementsByClassName("myCanvas")[0];
+    var ctx=c.getContext('2d');
+    dd = json.canvasscript.replace("#val", apArr[i]);
+    eval(dd);
+    
+    cc = "";
+    dd = "";
+    if (i == 0) {
+      cc = " class='active_prop'";
+      dd = " checked";
+    }
+    props += "<div onclick='showNext(" + i + ")'" + cc + "><input class='propval_radio_btn' type='radio'" + dd + "><span>" + aproperty + "</span>";
+    if (json.canvas_met_prop == "=") {
+      props+= " = <span>" + apArr[i] + "</span>";
+    } else {
+      props+= "(<span>" + apArr[i] + "</span>)"
+    }
+    props += ";</div>";
+
+  }
+  drawCanvasCode(0);
+  document.getElementsByClassName("animated_container_inner")[0].style.opacity = 1;
+  propDiv.innerHTML = props;
+  if (json.propertywidth != 0) {
+    x = document.querySelectorAll(".animated_property div");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.width = json.propertywidth + "px";
+    }
+    document.getElementsByClassName("animated_container")[0].style.left = resultleft + "px";
+    document.getElementsByClassName("canvas_code")[0].style.left = resultleft + "px";    
+  }
+  if (preval != "") {
+    for (i = 0; i < apArr.length;i++) {
+      if (apArr[i] == preval) prevalIndex = i;
+    }
+  }
+  if (prevalIndex == -1) {
+    showNextInterval = setInterval(showNext, 2000);  
+  } else {
+    showNext(prevalIndex);
+  }
+  
+  cc = document.getElementsByClassName("cssprop");
+  for (i = 0; i < cc.length; i++) {
+    dd = "() Method";
+    if (json.canvas_met_prop == "=") dd = " Property";
+    if (i != 0) dd = dd.toLowerCase();
+    cc[i].innerHTML = json.cssproperty + dd;    
+  }
+}
+
+function showNext(activeno) {
+  var x, y, z, c, i, n, cc, nn;
+  if (activeno == "undefined"){activeno = -1;}
+  x = document.getElementsByClassName("animated_container_inner");
+  y = document.getElementsByClassName("animated_property")[0].getElementsByTagName("div");
+  z = document.getElementsByClassName("animated_property")[0].getElementsByTagName("input");
+  if (activeno > -1) {
+    nn = activeno;
+    clearInterval(showNextInterval);
+    for (i = 0; i < x.length; i++) {
+      x[i].style.opacity = 0;
+      y[i].className = "";
+      z[i].checked = false;
+    }
+    x[activeno].style.opacity = 1;
+    y[activeno].className = "active_prop";
+    z[activeno].checked = true;
+    drawCanvasCode(nn);    
+    return false;
+  }
+  
+  for (i = 0; i < x.length; i++) {
+    if (x[i].style.opacity == 1) {
+      y[i].className = "";
+      z[i].checked = false;
+      x[i].style.opacity = 0;
+      if (x[i+1]) {
+        x[i+1].style.opacity = 1;
+        n = i + 1;
+      } else {
+        x[0].style.opacity = 1;
+        n = 0;
+      }
+      y[n].className = "active_prop";
+      z[n].checked = true;
+      drawCanvasCode(n);      
+      return false;
+    }
+  }
+  x[0].style.opacity = 1;
+  y[0].className = "active_prop";
+  z[0].checked = true;
+}
+
+function drawCanvasCode(n) {
+  var cc, dd;
+  cc = document.getElementsByClassName("canvas_code");
+  if (cc.length == 0) {
+    cc = document.createElement("pre");
+    cc.setAttribute("class", "canvas_code");
+    document.getElementsByClassName("animated_demo")[0].appendChild(cc);
+  } else {
+    cc = cc[0];
+  }
+  dd = json.canvasscript.replace("#val", apArr[n]);
+  cc.innerHTML = "const c = document.getElementById('myCanvas');\n";
+  cc.innerHTML += "const ctx = c.getContext('2d');\n";
+  cc.innerHTML += dd;
+}
+
+
+function fill_select_properties() {
+  var i,l,a,b,c,s,next,prev,x = document.getElementById("select_properties");
+  c = json.cssproperty;
+  c = "globalAlpha";
+  s = 1;
+  a = propertylist;
+  l = a.length;
+  for (i = 0; i < l; i++) {
+    b = document.createElement("option");
+    b.value = a[i][0];
+    b.text = a[i][1];
+    if (a[i][0].toUpperCase() == c.toUpperCase()) s = i;
+    x.add(b);
+  }
+  x.selectedIndex = s;
+  next = s + 1;
+  prev = s - 1;
+  if (prev < 0) {
+    document.getElementById("prevbtn").style.visibility = "hidden";
+  } else {
+    document.getElementById("prevbtn").href = "playcanvas.php?filename=playcanvas_" + a[prev][0];
+  }
+  if (next >= l) {  
+    document.getElementById("nextbtn").style.visibility = "hidden";
+  } else {
+    document.getElementById("nextbtn").href = "playcanvas.php?filename=playcanvas_" + a[next][0];
+  }
+}
+
+function goto_new_css_property(a) {
+  var href = "playcanvas.php?filename=playcanvas_" + a.value;
+  document.location = href;
+}
+
+var propertylist = [
+["addcolorstop","addColorStop"],
+["arcclockwise","arc"],
+["arcx","arc"],
+["arcy","arc"],
+["arceangle","arc"],
+["arcr","arc"],
+["arcsangle","arc"],
+["arcTor","arcTo"],
+["arcTox1","arcTo"],
+["arcTox2","arcTo"],
+["arcToy1","arcTo"],
+["arcToy2","arcTo"],
+["bezierCurveTocp1x","bezierCurveTo"],
+["bezierCurveTocp1y","bezierCurveTocp1y"],
+["bezierCurveTocp2x","bezierCurveTocp2x"],
+["bezierCurveTocp2y","bezierCurveTocp2y"],
+["bezierCurveTox","bezierCurveTox"],
+["bezierCurveToy","bezierCurveToy"],
+["clearrecth","clearrecth"],
+["clearrectw","clearrectw"],
+["clearrectx","clearrectx"],
+["clearrecty","clearrecty"],
+["createlineargradient","createlineargradient"],
+["createpattern","createpattern"],
+["drawimagedheight","drawimagedheight"],
+["fillrecth","fillrecth"],
+["fillrectw","fillrectw"],
+["fillrectx","fillrectx"],
+["fillrecty","fillrecty"],
+["fillStyle","fillStyle"],
+["filltextmaxwidth","filltextmaxwidth"],
+["filltexttext","filltexttext"],
+["filltextx","filltextx"],
+["filltexty","filltexty"],
+["font","font"],
+["fontfamily","fontfamily"],
+["fontsize","fontsize"],
+["fontstyle","fontstyle"],
+["fontvariant","fontvariant"],
+["fontweight","fontweight"],
+["globalalpha","globalalpha"],
+["globalcompop","globalcompop"],
+["linecap","linecap"],
+["linejoin","linejoin"],
+["linetox","linetox"],
+["linetoy","linetoy"],
+["linewidth","linewidth"],
+["measuretext","measuretext"],
+["miterlimit","miterlimit"],
+["movetox","movetox"],
+["movetoy","movetoy"],
+["quadraticcurvetocpx","quadraticcurvetocpx"],
+["quadraticcurvetocpy","quadraticcurvetocpy"],
+["quadraticcurvetox","quadraticcurvetox"],
+["quadraticcurvetoy","quadraticcurvetoy"],
+["recth","recth"],
+["rectw","rectw"],
+["rectx","rectx"],
+["recty","recty"],
+["rotate","rotate"],
+["scalex","scalex"],
+["scaley","scaley"],
+["settransforma","settransforma"],
+["settransformb","settransformb"],
+["settransformc","settransformc"],
+["settransformd","settransformd"],
+["settransforme","settransforme"],
+["settransformf","settransformf"],
+["shadowblur","shadowblur"],
+["shadowcolor","shadowcolor"],
+["shadowoffsetx","shadowoffsetx"],
+["shadowoffsety","shadowoffsety"],
+["strokerecth","strokerecth"],
+["strokerectw","strokerectw"],
+["strokerectx","strokerectx"],
+["strokerecty","strokerecty"],
+["strokestyle","strokeStyle"],
+["stroketextmaxwidth","stroketextmaxwidth"],
+["stroketexttext","stroketexttext"],
+["stroketexttext2","stroketexttext2"],
+["stroketextx","stroketextx"],
+["stroketexty","stroketexty"],
+["textalign","textalign"],
+["textbaseline","textbaseline"],
+["transforma","transforma"],
+["transformb","transformb"],
+["transformc","transformc"],
+["transformd","transformd"],
+["transforme","transforme"],
+["transformf","transformf"],
+["translatex","translatex"],
+["translatey","translatey"]];
+
+</script>
+<h1>Canvas <span class="cssprop"></span></h1>
+
+<div class="w3-clear w3-center nextprev container" style="display:none;">
+<a id="prevbtn" class="w3-left w3-btn" href="playcanvas.php%3Ffilename=playcanvas_globalAlpha.html">&#10094;<span class="w3-hide-small"> 
+  Previous</span></a>
+<select id="select_properties" onchange="goto_new_css_property(this)"></select>
+<a id="nextbtn" class="w3-right w3-btn" href="playcanvas.php%3Ffilename=playcanvas_globalAlpha.html"><span class="w3-hide-small">Next </span>
+  &#10095;</a>
+</div>
+<p>Watch a demo of different values of the <span class="cssprop"></span>.</p>
+<p style="font-size:90%;margin-bottom:10px">Or click a specific value to see the 
+result:</p>
+<div class="animated_demo">
+
+</div>
+
+<p style="display:none;">Play more with the code in our Tryit yourself editor:
+<a target="_blank" href="tryit.asp%3Ffilename=trycanvas_play_globalAlpha.html" class="ws-btn">
+Try it Yourself &#10095;</a>
+</p>
+
+</body>
+</html>
+<script>
+pelle();
+function docReady(fn) {
+  document.addEventListener("DOMContentLoaded", fn);
+  if (document.readyState === "interactive" || document.readyState === "complete" ) {
+    fn();
+  }
+}
+uic_prov_al();
+</script>

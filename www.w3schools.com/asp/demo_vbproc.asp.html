@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+<p>You can call a procedure like this:</p>
+<p>Result: 12</p>
+<p>Or, like this:</p>
+<p>Result: 12</p>
+</body>
+</html>
